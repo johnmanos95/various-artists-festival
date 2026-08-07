@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sponsor — Various Artists Festival</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#0B0F10;
+  --teal:#1F4E59;
+  --teal-deep:#123138;
+  --brass:#C89B3C;
+  --brass-light:#E7CC85;
+  --parchment:#EDE6D6;
+  --violet:#5B4363;
+}
+
+body{
+  background:var(--ink);
+  color:var(--parchment);
+  font-family:'Inter',sans-serif;
+}
+
+.font-display{
+  font-family:'Fraunces', serif;
+}
+
+.font-mono{
+  font-family:'JetBrains Mono', monospace;
+}
+
+.text-brass{
+  color:var(--brass);
+}
+
+.bg-teal{
+  background-color:var(--teal);
+}
+
+.bg-teal-deep{
+  background-color:var(--teal-deep);
+}
+
+.border-brass{
+  border-color:var(--brass);
+}
+
+
+/* Paper grain overlay */
+.grain{
+  position:relative;
+}
+
+.grain::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  pointer-events:none;
+  mix-blend-mode:overlay;
+}
+
+
+/* Updated navbar styling */
+.nav-link{
+  position:relative;
+  color:var(--parchment);
+  opacity:.85;
+  transition:opacity .2s;
+}
+
+.nav-link:hover{
+  opacity:1;
+}
+
+.nav-link::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:var(--brass);
+  transition:width .25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.nav-active::after{
+  width:100%;
+}
+
+
+/* Sponsor poster cards */
+.poster{
+  background:var(--parchment);
+  color:var(--ink);
+  box-shadow:0 18px 34px rgba(0,0,0,.4);
+  position:relative;
+}
+
+.poster.tilt-1{
+  transform:rotate(-1.4deg);
+}
+
+.poster.tilt-2{
+  transform:rotate(1.1deg);
+}
+
+.poster.tilt-3{
+  transform:rotate(-0.8deg);
+}
+
+.poster.tilt-4{
+  transform:rotate(1.6deg);
+}
+
+.poster.tilt-5{
+  transform:rotate(-0.4deg);
+}
+
+.poster:hover{
+  transform:rotate(0deg) scale(1.015);
+  transition:transform .3s ease;
+  z-index:10;
+}
+
+.price-tag{
+  font-family:'JetBrains Mono',monospace;
+}
+
+
+/* Form styles */
+.form-input{
+  background:rgba(237,230,214,.05);
+  border:1px solid rgba(237,230,214,.2);
+  color:var(--parchment);
+}
+
+.form-input:focus{
+  outline:none;
+  border-color:var(--brass);
+  background:rgba(237,230,214,.08);
+}
+
+.form-input::placeholder{
+  color:rgba(237,230,214,.35);
+}
+
+
+/* Select dropdown */
+select.form-input{
+  background-color:var(--ink);
+  background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23C89B3C'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 1rem center;
+  background-size:1.1rem;
+  appearance:none;
+  padding-right:2.75rem;
+}
+
+select.form-input option{
+  background-color:var(--ink);
+  color:var(--parchment);
+}
+
+.corkboard{
+  background-image:url('img/sponsor-bg.webp');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- Updated Navbar -->
+<nav class="fixed inset-x-0 top-0 z-50 bg-[#2A5F6A]/85 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20">
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+
+    <div class="relative flex items-center justify-between h-24">
+
+      <!-- Left Nav -->
+      <div class="hidden md:flex w-40">
+        <a href="index.html" 
+           class="nav-link font-display text-2xl text-white/80 hover:text-white">
+          About
+        </a>
+      </div>
+
+
+      <!-- Center Logo -->
+      <a href="index.html" 
+         class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+
+        <img src="img/logo-mark.webp"
+             alt="Various Artists Festival"
+             class="h-32 w-auto object-contain transition duration-300 hover:scale-105">
+
+      </a>
+
+
+      <!-- Right Nav -->
+      <div class="hidden md:flex items-center justify-end gap-12 w-40">
+
+        <a href="sponsor.html"
+           class="nav-link nav-active font-display text-2xl text-white/80 hover:text-white">
+          Sponsor
+        </a>
+
+      </div>
+
+
+      <!-- Mobile Button -->
+      <button id="hamburger"
+              class="md:hidden ml-auto w-12 h-12 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 transition text-white">
+
+        <i class="fa-solid fa-bars text-xl"></i>
+
+      </button>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu"
+       class="hidden md:hidden border-t border-white/10 bg-[#214c55]/95 backdrop-blur-xl">
+
+    <div class="flex flex-col items-center py-8 gap-8">
+
+      <a href="index.html"
+         class="font-display text-3xl">
+         About
+      </a>
+
+      <a href="sponsor.html"
+         class="font-display text-3xl">
+         Sponsor
+      </a>
+
+    </div>
+
+  </div>
+
+
+</nav>
+
+<!-- Intro -->
+<section class="pt-40 pb-16 bg-ink grain border-b border-brass/20">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <p class="font-mono text-brass tracking-[0.3em] text-xs uppercase mb-4">Sponsorship Packages</p>
+    <h1 class="font-display font-black text-5xl sm:text-6xl tracking-tight mb-6">Every great festival is made piece by piece.</h1>
+    <p class="text-lg text-parchment/75">
+      We're offering premium sponsorship packages for Various Artists Festival. Every package includes real placement on our posters, banners, and event-day materials. Help us make something truly unforgettable in Lancaster City this fall. Pick the tier that fits, or reach out about something custom.
+    </p>
+  </div>
+</section>
+
+<!-- Poster wall -->
+<section class="corkboard py-24 border-b border-brass/20">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+
+      <!-- Headline -->
+      <div class="poster tilt-1 rounded-sm p-8 lg:col-span-1">
+        <p class="text-xs uppercase tracking-[0.2em] text-teal-deep/60 mb-2">Tier 1</p>
+        <h3 class="font-display font-bold text-2xl mb-1">Headline Sponsor</h3>
+        <p class="price-tag text-3xl font-bold text-teal-deep mb-6">$3,000</p>
+        <p class="text-sm text-teal-deep/90 leading-relaxed">
+          Stage banner, logos across all print &amp; digital, social features, blog post, tickets &amp; more.
+        </p>
+      </div>
+
+      <!-- Fan Favorite -->
+      <div class="poster tilt-2 rounded-sm p-8">
+        <p class="text-xs uppercase tracking-[0.2em] text-teal-deep/60 mb-2">Tier 2</p>
+        <h3 class="font-display font-bold text-2xl mb-1">Fan Favorite Sponsor</h3>
+        <p class="price-tag text-3xl font-bold text-teal-deep mb-6">$2,000</p>
+        <p class="text-sm text-teal-deep/90 leading-relaxed">
+          Stage banner, select print logos, website presence, social features, tickets &amp; more.
+        </p>
+      </div>
+
+      <!-- Crowd Pleaser -->
+      <div class="poster tilt-3 rounded-sm p-8">
+        <p class="text-xs uppercase tracking-[0.2em] text-teal-deep/60 mb-2">Tier 3</p>
+        <h3 class="font-display font-bold text-2xl mb-1">Crowd Pleaser Sponsor</h3>
+        <p class="price-tag text-3xl font-bold text-teal-deep mb-6">$1,000</p>
+        <p class="text-sm text-teal-deep/90 leading-relaxed">
+          Stage banner, website listing, programs, Instagram features &amp; tickets.
+        </p>
+      </div>
+
+      <!-- Breakout -->
+      <div class="poster tilt-4 rounded-sm p-8">
+        <p class="text-xs uppercase tracking-[0.2em] text-teal-deep/60 mb-2">Tier 4</p>
+        <h3 class="font-display font-bold text-2xl mb-1">Breakout Sponsor</h3>
+        <p class="price-tag text-3xl font-bold text-teal-deep mb-6">$800</p>
+        <p class="text-sm text-teal-deep/90 leading-relaxed">
+          Stage banner, website listing, programs, Instagram feature &amp; tickets.
+        </p>
+      </div>
+
+      <!-- DIY -->
+      <div class="poster tilt-5 rounded-sm p-8">
+        <p class="text-xs uppercase tracking-[0.2em] text-teal-deep/60 mb-2">Something Else</p>
+        <h3 class="font-display font-bold text-2xl mb-1">DIY Sponsorship</h3>
+        <p class="price-tag text-3xl font-bold text-teal-deep mb-6">Custom</p>
+        <p class="text-sm text-teal-deep/90 leading-relaxed">
+          Got a unique idea, different amount, or gear/services to offer? Let's chat about a custom fit that works for you.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- View the full sponsorship document -->
+<section class="py-16 bg-ink grain border-b border-brass/20">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <p class="font-mono text-brass tracking-[0.3em] text-xs uppercase mb-3">Here's All the Details</p>
+    <h3 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mb-4">See the full sponsorship document.</h3>
+    <p class="text-parchment/70 text-base leading-relaxed max-w-xl mx-auto mb-8">
+      Every package, every benefit, and everything else you need to know before you sign on — all in one official document.
+    </p>
+    <a href="docs/various-artists-festival-sponsorship-packet.pdf" target="_blank" rel="noopener"
+       class="inline-flex items-center gap-3 bg-brass text-ink px-12 py-5 rounded-full text-lg font-semibold hover:bg-brass-light transition-colors">
+      <i class="fa-solid fa-file-lines"></i> View Sponsorship Document
+    </a>
+  </div>
+</section>
+
+<!-- Commitment form -->
+<section id="form" class="py-24 bg-teal-deep grain">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <p class="font-mono text-brass tracking-[0.3em] text-xs uppercase mb-3">Sponsor Commitment Form</p>
+      <h2 class="font-display font-bold text-4xl tracking-tight">Ready to sign on?</h2>
+      <p class="text-parchment/70 mt-4">
+        Fill this out and it'll open in your email client, addressed to our team — or print it and mail it in.
+      </p>
+    </div>
+
+    <form action="mailto:variousartistsfest@gmail.com" method="post" enctype="text/plain" class="space-y-5">
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-brass mb-2">Business Name</label>
+          <input type="text" name="Business Name" required class="form-input w-full rounded-lg px-4 py-3 text-sm" placeholder="Your business">
+        </div>
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-brass mb-2">Contact Person</label>
+          <input type="text" name="Contact Person" required class="form-input w-full rounded-lg px-4 py-3 text-sm" placeholder="Full name">
+        </div>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-brass mb-2">Email</label>
+          <input type="email" name="Email" required class="form-input w-full rounded-lg px-4 py-3 text-sm" placeholder="you@business.com">
+        </div>
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-brass mb-2">Phone</label>
+          <input type="tel" name="Phone" class="form-input w-full rounded-lg px-4 py-3 text-sm" placeholder="(717) 555-0100">
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs uppercase tracking-wider text-brass mb-2">Address</label>
+        <input type="text" name="Address" class="form-input w-full rounded-lg px-4 py-3 text-sm" placeholder="Street, City, State, ZIP">
+      </div>
+      <div>
+        <label class="block text-xs uppercase tracking-wider text-brass mb-2">Sponsorship Package</label>
+        <select name="Package" required class="form-input w-full rounded-lg px-4 py-3 text-sm">
+          <option value="" disabled selected>Select a package</option>
+          <option>Headline Sponsor — $3,000</option>
+          <option>Fan Favorite Sponsor — $2,000</option>
+          <option>Crowd Pleaser Sponsor — $1,000</option>
+          <option>Breakout Sponsor — $800</option>
+          <option>DIY Sponsorship — Custom</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-xs uppercase tracking-wider text-brass mb-2">Signature</label>
+        <input type="text" name="Signature" required class="form-input w-full rounded-lg px-4 py-3 text-sm" placeholder="Type your full name to sign">
+      </div>
+      <button type="submit" class="w-full bg-brass text-ink py-4 rounded-full font-semibold hover:bg-brass-light transition-colors">
+        Send Commitment Form
+      </button>
+    </form>
+
+    <div class="mt-12 grid sm:grid-cols-2 gap-6 text-sm">
+      <div class="border border-brass/25 rounded-xl p-6">
+        <p class="text-xs uppercase tracking-wider text-brass mb-2">By Mail or Check</p>
+        <p class="text-parchment/70 leading-relaxed">
+          Checks payable to Sort of Vain LLC.<br>
+          Mail completed forms to:<br>
+          Sort of Vain LLC<br>
+          445 Philmont Dr.<br>
+          Lancaster, PA 17601
+        </p>
+      </div>
+      <div class="border border-brass/25 rounded-xl p-6">
+        <p class="text-xs uppercase tracking-wider text-brass mb-2">Logo Requirements</p>
+        <p class="text-parchment/70 leading-relaxed">
+          Once you've signed on, email your logo as a PNG or JPG to
+          <a href="mailto:variousartistsfest@gmail.com" class="text-brass hover:underline">variousartistsfest@gmail.com</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Old-school: printable packet -->
+<section class="py-16 bg-ink grain border-b border-brass/20">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="border border-brass/25 rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row items-center gap-8">
+      <div class="shrink-0 w-16 h-16 rounded-full bg-brass/10 border border-brass/40 flex items-center justify-center">
+        <i class="fa-solid fa-print text-brass text-2xl"></i>
+      </div>
+      <div class="flex-1 text-center sm:text-left">
+        <p class="font-mono text-brass tracking-[0.3em] text-xs uppercase mb-2">Prefer Paper?</p>
+        <h3 class="font-display font-bold text-2xl tracking-tight mb-2">Print it out, mail it in.</h3>
+        <p class="text-parchment/70 text-sm leading-relaxed">
+          If you'd rather fill this out by hand, download the sponsorship packet — package details plus a fillable commitment form — print it, and send it the old-school way.
+        </p>
+      </div>
+      <a href="docs/various-artists-festival-sponsorship-packet.pdf" download
+         class="shrink-0 inline-flex items-center gap-2 bg-brass text-ink px-6 py-3.5 rounded-full font-semibold hover:bg-brass-light transition-colors whitespace-nowrap">
+        <i class="fa-solid fa-download"></i> Download PDF
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-ink pt-16 pb-10 border-t border-brass/20">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="grid md:grid-cols-[1.4fr_1fr_1fr] gap-12 md:gap-10 pb-12 border-b border-parchment/10 text-center md:text-left items-start">
+
+      <div class="flex flex-col items-center md:items-start">
+        <img src="img/logo-mark.webp" alt="Various Artists Festival" class="h-24 sm:h-28 w-auto object-contain mb-4">
+        <p class="text-parchment/50 text-sm leading-relaxed">Nov 28, 2026<br>West Art · Lancaster, PA</p>
+      </div>
+
+      <div>
+        <h4 class="font-mono text-brass mb-4 uppercase tracking-[0.2em] text-xs">Site</h4>
+        <ul class="space-y-3 text-sm text-parchment/70">
+          <li><a href="index.html" class="hover:text-brass transition-colors">Home</a></li>
+          <li><a href="sponsor.html" class="hover:text-brass transition-colors">Sponsor</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-mono text-brass mb-4 uppercase tracking-[0.2em] text-xs">Contact</h4>
+        <ul class="space-y-3 text-sm text-parchment/70">
+          <li><a href="mailto:variousartistsfest@gmail.com" class="hover:text-brass transition-colors break-all">variousartistsfest@gmail.com</a></li>
+          <li><a href="https://instagram.com/variousartistsfest" class="hover:text-brass transition-colors">@variousartistsfest</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <p class="text-parchment/40 text-xs text-center pt-8 tracking-wide">© 2026 Various Artists Festival. All rights reserved.</p>
+
+  </div>
+</footer>
+
+<script>
+  // Hamburger Menu Toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    const icon = hamburger.querySelector('i');
+    if (mobileMenu.classList.contains('hidden')) {
+      icon.classList.remove('fa-xmark');
+      icon.classList.add('fa-bars');
+    } else {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-xmark');
+    }
+  });
+
+  // Auto highlight current page
+  document.addEventListener('DOMContentLoaded', () => {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPage) {
+        link.classList.add('nav-active');
+      }
+    });
+  });
+</script>
+</body>
+</html>
