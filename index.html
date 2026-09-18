@@ -1,268 +1,295 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Various Artists Festival — Become a Sponsor</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#0B0F10;
-    --teal:#1F4E59;
-    --teal-deep:#123138;
-    --brass:#C89B3C;
-    --brass-light:#E7CC85;
-    --parchment:#EDE6D6;
-    --violet:#5B4363;
-  }
-  body{ background:var(--ink); color:var(--parchment); font-family:'Inter',sans-serif; }
-  .font-display{ font-family:'Fraunces', serif; }
-  .font-mono{ font-family:'JetBrains Mono', monospace; }
-  .text-brass{ color:var(--brass); }
-  .bg-teal{ background-color:var(--teal); }
-  .bg-teal-deep{ background-color:var(--teal-deep); }
-  .border-brass{ border-color:var(--brass); }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Various Artists Festival</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    .checkerboard {
+      background-image:
+        linear-gradient(45deg, #000 25%, transparent 25%),
+        linear-gradient(-45deg, #000 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #000 75%),
+        linear-gradient(-45deg, transparent 75%, #000 75%);
+      background-size: 60px 60px;
+      background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+    }
 
-  /* subtle paper-grain overlay used across sections */
-  .grain{ position:relative; }
-  .grain::before{
-    content:"";
-    position:absolute; inset:0;
-    background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
-    pointer-events:none; mix-blend-mode:overlay;
-  }
+    /* Navigation Styles */
+    .nav-link {
+      position: relative;
+      color: #fff;
+      opacity: .85;
+      transition: opacity .2s;
+    }
+    .nav-link:hover {
+      opacity: 1;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #C89B3C;
+      transition: width .25s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.nav-active::after {
+      width: 100%;
+    }
 
-  .brass-rule{ height:2px; background:linear-gradient(90deg, transparent, var(--brass), transparent); }
+    /* Background layers */
+    .bg-layer {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+    }
 
-  .nav-link{ position:relative; color:var(--parchment); opacity:.85; transition:opacity .2s; }
-  .nav-link:hover{ opacity:1; }
-  .nav-link::after{
-    content:""; position:absolute; left:0; bottom:-6px; width:0; height:2px; background:var(--brass);
-    transition:width .25s ease;
-  }
-  .nav-link:hover::after, .nav-active::after{ width:100%; }
+    /* Scaled Hero Graphic */
+    .bg-layer.hero-graphic {
+      background-size: 100%;
+      background-position: center 28%;
+      background-repeat: no-repeat;
+      opacity: 0.85;
+      mix-blend-mode: multiply;
+    }
 
-  .stat-card{ border:1px solid rgba(200,155,60,.35); }
+    /* Pink Layer with stronger bottom fade + blur */
+    .pink-layer {
+      background-size: cover;
+      background-position: center;
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 45%,
+        rgba(0, 0, 0, 0.85) 70%,
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 45%,
+        rgba(0, 0, 0, 0.85) 70%,
+        transparent 100%
+      );
+    }
 
-  .value-card{ background:rgba(237,230,214,0.03); border:1px solid rgba(237,230,214,0.1); transition:transform .25s, border-color .25s; }
-  .value-card:hover{ transform:translateY(-4px); border-color:var(--brass); }
-
-  .tier-strip-item{ border-bottom:1px dashed rgba(200,155,60,.4); }
-  .tier-strip-item:last-child{ border-bottom:none; }
-
-  .venue-fact{ border-left:2px solid var(--brass); padding-left:1.25rem; }
-  .founder-card{ background:rgba(237,230,214,.03); border:1px solid rgba(237,230,214,.1); }
-</style>
+    /* Extra subtle blur fade at the bottom */
+    .bottom-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 35%;
+      background: linear-gradient(to top, #000000 30%, transparent 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+  </style>
 </head>
-<body>
-
-<!-- Navbar -->
-<nav class="fixed inset-x-0 top-0 z-50 bg-[#2A5F6A]/85 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20">
-  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-    <div class="relative flex items-center justify-between h-24">
-      <div class="hidden md:flex w-40">
-        <a href="index.html" class="nav-link nav-active font-display text-2xl text-white/80 hover:text-white">About</a>
+<body class="bg-black text-white font-sans">
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-[#2A5F6A]/95 backdrop-blur-md z-50 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+      <div class="flex-shrink-0">
+        <a href="index.html">
+          <img src="img/logo-mark.webp" alt="Various Artists Festival" class="h-24 sm:h-32 w-auto -my-2 sm:-my-6 object-contain transition duration-300 hover:scale-105">
+        </a>
       </div>
-
-      <a href="index.html" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <img src="img/logo-mark.webp" alt="Various Artists Festival"
-             class="h-32 w-auto object-contain transition duration-300 hover:scale-105">
-      </a>
-
-      <div class="hidden md:flex items-center justify-end gap-12 w-40">
-        <a href="sponsor.html" class="nav-link font-display text-2xl text-white/80 hover:text-white">Sponsor</a>
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex items-center gap-4 text-lg font-medium leading-none">
+        <a href="index.html" class="nav-link px-4 py-2">HOME</a>
+        <a href="#headliner" class="nav-link px-4 py-2">HEADLINER</a>
+        <a href="#about" class="nav-link px-4 py-2">ABOUT</a>
+        <a href="sponsor.html" class="nav-link px-4 py-2">SPONSOR</a>
       </div>
-
-      <button id="hamburger" class="md:hidden ml-auto w-12 h-12 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 transition text-white">
-        <i class="fa-solid fa-bars text-xl"></i>
+      <!-- Hamburger -->
+      <button id="hamburger" class="lg:hidden flex-shrink-0 text-2xl sm:text-3xl focus:outline-none">
+        <i class="fa-solid fa-bars"></i>
       </button>
     </div>
-  </div>
-
-  <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-[#214c55]/95 backdrop-blur-xl">
-    <div class="flex flex-col items-center py-8 gap-8">
-      <a href="index.html" class="font-display text-3xl">About</a>
-      <a href="sponsor.html" class="font-display text-3xl">Sponsor</a>
-    </div>
-  </div>
-</nav>
-
-<!-- Hero -->
-<section class="relative overflow-hidden bg-ink grain min-h-[92vh] flex flex-col justify-center pt-20 border-b border-brass/20">
-  <div class="max-w-5xl mx-auto px-6 text-center">
-    <p class="font-mono text-brass tracking-[0.3em] text-xs uppercase mb-6">Founding Sponsor Invitation</p>
-    <h1 class="font-display font-black text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-tight mb-6">
-      Various Artists.<br>One Unforgettable Day<br class="hidden sm:block"> in Lancaster.
-    </h1>
-    <p class="max-w-2xl mx-auto text-lg text-parchment/75 mb-10">
-      The first-ever Various Artists Festival brings Lancaster's music, comedy, and visual artists together for an all-day, multi-stage celebration — and we're asking local businesses to help make it possible.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-14">
-      <a href="sponsor.html" class="bg-brass text-ink px-10 py-4 rounded-full text-base font-semibold hover:scale-105 transition-transform">
-        View Sponsorship Packages
-      </a>
-      <a href="#about" class="border border-brass/60 px-10 py-4 rounded-full text-base font-medium hover:bg-brass/10 transition-colors">
-        Meet the Festival
-      </a>
-    </div>
-    <div class="grid grid-cols-3 gap-4 sm:gap-8 max-w-lg mx-auto">
-      <div class="stat-card rounded-xl py-4">
-        <p class="text-brass/70 text-[10px] tracking-[0.2em] uppercase mb-1">Date</p>
-        <p class="font-mono font-semibold text-sm sm:text-base">NOV 28, 2026</p>
-      </div>
-      <div class="stat-card rounded-xl py-4">
-        <p class="text-brass/70 text-[10px] tracking-[0.2em] uppercase mb-1">Location</p>
-        <p class="font-mono font-semibold text-sm sm:text-base">LANCASTER, PA</p>
-      </div>
-      <div class="stat-card rounded-xl py-4">
-        <p class="text-brass/70 text-[10px] tracking-[0.2em] uppercase mb-1">Venue</p>
-        <p class="font-mono font-semibold text-sm sm:text-base">WEST ART</p>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-[#214c55]/95 backdrop-blur-xl border-t border-white/10 py-4">
+      <div class="flex flex-col items-center text-lg font-medium">
+        <a href="index.html" class="nav-link px-6 py-3">HOME</a>
+        <a href="#headliner" class="nav-link px-6 py-3">HEADLINER</a>
+        <a href="#about" class="nav-link px-6 py-3">ABOUT</a>
+        <a href="sponsor.html" class="nav-link px-6 py-3">SPONSOR</a>
       </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<!-- About Sort of Vain -->
-<section id="about" class="py-24 bg-teal-deep grain border-b border-brass/20">
-  <div class="max-w-3xl mx-auto px-6">
-    <p class="font-mono text-brass tracking-[0.3em] text-xs uppercase mb-4 text-center">About Us</p>
-    <h2 class="font-display font-bold text-4xl sm:text-5xl tracking-tight mb-10 text-center">About Sort of Vain</h2>
-    <div class="space-y-5 text-parchment/80 leading-relaxed text-lg">
-      <p>Hey there! Sort of Vain is a Lancaster-based booking and live production company founded in 2026 by Alex Hart.</p>
-      <p>We're all about shining a spotlight on the incredible talent in our local creative scene. We love bringing unique artists to bigger audiences through fun, memorable events and experiences.</p>
-      <p>The first Various Artists Festival is happening on November 28th at West Art, Lancaster's exciting new venue. It's a full-day celebration with multiple stages, featuring one-of-a-kind sets from local and regional musicians, comedians, and genre-bending artists. Expect surprises, good vibes, and plenty of discovery for both the artists and the audience.</p>
-      <p>Come hang with us and celebrate what makes Lancaster's creative community so special.</p>
-    </div>
-  </div>
-</section>
+  <!-- Hero -->
+  <section id="top-hero" class="relative overflow-hidden bg-black min-h-[90vh] flex flex-col pt-20">
+    <!-- Background layers -->
+    <div class="bg-layer pink-layer" style="background-image: url('img/orchid-pink.webp');"></div>
+    <div class="bg-layer hero-graphic" style="background-image: url('img/hero-graphic.webp');"></div>
 
-<!-- The Venue -->
-<section class="py-24 bg-ink grain border-b border-brass/20">
-  <div class="max-w-3xl mx-auto px-6">
-    <p class="font-mono text-brass tracking-[0.3em] text-xs uppercase mb-3">The Venue</p>
-    <h2 class="font-display font-bold text-4xl tracking-tight mb-6">West Art</h2>
-    <p class="text-parchment/75 leading-relaxed mb-6">
-     West Art is a historic church at 816 Buchanan Avenue in Lancaster City that has been transformed into a one of a kind destination for live music, performance, and visual art. Co-founded by Rufus Deakin and Josh Gibbel between 2021 and 2023, it has become a creative home for the eclectic, genre-defying programming that defines the Various Artists Festival.
-    </p>
-    <p class="text-parchment/75 leading-relaxed">
-      The festival will take place throughout the entire building, with multiple stages spread across several floors. As you explore the venue, you'll discover live music, immersive performances, visual art, and plenty of fun and unexpected surprises around every corner. Sponsors will receive visibility across every level of the experience as attendees move through the venue and engage with everything the festival has to offer.
-    </p>
-  </div>
-</section>
+    <!-- Extra bottom fade + blur overlay -->
+    <div class="bottom-fade"></div>
 
-<!-- Sponsor CTA -->
-<section class="py-24 bg-teal-deep grain border-b border-brass/20">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <p class="font-mono text-brass tracking-[0.3em] text-xs uppercase mb-3">Sponsorship Packages</p>
-    <h2 class="font-display font-bold text-4xl sm:text-5xl tracking-tight mb-6">See how you can show up on every stage, all day long.</h2>
-    <p class="text-parchment/70 text-lg mb-10 max-w-xl mx-auto">
-      From Headline to DIY, there's a package for every budget — take a look at what's included and pick the one that fits.
-    </p>
-    <a href="sponsor.html" class="inline-block bg-brass text-ink px-10 py-4 rounded-full font-semibold hover:bg-brass-light transition-colors">
-      View Sponsorship Packages →
-    </a>
-  </div>
-</section>
-
-<!-- Volunteer CTA -->
-<section class="py-24 bg-ink grain border-b border-brass/20">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <p class="font-mono text-brass tracking-[0.3em] text-xs uppercase mb-3">Get Involved</p>
-    <h2 class="font-display font-bold text-4xl sm:text-5xl tracking-tight mb-6">Volunteer with Various Artists Festival.</h2>
-    <p class="text-parchment/70 text-lg mb-10 max-w-xl mx-auto">
-      We're looking for Lancaster locals to help bring this day to life — from load-in to load-out. Fill out our volunteer interest form and we'll be in touch with next steps.
-    </p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScp2-9sx41B5CrmIMLv0Z-Q9AtcmjO9w_Geq-8ezrYwtUqLSQ/viewform" target="_blank" rel="noopener"
-       class="inline-flex items-center gap-3 bg-brass text-ink px-10 py-4 rounded-full font-semibold hover:bg-brass-light transition-colors">
-      <i class="fa-solid fa-hand-holding-heart"></i> Fill Out the Volunteer Form →
-    </a>
-  </div>
-</section>
-
-
-<!-- Contact -->
-<section class="py-20 bg-teal grain border-t border-brass/20">
-  <div class="max-w-4xl mx-auto px-6 text-center">
-    <p class="font-mono text-brass tracking-[0.3em] text-xs uppercase mb-3">Get in Touch</p>
-    <h2 class="font-display font-bold text-3xl tracking-tight mb-8">Questions before you sponsor?</h2>
-    <div class="grid sm:grid-cols-2 gap-6 max-w-xl mx-auto">
-      <div class="founder-card rounded-2xl p-6">
-        <p class="text-xs uppercase tracking-wider text-brass mb-2">Brand &amp; Development Coordinator</p>
-        <p class="font-display font-semibold text-lg mb-1">Elizabeth Amoriello</p>
-        <a href="mailto:variousartistsfest@gmail.com" class="text-parchment/70 text-sm hover:text-brass">variousartistsfest@gmail.com</a>
-      </div>
-      <div class="founder-card rounded-2xl p-6">
-        <p class="text-xs uppercase tracking-wider text-brass mb-2">Follow Along</p>
-        <p class="font-display font-semibold text-lg mb-1">@variousartistsfest</p>
-        <a href="https://instagram.com/variousartistsfest" class="text-parchment/70 text-sm hover:text-brass">Instagram</a>
+    <!-- Logo part -->
+    <div class="flex-1 flex items-center justify-center text-center relative z-10">
+      <div class="max-w-5xl mx-auto px-6">
+        <img src="img/logo.webp" alt="Various Artists Festival" class="mx-auto w-full max-w-4xl h-auto">
       </div>
     </div>
-  </div>
-</section>
 
-<!-- CTA -->
-<section class="py-24 text-center bg-ink grain border-t border-brass/20">
-  <div class="max-w-2xl mx-auto px-6">
-    <h2 class="font-display font-bold text-4xl sm:text-5xl tracking-tight mb-6">Let's build something Lancaster remembers.</h2>
-    <p class="text-lg text-parchment/80 mb-10">Have a custom idea, or want to contribute gear or services instead? We're happy to talk.</p>
-    <a href="sponsor.html" class="inline-block bg-brass text-ink px-12 py-5 rounded-full text-lg font-semibold hover:bg-brass-light transition-all">
-      Become a Sponsor →
-    </a>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="bg-ink pt-16 pb-10 border-t border-brass/20">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <div class="grid md:grid-cols-[1.4fr_1fr_1fr] gap-12 md:gap-10 pb-12 border-b border-parchment/10 text-center md:text-left items-start">
-
-      <div class="flex flex-col items-center md:items-start">
-        <img src="img/logo-mark.webp" alt="Various Artists Festival" class="h-24 sm:h-28 w-auto object-contain mb-4">
-        <p class="text-parchment/50 text-sm leading-relaxed">Nov 28, 2026<br>West Art · Lancaster, PA</p>
+    <!-- Info part -->
+    <header class="relative z-10 flex items-center justify-center text-center pb-16">
+      <div class="max-w-5xl mx-auto px-6 w-full">
+        <div class="grid grid-cols-3 gap-8 max-w-lg mx-auto text-sm">
+          <div>
+            <p class="text-gray-400">DATE</p>
+            <p class="font-semibold">NOV 28, 2026</p>
+          </div>
+          <div>
+            <p class="text-gray-400">LOCATION</p>
+            <p class="font-semibold">LANCASTER, PA</p>
+          </div>
+          <div>
+            <p class="text-gray-400">VENUE</p>
+            <p class="font-semibold">WEST ART</p>
+          </div>
+        </div>
       </div>
+    </header>
+  </section>
 
-      <div>
-        <h4 class="font-mono text-brass mb-4 uppercase tracking-[0.2em] text-xs">Site</h4>
-        <ul class="space-y-3 text-sm text-parchment/70">
-          <li><a href="index.html" class="hover:text-brass transition-colors">Home</a></li>
-          <li><a href="sponsor.html" class="hover:text-brass transition-colors">Sponsor</a></li>
-        </ul>
+  <!-- Comedy Headliner -->
+  <section id="headliner" class="pt-6 pb-24 bg-zinc-950 checkerboard">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col gap-3">
+      <div class="flex justify-center">
+        <img src="img/Comedy_Headliner_Banner.webp" alt="Comedy Headliner" class="block w-full max-w-2xl h-auto">
       </div>
-
-      <div>
-        <h4 class="font-mono text-brass mb-4 uppercase tracking-[0.2em] text-xs">Contact</h4>
-        <ul class="space-y-3 text-sm text-parchment/70">
-          <li><a href="mailto:variousartistsfest@gmail.com" class="hover:text-brass transition-colors break-all">variousartistsfest@gmail.com</a></li>
-          <li><a href="https://instagram.com/variousartistsfest" class="hover:text-brass transition-colors">@variousartistsfest</a></li>
-        </ul>
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div>
+          <img src="img/Comedy_Headliner.webp" alt="Alan Massenburg" class="block w-full h-auto">
+        </div>
+        <div>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Alan Massenburg is a comedian and actor from Philadelphia who's been making some big moves lately.
+            He was a finalist in HBO's American Black Film Festival stand-up competition, has been a guest on
+            The Drew Barrymore Show's Dad Joke segment, appeared on TMZ Live and SiriusXM's "Sway in the Morning,"
+            and has even performed at Harlem's iconic Apollo Theater.
+          </p>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Alan's debut comedy album "We Got Action" reached #1 on the iTunes charts, and despite his
+            hate/hate relationship with TikTok, he's amassed over 10 million views and more than 30,000
+            followers across platforms.
+          </p>
+          <p class="text-gray-300 leading-relaxed mb-8">
+            We're thrilled to have Alan as our inaugural Comedy Headliner.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="https://www.instagram.com/alanmassenburg" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 border border-white/70 px-8 py-3 rounded-full font-medium hover:bg-white/10 transition-colors">
+              <i class="fa-brands fa-instagram"></i> @alanmassenburg
+            </a>
+            <a href="https://www.alanmassenburg.com" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 border border-white/70 px-8 py-3 rounded-full font-medium hover:bg-white/10 transition-colors">
+              <i class="fa-solid fa-globe"></i> alanmassenburg.com
+            </a>
+          </div>
+        </div>
       </div>
-
     </div>
+  </section>
 
-    <p class="text-parchment/40 text-xs text-center pt-8 tracking-wide">© 2026 Various Artists Festival. All rights reserved.</p>
+  <!-- About the Event -->
+  <section id="about" class="py-24 bg-black">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-5xl font-bold tracking-tighter mb-12 text-center">Various Artists.<br>One Unforgettable Day in Lancaster.</h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div>
+          <div class="text-5xl font-black text-white/20 mb-3">01</div>
+          <h3 class="text-xl font-semibold mb-1">Multiple Stages</h3>
+          <p class="text-gray-400">Music, comedy, and performances across West Art's historic building, including City Hall, The Sanctuary, Art Bar, and The Elbow Room.</p>
+        </div>
+        <div>
+          <div class="text-5xl font-black text-white/20 mb-3">02</div>
+          <h3 class="text-xl font-semibold mb-1">Music &amp; Comedy on Every Level</h3>
+          <p class="text-gray-400">From grand-scale energy to deep and personal basement vibes, the Various Artists Festival turns this old church into a multi-story experience of live music, comedy, and performance.</p>
+        </div>
+        <div>
+          <div class="text-5xl font-black text-white/20 mb-3">03</div>
+          <h3 class="text-xl font-semibold mb-1">A Full-Day Event</h3>
+          <p class="text-gray-400">Wander through West Art with live music and shows with breathtaking visuals while discovering your new favorite artists.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  </div>
-</footer>
+  <!-- Presented By -->
+  <section id="presented-by" class="py-24 bg-zinc-950 checkerboard">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="bg-black/50 border border-white/10 rounded-3xl p-8 hover:border-white/25 transition-colors">
+          <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-6">
+            <i class="fa-solid fa-music text-lg"></i>
+          </div>
+          <p class="text-xs tracking-[0.2em] uppercase mb-2" style="color:#C89B3C;">Produced By</p>
+          <h3 class="text-2xl font-bold mb-3">Sort of Vain</h3>
+          <p class="text-gray-400 leading-relaxed">A Lancaster based booking and live production company founded in 2026 by Alex Hart. We're dedicated to spotlighting the incredible talent in our local creative scene.</p>
+        </div>
+        <a href="https://www.westartlanc.com/" target="_blank" rel="noopener" class="block bg-black/50 border border-white/10 rounded-3xl p-8 hover:border-white/25 transition-colors">
+          <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-6">
+            <i class="fa-solid fa-church text-lg"></i>
+          </div>
+          <p class="text-xs tracking-[0.2em] uppercase mb-2" style="color:#C89B3C;">Hosted At</p>
+          <h3 class="text-2xl font-bold mb-3">West Art</h3>
+          <p class="text-gray-400 leading-relaxed">816 Buchanan Ave in Lancaster, PA. A historic church transformed into a one of a kind venue for live music, performance, and visual art by co-founders Rufus Deakin and Josh Gibbel.</p>
+        </a>
+      </div>
+    </div>
+  </section>
 
-<script>
-  // Hamburger Menu Toggle
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    const icon = hamburger.querySelector('i');
-    if (mobileMenu.classList.contains('hidden')) {
-      icon.classList.remove('fa-xmark');
-      icon.classList.add('fa-bars');
-    } else {
-      icon.classList.remove('fa-bars');
-      icon.classList.add('fa-xmark');
-    }
-  });
-</script>
+  <!-- Footer -->
+  <footer class="relative bg-black overflow-hidden">
+    <img src="img/footer.webp" alt="" class="block w-full h-auto sm:h-[260px] sm:object-cover">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center px-6">
+      <p class="text-xs tracking-[0.2em] uppercase" style="color:#C89B3C;">Contact</p>
+      <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm font-medium">
+        <a href="mailto:variousartistsfest@gmail.com" class="text-white hover:text-[#C89B3C] transition-colors">variousartistsfest@gmail.com</a>
+        <a href="https://instagram.com/variousartistsfest" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-white hover:text-[#C89B3C] transition-colors">
+          <i class="fa-brands fa-instagram"></i> @variousartistsfest
+        </a>
+      </div>
+      <p class="text-white/70 text-xs font-medium drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">© 2026 Various Artists Festival</p>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const icon = hamburger.querySelector('i');
+      if (mobileMenu.classList.contains('hidden')) {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+      } else {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+      }
+    });
+
+    // Auto highlight current page
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage) {
+          link.classList.add('nav-active');
+        }
+      });
+    });
+
+  </script>
 </body>
 </html>
