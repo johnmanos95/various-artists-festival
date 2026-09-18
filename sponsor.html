@@ -52,6 +52,13 @@ body{
   border-color:var(--brass);
 }
 
+.footer-link{
+  color:var(--parchment);
+}
+.footer-link:hover{
+  color:var(--brass-light);
+}
+
 
 /* Paper grain overlay */
 .grain{
@@ -71,7 +78,7 @@ body{
 /* Updated navbar styling */
 .nav-link{
   position:relative;
-  color:var(--parchment);
+  color:#fff;
   opacity:.85;
   transition:opacity .2s;
 }
@@ -187,70 +194,43 @@ select.form-input option{
 <!-- Updated Navbar -->
 <nav class="fixed inset-x-0 top-0 z-50 bg-[#2A5F6A]/85 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20">
 
-  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
 
-    <div class="relative flex items-center justify-between h-24">
-
-      <!-- Left Nav -->
-      <div class="hidden md:flex w-40">
-        <a href="index.html" 
-           class="nav-link font-display text-2xl text-white/80 hover:text-white">
-          About
-        </a>
-      </div>
-
-
-      <!-- Center Logo -->
-      <a href="index.html" 
-         class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-
+    <!-- Logo -->
+    <div class="flex-shrink-0">
+      <a href="index.html">
         <img src="img/logo-mark.webp"
              alt="Various Artists Festival"
-             class="h-32 w-auto object-contain transition duration-300 hover:scale-105">
-
+             class="h-24 sm:h-32 w-auto -my-2 sm:-my-6 object-contain transition duration-300 hover:scale-105">
       </a>
-
-
-      <!-- Right Nav -->
-      <div class="hidden md:flex items-center justify-end gap-12 w-40">
-
-        <a href="sponsor.html"
-           class="nav-link nav-active font-display text-2xl text-white/80 hover:text-white">
-          Sponsor
-        </a>
-
-      </div>
-
-
-      <!-- Mobile Button -->
-      <button id="hamburger"
-              class="md:hidden ml-auto w-12 h-12 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 transition text-white">
-
-        <i class="fa-solid fa-bars text-xl"></i>
-
-      </button>
-
-
     </div>
+
+    <!-- Nav Links -->
+    <div class="hidden lg:flex items-center gap-4 text-lg font-medium leading-none font-sans uppercase">
+      <a href="index.html" class="nav-link px-4 py-2">Home</a>
+      <a href="index.html#headliner" class="nav-link px-4 py-2">Headliner</a>
+      <a href="index.html#about" class="nav-link px-4 py-2">About</a>
+      <a href="sponsor.html" class="nav-link nav-active px-4 py-2">Sponsor</a>
+    </div>
+
+    <!-- Mobile Button -->
+    <button id="hamburger" class="lg:hidden flex-shrink-0 text-2xl sm:text-3xl focus:outline-none text-white">
+      <i class="fa-solid fa-bars"></i>
+    </button>
 
   </div>
 
 
   <!-- Mobile Menu -->
   <div id="mobile-menu"
-       class="hidden md:hidden border-t border-white/10 bg-[#214c55]/95 backdrop-blur-xl">
+       class="hidden lg:hidden border-t border-white/10 bg-[#214c55]/95 backdrop-blur-xl">
 
-    <div class="flex flex-col items-center py-8 gap-8">
+    <div class="flex flex-col items-center text-lg font-medium font-sans uppercase py-4">
 
-      <a href="index.html"
-         class="font-display text-3xl">
-         About
-      </a>
-
-      <a href="sponsor.html"
-         class="font-display text-3xl">
-         Sponsor
-      </a>
+      <a href="index.html" class="nav-link px-6 py-3">Home</a>
+      <a href="index.html#headliner" class="nav-link px-6 py-3">Headliner</a>
+      <a href="index.html#about" class="nav-link px-6 py-3">About</a>
+      <a href="sponsor.html" class="nav-link px-6 py-3">Sponsor</a>
 
     </div>
 
@@ -260,7 +240,7 @@ select.form-input option{
 </nav>
 
 <!-- Intro -->
-<section class="pt-40 pb-16 bg-ink grain border-b border-brass/20">
+<section class="pt-40 pb-16 bg-ink grain">
   <div class="max-w-3xl mx-auto px-6 text-center">
     <p class="font-mono text-brass tracking-[0.3em] text-xs uppercase mb-4">Sponsorship Packages</p>
     <h1 class="font-display font-black text-5xl sm:text-6xl tracking-tight mb-6">Every great festival is made piece by piece.</h1>
@@ -271,7 +251,7 @@ select.form-input option{
 </section>
 
 <!-- Poster wall -->
-<section class="corkboard py-24 border-b border-brass/20">
+<section class="corkboard py-24">
   <div class="max-w-6xl mx-auto px-6">
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
 
@@ -330,7 +310,7 @@ select.form-input option{
 </section>
 
 <!-- View the full sponsorship document -->
-<section class="py-16 bg-ink grain border-b border-brass/20">
+<section class="py-16 bg-ink grain">
   <div class="max-w-3xl mx-auto px-6 text-center">
     <p class="font-mono text-brass tracking-[0.3em] text-xs uppercase mb-3">Here's All the Details</p>
     <h3 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mb-4">See the full sponsorship document.</h3>
@@ -423,7 +403,7 @@ select.form-input option{
 </section>
 
 <!-- Old-school: printable packet -->
-<section class="py-16 bg-ink grain border-b border-brass/20">
+<section class="py-16 bg-ink grain">
   <div class="max-w-3xl mx-auto px-6">
     <div class="border border-brass/25 rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row items-center gap-8">
       <div class="shrink-0 w-16 h-16 rounded-full bg-brass/10 border border-brass/40 flex items-center justify-center">
@@ -445,36 +425,18 @@ select.form-input option{
 </section>
 
 <!-- Footer -->
-<footer class="bg-ink pt-16 pb-10 border-t border-brass/20">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <div class="grid md:grid-cols-[1.4fr_1fr_1fr] gap-12 md:gap-10 pb-12 border-b border-parchment/10 text-center md:text-left items-start">
-
-      <div class="flex flex-col items-center md:items-start">
-        <img src="img/logo-mark.webp" alt="Various Artists Festival" class="h-24 sm:h-28 w-auto object-contain mb-4">
-        <p class="text-parchment/50 text-sm leading-relaxed">Nov 28, 2026<br>West Art · Lancaster, PA</p>
-      </div>
-
-      <div>
-        <h4 class="font-mono text-brass mb-4 uppercase tracking-[0.2em] text-xs">Site</h4>
-        <ul class="space-y-3 text-sm text-parchment/70">
-          <li><a href="index.html" class="hover:text-brass transition-colors">Home</a></li>
-          <li><a href="sponsor.html" class="hover:text-brass transition-colors">Sponsor</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="font-mono text-brass mb-4 uppercase tracking-[0.2em] text-xs">Contact</h4>
-        <ul class="space-y-3 text-sm text-parchment/70">
-          <li><a href="mailto:variousartistsfest@gmail.com" class="hover:text-brass transition-colors break-all">variousartistsfest@gmail.com</a></li>
-          <li><a href="https://instagram.com/variousartistsfest" class="hover:text-brass transition-colors">@variousartistsfest</a></li>
-        </ul>
-      </div>
-
+<footer class="relative bg-ink overflow-hidden">
+  <img src="img/footer.webp" alt="" class="block w-full h-auto sm:h-[260px] sm:object-cover">
+  <div class="absolute inset-0" style="background-color:rgba(11,15,16,0.6);"></div>
+  <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center px-6">
+    <p class="font-mono text-brass tracking-[0.3em] text-xs uppercase">Contact</p>
+    <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm font-medium">
+      <a href="mailto:variousartistsfest@gmail.com" class="footer-link transition-colors">variousartistsfest@gmail.com</a>
+      <a href="https://instagram.com/variousartistsfest" target="_blank" rel="noopener" class="footer-link inline-flex items-center gap-2 transition-colors">
+        <i class="fa-brands fa-instagram"></i> @variousartistsfest
+      </a>
     </div>
-
-    <p class="text-parchment/40 text-xs text-center pt-8 tracking-wide">© 2026 Various Artists Festival. All rights reserved.</p>
-
+    <p class="text-xs font-medium drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]" style="color:rgba(237,230,214,0.7);">© 2026 Various Artists Festival</p>
   </div>
 </footer>
 
