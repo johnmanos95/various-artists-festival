@@ -95,21 +95,21 @@
 <body class="bg-black text-white font-sans">
   <!-- Navbar -->
   <nav class="fixed top-0 w-full bg-[#2A5F6A]/95 backdrop-blur-md z-50 border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-      <div class="flex-shrink-0">
-        <a href="index.html">
-          <img src="img/logo-mark.webp" alt="Various Artists Festival" class="h-24 sm:h-32 w-auto -my-2 sm:-my-6 object-contain transition duration-300 hover:scale-105">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center lg:justify-between overflow-hidden">
+      <div class="shrink-0">
+        <a href="index.html" class="block">
+          <img src="img/logo-mark.webp" alt="Various Artists Festival" class="h-24 sm:h-32 w-auto max-w-[calc(100vw-88px)] sm:max-w-[calc(100vw-104px)] lg:max-w-none -my-2 sm:-my-6 object-contain object-left transition duration-300 hover:scale-105">
         </a>
       </div>
       <!-- Desktop Menu -->
-      <div class="hidden lg:flex items-center gap-4 text-lg font-medium leading-none">
+      <div class="hidden lg:flex items-center gap-4 text-lg font-medium leading-none shrink-0">
         <a href="index.html" class="nav-link px-4 py-2">HOME</a>
         <a href="#headliner" class="nav-link px-4 py-2">HEADLINER</a>
         <a href="#about" class="nav-link px-4 py-2">ABOUT</a>
         <a href="sponsor.html" class="nav-link px-4 py-2">SPONSOR</a>
       </div>
       <!-- Hamburger -->
-      <button id="hamburger" class="lg:hidden flex-shrink-0 text-2xl sm:text-3xl focus:outline-none">
+      <button id="hamburger" class="lg:hidden absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 text-2xl sm:text-3xl focus:outline-none z-10">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
