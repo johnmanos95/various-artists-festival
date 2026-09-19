@@ -194,19 +194,19 @@ select.form-input option{
 <!-- Updated Navbar -->
 <nav class="fixed inset-x-0 top-0 z-50 bg-[#2A5F6A]/85 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20">
 
-  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center lg:justify-between overflow-hidden">
 
     <!-- Logo -->
-    <div class="flex-shrink-0">
-      <a href="index.html">
+    <div class="shrink-0">
+      <a href="index.html" class="block">
         <img src="img/logo-mark.webp"
              alt="Various Artists Festival"
-             class="h-24 sm:h-32 w-auto -my-2 sm:-my-6 object-contain transition duration-300 hover:scale-105">
+             class="h-24 sm:h-32 w-auto max-w-[calc(100vw-88px)] sm:max-w-[calc(100vw-104px)] lg:max-w-none -my-2 sm:-my-6 object-contain object-left transition duration-300 hover:scale-105">
       </a>
     </div>
 
     <!-- Nav Links -->
-    <div class="hidden lg:flex items-center gap-4 text-lg font-medium leading-none font-sans uppercase">
+    <div class="hidden lg:flex items-center gap-4 text-lg font-medium leading-none font-sans uppercase shrink-0">
       <a href="index.html" class="nav-link px-4 py-2">Home</a>
       <a href="index.html#headliner" class="nav-link px-4 py-2">Headliner</a>
       <a href="index.html#about" class="nav-link px-4 py-2">About</a>
@@ -214,9 +214,10 @@ select.form-input option{
     </div>
 
     <!-- Mobile Button -->
-    <button id="hamburger" class="lg:hidden flex-shrink-0 text-2xl sm:text-3xl focus:outline-none text-white">
+    <button id="hamburger" class="lg:hidden absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 text-2xl sm:text-3xl focus:outline-none text-white z-10">
       <i class="fa-solid fa-bars"></i>
     </button>
+
 
   </div>
 
