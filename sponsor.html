@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Sponsor — Various Artists Festival</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
@@ -184,6 +184,22 @@ select.form-input option{
   background-repeat:no-repeat;
 }
 
+/* Footer: guarantee enough height on mobile so the overlay content
+   (label + contact row + copyright) never gets clipped, and clear
+   the iPhone home-indicator safe area */
+#site-footer{
+  min-height: 260px;
+}
+#site-footer .footer-overlay{
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+}
+@media (min-width: 640px){
+  #site-footer{
+    min-height: 260px;
+    height: 260px;
+  }
+}
+
 </style>
 </head>
 
@@ -194,14 +210,14 @@ select.form-input option{
 <!-- Updated Navbar -->
 <nav class="fixed inset-x-0 top-0 z-50 bg-[#2A5F6A]/85 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20">
 
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center lg:justify-between overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center gap-4">
 
     <!-- Logo -->
-    <div class="shrink-0">
-      <a href="index.html" class="block">
+    <div class="flex-1 min-w-0">
+      <a href="index.html" class="inline-block max-w-full">
         <img src="img/logo-mark.webp"
              alt="Various Artists Festival"
-             class="h-24 sm:h-32 w-auto max-w-[calc(100vw-88px)] sm:max-w-[calc(100vw-104px)] lg:max-w-none -my-2 sm:-my-6 object-contain object-left transition duration-300 hover:scale-105">
+             class="h-24 sm:h-32 w-auto max-w-full -my-2 sm:-my-6 object-contain transition duration-300 hover:scale-105">
       </a>
     </div>
 
@@ -214,7 +230,7 @@ select.form-input option{
     </div>
 
     <!-- Mobile Button -->
-    <button id="hamburger" class="lg:hidden absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 text-2xl sm:text-3xl focus:outline-none text-white z-10">
+    <button id="hamburger" class="lg:hidden shrink-0 text-2xl sm:text-3xl focus:outline-none text-white">
       <i class="fa-solid fa-bars"></i>
     </button>
 
@@ -426,10 +442,10 @@ select.form-input option{
 </section>
 
 <!-- Footer -->
-<footer class="relative bg-ink overflow-hidden">
-  <img src="img/footer.webp" alt="" class="block w-full h-auto sm:h-[260px] sm:object-cover">
+<footer id="site-footer" class="relative bg-ink overflow-hidden">
+  <img src="img/footer.webp" alt="" class="absolute inset-0 w-full h-full object-cover">
   <div class="absolute inset-0" style="background-color:rgba(11,15,16,0.6);"></div>
-  <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center px-6">
+  <div class="footer-overlay absolute inset-0 flex flex-col items-center justify-center gap-3 text-center px-6">
     <p class="font-mono text-brass tracking-[0.3em] text-xs uppercase">Contact</p>
     <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm font-medium">
       <a href="mailto:variousartistsfest@gmail.com" class="footer-link transition-colors">variousartistsfest@gmail.com</a>
