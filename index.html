@@ -95,15 +95,15 @@
        (label + contact row + copyright) never gets clipped, and clear
        the iPhone home-indicator safe area */
     #site-footer {
-      min-height: 260px;
+      min-height: 300px;
     }
     #site-footer .footer-overlay {
       padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
     }
     @media (min-width: 640px) {
       #site-footer {
-        min-height: 260px;
-        height: 260px;
+        min-height: 300px;
+        height: 300px;
       }
     }
 
@@ -142,12 +142,66 @@
     .headliner-cta a:hover {
       background-color: rgba(255, 255, 255, 0.1);
     }
+
+    /* Hero CTA buttons: Explore Lineup (outline) + Get Tickets (gold) */
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .hero-cta a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 2.25rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color .2s ease, opacity .2s ease;
+    }
+    .hero-cta .btn-outline {
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      color: #fff;
+      background: transparent;
+    }
+    .hero-cta .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .hero-cta .btn-gold {
+      background-color: #C89B3C;
+      color: #111;
+      border: 1px solid #C89B3C;
+    }
+    .hero-cta .btn-gold:hover {
+      opacity: 0.88;
+    }
+
+    /* Nav "Get Tickets" pill button, matches gold accent */
+    .nav-cta {
+      background-color: #C89B3C;
+      color: #111 !important;
+      border-radius: 9999px;
+      padding: 0.5rem 1.5rem !important;
+      font-weight: 700;
+      opacity: 1 !important;
+      transition: opacity .2s ease;
+    }
+    .nav-cta::after {
+      display: none;
+    }
+    .nav-cta:hover {
+      opacity: 0.88 !important;
+    }
   </style>
 </head>
 <body class="bg-black text-white font-sans">
   <!-- Navbar -->
   <nav class="fixed top-0 w-full bg-[#2A5F6A]/95 backdrop-blur-md z-50 border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center gap-4">
+    <div class="max-w-7xl lg:max-w-[1600px] mx-auto px-6 lg:px-12 h-20 flex justify-between items-center gap-4">
       <div class="flex-1 min-w-0">
         <a href="index.html" class="inline-block max-w-full">
           <img src="img/logo-mark.webp" alt="Various Artists Festival" class="h-24 sm:h-32 w-auto max-w-full -my-2 sm:-my-6 object-contain transition duration-300 hover:scale-105">
@@ -156,9 +210,11 @@
       <!-- Desktop Menu -->
       <div class="hidden lg:flex items-center gap-4 text-lg font-medium leading-none">
         <a href="index.html" class="nav-link px-4 py-2">HOME</a>
-        <a href="#headliner" class="nav-link px-4 py-2">HEADLINER</a>
-        <a href="#about" class="nav-link px-4 py-2">ABOUT</a>
-        <a href="sponsor.html" class="nav-link px-4 py-2">SPONSOR</a>
+        <a href="lineup.html" class="nav-link px-4 py-2">LINEUP</a>
+        <a href="schedule.html" class="nav-link px-4 py-2">SCHEDULE</a>
+        <a href="venue.html" class="nav-link px-4 py-2">VENUE</a>
+        <a href="about.html" class="nav-link px-4 py-2">ABOUT</a>
+        <a href="tickets.html" class="nav-link nav-cta px-4 py-2">GET TICKETS</a>
       </div>
       <!-- Hamburger -->
       <button id="hamburger" class="lg:hidden flex-shrink-0 text-2xl sm:text-3xl focus:outline-none">
@@ -167,11 +223,13 @@
     </div>
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden lg:hidden bg-[#214c55]/95 backdrop-blur-xl border-t border-white/10 py-4">
-      <div class="flex flex-col items-center text-lg font-medium">
+      <div class="flex flex-col items-center gap-2 text-lg font-medium">
         <a href="index.html" class="nav-link px-6 py-3">HOME</a>
-        <a href="#headliner" class="nav-link px-6 py-3">HEADLINER</a>
-        <a href="#about" class="nav-link px-6 py-3">ABOUT</a>
-        <a href="sponsor.html" class="nav-link px-6 py-3">SPONSOR</a>
+        <a href="lineup.html" class="nav-link px-6 py-3">LINEUP</a>
+        <a href="schedule.html" class="nav-link px-6 py-3">SCHEDULE</a>
+        <a href="venue.html" class="nav-link px-6 py-3">VENUE</a>
+        <a href="about.html" class="nav-link px-6 py-3">ABOUT</a>
+        <a href="tickets.html" class="nav-link nav-cta px-6 py-2 mt-1">GET TICKETS</a>
       </div>
     </div>
   </nav>
@@ -195,6 +253,10 @@
     <!-- Info part -->
     <header class="relative z-10 flex items-center justify-center text-center pb-16">
       <div class="max-w-5xl mx-auto px-6 w-full">
+        <div class="hero-cta">
+          <a href="lineup.html" class="btn-outline">Explore Lineup</a>
+          <a href="tickets.html" class="btn-gold">Get Tickets</a>
+        </div>
         <div class="grid grid-cols-3 gap-8 max-w-lg mx-auto text-sm">
           <div>
             <p class="text-gray-400">DATE</p>
@@ -213,46 +275,8 @@
     </header>
   </section>
 
-  <!-- Comedy Headliner -->
-  <section id="headliner" class="pt-6 pb-24 bg-zinc-950 checkerboard">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col gap-3">
-      <div class="flex justify-center">
-        <img src="img/Comedy_Headliner_Banner.webp" alt="Comedy Headliner" class="block w-full max-w-2xl h-auto">
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-        <div>
-          <img src="img/Comedy_Headliner.webp" alt="Alan Massenburg" class="block w-full h-auto">
-        </div>
-        <div>
-          <p class="text-gray-300 leading-relaxed mb-4">
-            Alan Massenburg is a comedian and actor from Philadelphia who's been making some big moves lately.
-            He was a finalist in HBO's American Black Film Festival stand-up competition, has been a guest on
-            The Drew Barrymore Show's Dad Joke segment, appeared on TMZ Live and SiriusXM's "Sway in the Morning,"
-            and has even performed at Harlem's iconic Apollo Theater.
-          </p>
-          <p class="text-gray-300 leading-relaxed mb-4">
-            Alan's debut comedy album "We Got Action" reached #1 on the iTunes charts, and despite his
-            hate/hate relationship with TikTok, he's amassed over 10 million views and more than 30,000
-            followers across platforms.
-          </p>
-          <p class="text-gray-300 leading-relaxed mb-8">
-            We're thrilled to have Alan as our inaugural Comedy Headliner.
-          </p>
-          <div class="headliner-cta">
-            <a href="https://www.instagram.com/alanmassenburg" target="_blank" rel="noopener">
-              <i class="fa-brands fa-instagram"></i> @alanmassenburg
-            </a>
-            <a href="https://www.alanmassenburg.com" target="_blank" rel="noopener">
-              <i class="fa-solid fa-globe"></i> alanmassenburg.com
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- About the Event -->
-  <section id="about" class="py-24 bg-black">
+  <section id="highlights" class="py-24 bg-black">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-5xl font-bold tracking-tighter mb-12 text-center">Various Artists.<br>One Unforgettable Day in Lancaster.</h2>
       <div class="grid md:grid-cols-3 gap-10">
@@ -275,27 +299,12 @@
     </div>
   </section>
 
-  <!-- Presented By -->
-  <section id="presented-by" class="py-24 bg-zinc-950 checkerboard">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="grid sm:grid-cols-2 gap-6">
-        <div class="bg-black/50 border border-white/10 rounded-3xl p-8 hover:border-white/25 transition-colors">
-          <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-6">
-            <i class="fa-solid fa-music text-lg"></i>
-          </div>
-          <p class="text-xs tracking-[0.2em] uppercase mb-2" style="color:#C89B3C;">Produced By</p>
-          <h3 class="text-2xl font-bold mb-3">Sort of Vain</h3>
-          <p class="text-gray-400 leading-relaxed">A Lancaster based booking and live production company founded in 2026 by Alex Hart. We're dedicated to spotlighting the incredible talent in our local creative scene.</p>
-        </div>
-        <a href="https://www.westartlanc.com/" target="_blank" rel="noopener" class="block bg-black/50 border border-white/10 rounded-3xl p-8 hover:border-white/25 transition-colors">
-          <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-6">
-            <i class="fa-solid fa-church text-lg"></i>
-          </div>
-          <p class="text-xs tracking-[0.2em] uppercase mb-2" style="color:#C89B3C;">Hosted At</p>
-          <h3 class="text-2xl font-bold mb-3">West Art</h3>
-          <p class="text-gray-400 leading-relaxed">816 Buchanan Ave in Lancaster, PA. A historic church transformed into a one of a kind venue for live music, performance, and visual art by co-founders Rufus Deakin and Josh Gibbel.</p>
-        </a>
-      </div>
+  <!-- Ticket CTA -->
+  <section id="ticket-cta" class="py-24 bg-zinc-950 checkerboard">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-4xl sm:text-5xl font-bold tracking-tighter mb-4">Don't miss it.</h2>
+      <p class="text-gray-400 mb-10 max-w-xl mx-auto">One day, four stages, and a lineup of the region's best. Get your tickets to the Various Artists Festival before they're gone.</p>
+      <a href="tickets.html" class="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold text-lg" style="background-color:#C89B3C; color:#111;">Get Tickets</a>
     </div>
   </section>
 
@@ -312,6 +321,11 @@
         </a>
       </div>
       <p class="text-white/70 text-xs font-medium drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">© 2026 Various Artists Festival</p>
+      <p class="text-white/50 text-xs font-medium">
+        <a href="privacy.html" class="hover:text-[#C89B3C] transition-colors">Privacy Policy</a>
+        <span class="mx-2">&#183;</span>
+        <a href="terms.html" class="hover:text-[#C89B3C] transition-colors">Terms &amp; Conditions</a>
+      </p>
     </div>
   </footer>
 
