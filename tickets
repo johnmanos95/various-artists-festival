@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Tickets | Various Artists Festival</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    .checkerboard {
+      background-image:
+        linear-gradient(45deg, #000 25%, transparent 25%),
+        linear-gradient(-45deg, #000 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #000 75%),
+        linear-gradient(-45deg, transparent 75%, #000 75%);
+      background-size: 60px 60px;
+      background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+    }
+
+    /* Navigation Styles */
+    .nav-link {
+      position: relative;
+      color: #fff;
+      opacity: .85;
+      transition: opacity .2s;
+    }
+    .nav-link:hover {
+      opacity: 1;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #C89B3C;
+      transition: width .25s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.nav-active::after {
+      width: 100%;
+    }
+
+    /* Background layers */
+    .bg-layer {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Scaled Hero Graphic */
+    .bg-layer.hero-graphic {
+      background-size: 100%;
+      background-position: center 28%;
+      background-repeat: no-repeat;
+      opacity: 0.85;
+      mix-blend-mode: multiply;
+    }
+
+    /* Pink Layer with stronger bottom fade + blur */
+    .pink-layer {
+      background-size: cover;
+      background-position: center;
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 45%,
+        rgba(0, 0, 0, 0.85) 70%,
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 45%,
+        rgba(0, 0, 0, 0.85) 70%,
+        transparent 100%
+      );
+    }
+
+    /* Extra subtle blur fade at the bottom */
+    .bottom-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 35%;
+      background: linear-gradient(to top, #000000 30%, transparent 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Footer: guarantee enough height on mobile so the overlay content
+       (label + contact row + copyright) never gets clipped, and clear
+       the iPhone home-indicator safe area */
+    #site-footer {
+      min-height: 300px;
+    }
+    #site-footer .footer-overlay {
+      padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    }
+    @media (min-width: 640px) {
+      #site-footer {
+        min-height: 300px;
+        height: 300px;
+      }
+    }
+
+    /* Comedy headliner CTA links: plain CSS, not Tailwind utilities,
+       so the stacked layout can't be lost to CDN/caching issues.
+       Always stacked on narrow screens; side-by-side only once
+       there's clearly enough room. */
+    .headliner-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .headliner-cta a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 9999px;
+      padding: 0.75rem 2rem;
+      font-weight: 500;
+      color: #fff;
+      text-decoration: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: background-color 0.2s ease;
+    }
+    .headliner-cta a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Hero CTA buttons: Explore Lineup (outline) + Get Tickets (gold) */
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .hero-cta a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 2.25rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color .2s ease, opacity .2s ease;
+    }
+    .hero-cta .btn-outline {
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      color: #fff;
+      background: transparent;
+    }
+    .hero-cta .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .hero-cta .btn-gold {
+      background-color: #C89B3C;
+      color: #111;
+      border: 1px solid #C89B3C;
+    }
+    .hero-cta .btn-gold:hover {
+      opacity: 0.88;
+    }
+
+    /* Nav "Get Tickets" pill button, matches gold accent */
+    .nav-cta {
+      background-color: #C89B3C;
+      color: #111 !important;
+      border-radius: 9999px;
+      padding: 0.5rem 1.5rem !important;
+      font-weight: 700;
+      opacity: 1 !important;
+      transition: opacity .2s ease;
+    }
+    .nav-cta::after {
+      display: none;
+    }
+    .nav-cta:hover {
+      opacity: 0.88 !important;
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans">
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-[#2A5F6A]/95 backdrop-blur-md z-50 border-b border-white/10">
+    <div class="max-w-7xl lg:max-w-[1600px] mx-auto px-6 lg:px-12 h-20 flex justify-between items-center gap-4">
+      <div class="flex-1 min-w-0">
+        <a href="index.html" class="inline-block max-w-full">
+          <img src="img/logo-mark.webp" alt="Various Artists Festival" class="h-24 sm:h-32 w-auto max-w-full -my-2 sm:-my-6 object-contain transition duration-300 hover:scale-105">
+        </a>
+      </div>
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex items-center gap-4 text-lg font-medium leading-none">
+        <a href="index.html" class="nav-link px-4 py-2">HOME</a>
+        <a href="lineup.html" class="nav-link px-4 py-2">LINEUP</a>
+        <a href="schedule.html" class="nav-link px-4 py-2">SCHEDULE</a>
+        <a href="venue.html" class="nav-link px-4 py-2">VENUE</a>
+        <a href="about.html" class="nav-link px-4 py-2">ABOUT</a>
+        <a href="tickets.html" class="nav-link nav-cta px-4 py-2">GET TICKETS</a>
+      </div>
+      <!-- Hamburger -->
+      <button id="hamburger" class="lg:hidden flex-shrink-0 text-2xl sm:text-3xl focus:outline-none">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-[#214c55]/95 backdrop-blur-xl border-t border-white/10 py-4">
+      <div class="flex flex-col items-center gap-2 text-lg font-medium">
+        <a href="index.html" class="nav-link px-6 py-3">HOME</a>
+        <a href="lineup.html" class="nav-link px-6 py-3">LINEUP</a>
+        <a href="schedule.html" class="nav-link px-6 py-3">SCHEDULE</a>
+        <a href="venue.html" class="nav-link px-6 py-3">VENUE</a>
+        <a href="about.html" class="nav-link px-6 py-3">ABOUT</a>
+        <a href="tickets.html" class="nav-link nav-cta px-6 py-2 mt-1">GET TICKETS</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page intro -->
+  <section class="pt-32 pb-4 bg-black">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h1 class="text-5xl font-bold tracking-tighter mb-4">Get Your Tickets</h1>
+      <p class="text-gray-400 max-w-xl mx-auto">Nov 28, 2026 &middot; West Art, Lancaster, PA</p>
+    </div>
+  </section>
+
+  <!-- Ticket Widget -->
+  <section class="pt-10 pb-24 bg-black">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="bg-white rounded-3xl p-4 sm:p-6 shadow-2xl">
+        <!-- Ticket Tailor Widget. Paste this into your website where you want the widget to appear. Do not change the code or the widget may not work properly. -->
+        <div class="tt-widget"><div class="tt-widget-fallback"><p><a href="https://www.tickettailor.com/all-tickets/variousartistsfest/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true" target="_blank">Click here to buy tickets</a><br /><small><a href="https://www.tickettailor.com?rf=wdg_318249" class="tt-widget-powered">Sell tickets online with Ticket Tailor</a></small></p></div><script src="https://cdn.tickettailor.com/js/widgets/min/widget.js" data-url="https://www.tickettailor.com/all-tickets/variousartistsfest/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true" data-type="inline" data-inline-minimal="true" data-inline-show-logo="false" data-inline-bg-fill="true" data-inline-inherit-ref-from-url-param="" data-inline-ref="website_widget"></script></div>
+        <!-- End of Ticket Tailor Widget -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="site-footer" class="relative bg-black overflow-hidden">
+    <img src="img/footer.webp" alt="" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="footer-overlay absolute inset-0 flex flex-col items-center justify-center gap-3 text-center px-6">
+      <p class="text-xs tracking-[0.2em] uppercase" style="color:#C89B3C;">Contact</p>
+      <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm font-medium">
+        <a href="mailto:variousartistsfest@gmail.com" class="text-white hover:text-[#C89B3C] transition-colors">variousartistsfest@gmail.com</a>
+        <a href="https://instagram.com/variousartistsfest" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-white hover:text-[#C89B3C] transition-colors">
+          <i class="fa-brands fa-instagram"></i> @variousartistsfest
+        </a>
+      </div>
+      <p class="text-white/70 text-xs font-medium drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">© 2026 Various Artists Festival</p>
+      <p class="text-white/50 text-xs font-medium">
+        <a href="privacy.html" class="hover:text-[#C89B3C] transition-colors">Privacy Policy</a>
+        <span class="mx-2">&#183;</span>
+        <a href="terms.html" class="hover:text-[#C89B3C] transition-colors">Terms &amp; Conditions</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const icon = hamburger.querySelector('i');
+      if (mobileMenu.classList.contains('hidden')) {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+      } else {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+      }
+    });
+
+    // Auto highlight current page
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage) {
+          link.classList.add('nav-active');
+        }
+      });
+    });
+
+  </script>
+</body>
+</html>
