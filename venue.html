@@ -200,6 +200,8 @@
   </style>
 </head>
 <body class="bg-black text-white font-sans">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#C89B3C] focus:text-black focus:px-5 focus:py-3 focus:rounded-full focus:font-bold">Skip to main content</a>
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded focus:font-semibold">Skip to main content</a>
   <!-- Navbar -->
   <nav class="fixed top-0 w-full bg-[#2A5F6A]/95 backdrop-blur-md z-50 border-b border-white/10">
     <div class="max-w-7xl lg:max-w-[1600px] mx-auto px-6 lg:px-12 h-20 flex justify-between items-center gap-4">
@@ -218,8 +220,8 @@
         <a href="tickets.html" class="nav-link nav-cta px-4 py-2">GET TICKETS</a>
       </div>
       <!-- Hamburger -->
-      <button id="hamburger" class="lg:hidden flex-shrink-0 text-2xl sm:text-3xl focus:outline-none">
-        <i class="fa-solid fa-bars"></i>
+      <button id="hamburger" class="lg:hidden flex-shrink-0 text-2xl sm:text-3xl rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#2A5F6A]" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
     </div>
     <!-- Mobile Menu -->
@@ -234,6 +236,8 @@
       </div>
     </div>
   </nav>
+
+  <main id="main-content">
 
   <!-- Page intro -->
   <section class="pt-32 pb-16 bg-black">
@@ -285,7 +289,7 @@
         site to see more of the space and everything else they host throughout the year.
       </p>
       <a href="https://www.westartlanc.com/" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold" style="border:1px solid rgba(255,255,255,0.7); color:#fff;">
-        <i class="fa-solid fa-globe"></i> westartlanc.com
+        <i class="fa-solid fa-globe" aria-hidden="true"></i> westartlanc.com
       </a>
     </div>
   </section>
@@ -297,10 +301,12 @@
       <h2 class="text-3xl sm:text-4xl font-bold tracking-tighter mb-4">Find Your Way to West Art</h2>
       <p class="text-gray-400 mb-8">816 Buchanan Ave, Lancaster, PA</p>
       <a href="https://www.google.com/maps/dir/?api=1&destination=816+Buchanan+Ave%2C+Lancaster%2C+PA" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-bold" style="background-color:#C89B3C; color:#111;">
-        <i class="fa-solid fa-location-dot"></i> Get Directions
+        <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Get Directions
       </a>
     </div>
   </section>
+
+  </main>
 
   <!-- Footer -->
   <footer id="site-footer" class="relative bg-black overflow-hidden">
@@ -311,14 +317,14 @@
       <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm font-medium">
         <a href="mailto:variousartistsfest@gmail.com" class="text-white hover:text-[#C89B3C] transition-colors">variousartistsfest@gmail.com</a>
         <a href="https://instagram.com/variousartistsfest" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-white hover:text-[#C89B3C] transition-colors">
-          <i class="fa-brands fa-instagram"></i> @variousartistsfest
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i> @variousartistsfest
         </a>
       </div>
       <p class="text-white/70 text-xs font-medium drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">© 2026 Various Artists Festival</p>
-      <p class="text-white/50 text-xs font-medium">
-        <a href="privacy.html" class="hover:text-[#C89B3C] transition-colors">Privacy Policy</a>
-        <span class="mx-2">&#183;</span>
-        <a href="terms.html" class="hover:text-[#C89B3C] transition-colors">Terms &amp; Conditions</a>
+      <p class="text-white/85 text-xs font-medium drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
+        <a href="privacy.html" class="underline underline-offset-2 hover:text-[#C89B3C] transition-colors">Privacy Policy</a>
+        <span class="mx-2" aria-hidden="true">&#183;</span>
+        <a href="terms.html" class="underline underline-offset-2 hover:text-[#C89B3C] transition-colors">Terms &amp; Conditions</a>
       </p>
     </div>
   </footer>
@@ -330,12 +336,15 @@
     hamburger.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
       const icon = hamburger.querySelector('i');
-      if (mobileMenu.classList.contains('hidden')) {
-        icon.classList.remove('fa-xmark');
-        icon.classList.add('fa-bars');
-      } else {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      if (isOpen) {
         icon.classList.remove('fa-bars');
         icon.classList.add('fa-xmark');
+      } else {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
       }
     });
 
