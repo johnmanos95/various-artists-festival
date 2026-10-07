@@ -197,6 +197,86 @@
     .nav-cta:hover {
       opacity: 0.88 !important;
     }
+    /* Sponsor nod: small strip linking to the sponsor section on the About page */
+    .sponsor-nod {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: .75rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 1.25rem;
+      background-color: rgba(255, 255, 255, 0.03);
+      color: #fff;
+      text-decoration: none;
+      transition: border-color .25s ease, background-color .25s ease;
+    }
+    .sponsor-nod:hover {
+      border-color: rgba(200, 155, 60, 0.7);
+      background-color: rgba(200, 155, 60, 0.07);
+    }
+    .sponsor-nod:focus-visible {
+      outline: 2px solid #C89B3C;
+      outline-offset: 3px;
+    }
+    .sponsor-nod-logo {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 9rem;
+      height: 6rem;
+      padding: .5rem;
+      border-radius: .85rem;
+      background-color: #EDE6D6;
+    }
+    .sponsor-nod-logo img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .sponsor-nod-text {
+      flex: 1;
+      min-width: 0;
+      text-align: left;
+    }
+    .sponsor-nod-text .sn-lead {
+      display: block;
+      font-size: .875rem;
+      color: #9ca3af;
+    }
+    .sponsor-nod-text .sn-name {
+      display: block;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: .35rem;
+    }
+    .sponsor-nod-text .sn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .875rem;
+      font-weight: 600;
+      color: #C89B3C;
+    }
+    .sponsor-nod-text .sn-link i {
+      transition: transform .25s ease;
+    }
+    .sponsor-nod:hover .sn-link i {
+      transform: translateX(4px);
+    }
+    @media (max-width: 479px) {
+      .sponsor-nod {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem 1rem 1.25rem;
+      }
+      .sponsor-nod-logo { width: 100%; }
+      .sponsor-nod-text { text-align: center; }
+    }
   </style>
 </head>
 <body class="bg-black text-white font-sans">
@@ -311,6 +391,22 @@
       <h2 class="text-4xl sm:text-5xl font-bold tracking-tighter mb-4">Don't miss it.</h2>
       <p class="text-gray-400 mb-10 max-w-xl mx-auto">One day, four stages, and a lineup of the region's best. Get your tickets to the Various Artists Festival before they're gone.</p>
       <a href="tickets.html" class="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold text-lg" style="background-color:#C89B3C; color:#111;">Get Tickets</a>
+    </div>
+  </section>
+
+  <!-- Sponsor nod -->
+  <section id="sponsor-nod" class="py-14 bg-black">
+    <div class="max-w-6xl mx-auto px-6">
+      <a href="about.html#sponsor" class="sponsor-nod" aria-label="Sponsored by Lancaster Flower Co. Learn more about our sponsor">
+        <span class="sponsor-nod-logo">
+          <img src="img/lancaster-flower-co-logo.webp" alt="" loading="lazy">
+        </span>
+        <span class="sponsor-nod-text">
+          <span class="sn-lead">Proudly sponsored by</span>
+          <span class="sn-name">Lancaster Flower Co.</span>
+          <span class="sn-link">Learn more about our sponsor <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </span>
+      </a>
     </div>
   </section>
 
