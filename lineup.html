@@ -292,7 +292,8 @@
       line-height: 1.1;
       font-size: clamp(1.1rem, 2.4vw, 1.5rem);
       box-shadow: 0 8px 16px rgba(0,0,0,.5);
-      transform: rotate(0deg);
+      transform: rotate(var(--r, 0deg)) translateY(0);
+      transition: transform .22s ease, box-shadow .22s ease;
     }
     /* colors (6) */
     .tag:nth-child(6n+1) { background: #EDE6D6; color: #111; }
@@ -307,11 +308,19 @@
     .tag:nth-child(4n+3) { font-family: 'Special Elite', monospace; font-size: clamp(1.05rem, 2.2vw, 1.35rem); }
     .tag:nth-child(4n)   { font-family: 'Archivo Black', sans-serif; font-size: clamp(1rem, 2.1vw, 1.3rem); }
     /* tilt (5) */
-    .tag:nth-child(5n+1) { transform: rotate(-2.2deg); }
-    .tag:nth-child(5n+2) { transform: rotate(1.4deg); }
-    .tag:nth-child(5n+3) { transform: rotate(-.6deg); }
-    .tag:nth-child(5n+4) { transform: rotate(2.3deg); }
-    .tag:nth-child(5n)   { transform: rotate(-1.5deg); }
+    .tag:nth-child(5n+1) { --r: -2.2deg; }
+    .tag:nth-child(5n+2) { --r: 1.4deg; }
+    .tag:nth-child(5n+3) { --r: -.6deg; }
+    .tag:nth-child(5n+4) { --r: 2.3deg; }
+    .tag:nth-child(5n)   { --r: -1.5deg; }
+    /* hover: the tag straightens a bit and lifts off the page */
+    .tag:hover {
+      transform: rotate(calc(var(--r, 0deg) * .3)) translateY(-6px);
+      box-shadow: 0 16px 24px rgba(0,0,0,.6);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tag { transition: none; }
+    }
     /* scale (3) */
     .tag:nth-child(3n+2) { zoom: 1.12; }
 
