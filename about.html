@@ -284,6 +284,16 @@
       color: #F3E3B0;
       transform: translateX(4px);
     }
+
+    /* ===== Shared page standard (matches Lineup page) ===== */
+    .page-hero .hero-cta { margin-bottom: 0; }
+    .page-hero .hero-cta .btn-outline { background: rgba(0,0,0,.25); }
+    .page-hero .hero-cta .btn-outline:hover { background: rgba(255,255,255,.18); }
+    .page-hero .hero-cta a:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+    .scroll-anchor { scroll-margin-top: 6rem; }
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
   </style>
 </head>
 <body class="bg-black text-white font-sans">
@@ -326,88 +336,93 @@
 
   <main id="main-content">
 
-  <!-- Page intro -->
-  <section class="pt-32 pb-4 bg-black">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h1 class="text-5xl font-bold tracking-tighter">About the Festival</h1>
-    </div>
-  </section>
-
-  <!-- About copy -->
-  <section id="about-copy" class="pt-10 pb-20 bg-black">
-    <div class="max-w-3xl mx-auto px-6 space-y-6 text-center">
-      <p class="text-xl sm:text-2xl text-white leading-relaxed font-medium">
+  <!-- Hero -->
+  <section class="page-hero relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-24" style="background-color:#123138;">
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <h1 class="text-6xl sm:text-7xl lg:text-8xl font-black tracking-tighter mb-6">About the Festival</h1>
+      <p class="text-lg sm:text-xl text-white/85 max-w-2xl mx-auto leading-relaxed">
         The very first Various Artists Festival by Sort of Vain LLC is coming to Lancaster, PA on November 28th at our city’s most exciting new performance venue, West Art.
       </p>
-      <p class="text-gray-300 leading-relaxed">
-        Sort of Vain is a Lancaster based booking and live production company founded in 2026 by Alex Hart. Our goal as a business is to bring the unique work of Lancaster area artists to a larger audience by hosting events and experiences designed to highlight the incredible talents of Lancaster's creative community.
-      </p>
-      <p class="text-gray-300 leading-relaxed">
-        Various Artists Festival will be a full-day event, across multiple stages, all in one venue - featuring one of a kind performances by local and regional musicians, comedians, and other genre-bending artists.
-      </p>
-      <p class="text-gray-300 leading-relaxed">
-        Our team is dedicated to producing an unforgettable experience that is full of surprises; where artists can come together in mutual appreciation and audiences can discover something new.
-      </p>
     </div>
   </section>
 
-  <!-- Presented By -->
-  <section id="presented-by" class="py-24 bg-zinc-950 checkerboard">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="grid sm:grid-cols-2 gap-6">
-        <div class="bg-black/50 border border-white/10 rounded-3xl p-8 hover:border-white/25 transition-colors">
-          <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-6">
-            <i class="fa-solid fa-music text-lg" aria-hidden="true"></i>
-          </div>
-          <p class="text-xs tracking-[0.2em] uppercase mb-2" style="color:#C89B3C;">Produced By</p>
-          <h2 class="text-2xl font-bold mb-3">Sort of Vain</h2>
-          <p class="text-gray-400 leading-relaxed">A Lancaster based booking and live production company founded in 2026 by Alex Hart. We're dedicated to spotlighting the incredible talent in our local creative scene.</p>
-        </div>
-        <a href="https://www.westartlanc.com/" target="_blank" rel="noopener" class="block bg-black/50 border border-white/10 rounded-3xl p-8 hover:border-white/25 transition-colors">
-          <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-6">
-            <i class="fa-solid fa-church text-lg" aria-hidden="true"></i>
-          </div>
-          <p class="text-xs tracking-[0.2em] uppercase mb-2" style="color:#C89B3C;">Hosted At</p>
-          <h2 class="text-2xl font-bold mb-3">West Art</h2>
-          <p class="text-gray-400 leading-relaxed">816 Buchanan Ave in Lancaster, PA. A historic church transformed into a one of a kind venue for live music, performance, and visual art by co-founders Rufus Deakin and Josh Gibbel.</p>
-        </a>
-      </div>
-    </div>
-  </section>
+  <!-- One continuous checkerboard behind the content sections -->
+  <div class="bg-zinc-950 checkerboard">
 
-
-  <!-- Sponsor -->
-  <section id="sponsor" class="py-24 bg-black">
-    <div class="max-w-4xl mx-auto px-6">
-      <p class="text-xs tracking-[0.2em] uppercase mb-3 text-center" style="color:#C89B3C;">Our Sponsor</p>
-      <h2 class="text-4xl sm:text-5xl font-bold tracking-tighter mb-12 text-center">Lancaster Flower Co.</h2>
-
-      <div class="bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden">
-        <!-- Logo: swap in the final file name if different -->
-        <div class="flex items-center justify-center px-6 py-2 sm:py-3" style="background-color:#EDE6D6;">
-          <img src="img/lancaster-flower-co-logo.webp" alt="Lancaster Flower Co. logo" class="h-48 sm:h-64 md:h-80 w-auto max-w-full object-contain">
-        </div>
-
-        <div class="p-8 sm:p-10 space-y-5 text-gray-300 leading-relaxed">
-          <p class="text-lg text-white">
-            Lancaster Flower Co. is all about texture, romance, and deliciousness when it comes to flowers. They are committed to working with only the best distributors worldwide to bring clients the best value and quality at the best prices.
+    <!-- About copy -->
+    <section id="about-copy" class="scroll-anchor py-20 sm:py-28">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="bg-black/70 border border-white/10 rounded-3xl px-8 py-10 sm:px-12 sm:py-14 space-y-6">
+          <p class="text-xl sm:text-2xl text-white leading-relaxed font-medium">
+            Sort of Vain is a Lancaster based booking and live production company founded in 2026 by Alex Hart. Our goal as a business is to bring the unique work of Lancaster area artists to a larger audience by hosting events and experiences designed to highlight the incredible talents of Lancaster's creative community.
           </p>
-          <p>
-            Their downtown Lititz shop is open every day and provides pre-constructed arrangements, plants, as well as custom orders. Custom services range from your traditional proms corsages and wedding bouquets to stunning wearable jewelry made from real flowers, bespoke styled photoshoots, monthly flower and plant delivery subscriptions, floral arches and table arrangements, and more.
+          <p class="text-lg text-gray-300 leading-relaxed">
+            Various Artists Festival will be a full-day event, across multiple stages, all in one venue - featuring one of a kind performances by local and regional musicians, comedians, and other genre-bending artists.
           </p>
-          <p>
-            Lancaster Flower Co. also provides a range of services for your events such as custom bloom bars, rental decor (such as scenic paper flowers, floral arches, vases, etc.), private classes, arrangement parties, and custom ordered balloons.
-          </p>
-          <p>
-            Place orders online at
-            <a href="http://lancasterflowerco.com" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">lancasterflowerco.com</a>
-            and follow on socials
-            <a href="https://instagram.com/lancasterflowerco" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">@lancasterflowerco</a>,
-            <a href="https://instagram.com/lancasterflowershop" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">@lancasterflowershop</a>, and
-            <a href="https://instagram.com/lancasterballoonco" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">@lancasterballoonco</a>.
+          <p class="text-lg text-gray-300 leading-relaxed">
+            Our team is dedicated to producing an unforgettable experience that is full of surprises; where artists can come together in mutual appreciation and audiences can discover something new.
           </p>
         </div>
       </div>
+    </section>
+
+    <!-- Presented By -->
+    <section id="presented-by" class="scroll-anchor pb-20 sm:pb-28">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-12 text-center">Behind the Festival</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="bg-black/70 border border-white/10 rounded-3xl p-8 hover:border-white/25 transition-colors">
+            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-6">
+              <i class="fa-solid fa-music text-lg" aria-hidden="true"></i>
+            </div>
+            <p class="text-sm font-semibold mb-2" style="color:#C89B3C;">Produced by</p>
+            <h3 class="text-2xl font-bold mb-3">Sort of Vain</h3>
+            <p class="text-gray-400 leading-relaxed">A Lancaster based booking and live production company founded in 2026 by Alex Hart. We're dedicated to spotlighting the incredible talent in our local creative scene.</p>
+          </div>
+          <a href="https://www.westartlanc.com/" target="_blank" rel="noopener" class="block bg-black/70 border border-white/10 rounded-3xl p-8 hover:border-white/25 transition-colors">
+            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-6">
+              <i class="fa-solid fa-church text-lg" aria-hidden="true"></i>
+            </div>
+            <p class="text-sm font-semibold mb-2" style="color:#C89B3C;">Hosted at</p>
+            <h3 class="text-2xl font-bold mb-3">West Art</h3>
+            <p class="text-gray-400 leading-relaxed">816 Buchanan Ave in Lancaster, PA. A historic church transformed into a one of a kind venue for live music, performance, and visual art by co-founders Rufus Deakin and Josh Gibbel.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sponsor -->
+    <section id="sponsor" class="scroll-anchor pb-24 sm:pb-32">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-12 text-center">Our Sponsor</h2>
+
+        <div class="bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden">
+          <!-- Logo: swap in the final file name if different -->
+          <div class="flex items-center justify-center px-6 py-2 sm:py-3" style="background-color:#EDE6D6;">
+            <img src="img/lancaster-flower-co-logo.webp" alt="Lancaster Flower Co. logo" class="h-48 sm:h-64 md:h-80 w-auto max-w-full object-contain">
+          </div>
+
+          <div class="p-8 sm:p-10 space-y-5 text-gray-300 leading-relaxed">
+            <h3 class="text-3xl font-bold tracking-tight text-white">Lancaster Flower Co.</h3>
+            <p class="text-lg text-white">
+              Lancaster Flower Co. is all about texture, romance, and deliciousness when it comes to flowers. They are committed to working with only the best distributors worldwide to bring clients the best value and quality at the best prices.
+            </p>
+            <p>
+              Their downtown Lititz shop is open every day and provides pre-constructed arrangements, plants, as well as custom orders. Custom services range from your traditional proms corsages and wedding bouquets to stunning wearable jewelry made from real flowers, bespoke styled photoshoots, monthly flower and plant delivery subscriptions, floral arches and table arrangements, and more.
+            </p>
+            <p>
+              Lancaster Flower Co. also provides a range of services for your events such as custom bloom bars, rental decor (such as scenic paper flowers, floral arches, vases, etc.), private classes, arrangement parties, and custom ordered balloons.
+            </p>
+            <p>
+              Place orders online at
+              <a href="http://lancasterflowerco.com" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">lancasterflowerco.com</a>
+              and follow on socials
+              <a href="https://instagram.com/lancasterflowerco" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">@lancasterflowerco</a>,
+              <a href="https://instagram.com/lancasterflowershop" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">@lancasterflowershop</a>, and
+              <a href="https://instagram.com/lancasterballoonco" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">@lancasterballoonco</a>.
+            </p>
+          </div>
+        </div>
 
       <!-- Sponsor website link -->
       <a href="http://lancasterflowerco.com" target="_blank" rel="noopener" class="sponsor-link mt-6">
@@ -422,24 +437,20 @@
         </span>
         <i class="fa-solid fa-arrow-right sponsor-link-arrow" aria-hidden="true"></i>
       </a>
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <!-- Become a sponsor CTA (intentionally not in the nav) -->
-  <section id="become-a-sponsor" class="py-24 bg-zinc-950 checkerboard">
-    <div class="max-w-3xl mx-auto px-6">
-      <div class="bg-black/70 backdrop-blur-sm border border-white/10 rounded-3xl px-8 py-12 sm:px-12 text-center">
-        <div class="w-14 h-14 rounded-full mx-auto mb-6 flex items-center justify-center" style="background-color:rgba(200,155,60,0.15); border:1px solid rgba(200,155,60,0.5);">
-          <i class="fa-solid fa-handshake text-xl" style="color:#C89B3C;" aria-hidden="true"></i>
-        </div>
-        <p class="text-xs tracking-[0.2em] uppercase mb-3" style="color:#C89B3C;">Partner With Us</p>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tighter mb-4">Want to be part of Various Artists?</h2>
-        <p class="text-gray-400 max-w-xl mx-auto mb-8 leading-relaxed">
-          Help bring Lancaster's creative community to a bigger stage. See the sponsorship packages and sign on today.
-        </p>
-        <a href="sponsor.html" class="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold text-lg transition-opacity hover:opacity-90" style="background-color:#C89B3C; color:#111;">
-          Become a Sponsor <i class="fa-solid fa-arrow-right text-base" aria-hidden="true"></i>
-        </a>
+  </div>
+
+  <!-- Become a sponsor (intentionally not in the nav) -->
+  <section id="become-a-sponsor" class="scroll-anchor py-24 sm:py-32 bg-black">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-5">Want to be part of Various Artists?</h2>
+      <p class="text-gray-400 mb-10 max-w-xl mx-auto text-lg leading-relaxed">
+        Help bring Lancaster's creative community to a bigger stage. See the sponsorship packages and sign on today.
+      </p>
+      <div class="hero-cta" style="margin-bottom:0;">
+        <a href="sponsor.html" class="btn-gold">Become a Sponsor</a>
       </div>
     </div>
   </section>
