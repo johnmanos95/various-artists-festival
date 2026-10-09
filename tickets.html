@@ -197,6 +197,13 @@
     .nav-cta:hover {
       opacity: 0.88 !important;
     }
+
+    /* ===== Shared page standard (matches Lineup page) ===== */
+    .page-hero .hero-cta { margin-bottom: 0; }
+    .scroll-anchor { scroll-margin-top: 6rem; }
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
   </style>
 </head>
 <body class="bg-black text-white font-sans">
@@ -239,21 +246,37 @@
 
   <main id="main-content">
 
-  <!-- Page intro -->
-  <section class="pt-32 pb-4 bg-black">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h1 class="text-5xl font-bold tracking-tighter mb-4">Get Your Tickets</h1>
-      <p class="text-gray-400 max-w-xl mx-auto">Nov 28, 2026 &middot; West Art, Lancaster, PA</p>
+  <!-- Hero -->
+  <section class="page-hero relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-24" style="background-color:#123138;">
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <h1 class="text-6xl sm:text-7xl lg:text-8xl font-black tracking-tighter mb-6">Get Your Tickets</h1>
+      <p class="text-lg sm:text-xl text-white/85 max-w-xl mx-auto leading-relaxed">
+        Saturday, November 28, 2026 at West Art in Lancaster, PA.
+      </p>
     </div>
   </section>
 
-  <!-- Ticket Widget -->
-  <section class="pt-10 pb-24 bg-black">
-    <div class="max-w-3xl mx-auto px-6">
-      <div class="bg-white rounded-3xl p-4 sm:p-6 shadow-2xl">
+  <!-- Ticket widget on the checkerboard -->
+  <div class="bg-zinc-950 checkerboard">
+    <section id="tickets" class="scroll-anchor py-20 sm:py-28">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="bg-white rounded-3xl p-4 sm:p-6 shadow-2xl">
         <!-- Ticket Tailor Widget. Paste this into your website where you want the widget to appear. Do not change the code or the widget may not work properly. -->
         <div class="tt-widget"><div class="tt-widget-fallback"><p><a href="https://www.tickettailor.com/all-tickets/variousartistsfest/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true" target="_blank">Click here to buy tickets</a><br /><small><a href="https://www.tickettailor.com?rf=wdg_318249" class="tt-widget-powered">Sell tickets online with Ticket Tailor</a></small></p></div><script src="https://cdn.tickettailor.com/js/widgets/min/widget.js" data-url="https://www.tickettailor.com/all-tickets/variousartistsfest/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true" data-type="inline" data-inline-minimal="true" data-inline-show-logo="false" data-inline-bg-fill="true" data-inline-inherit-ref-from-url-param="" data-inline-ref="website_widget"></script></div>
         <!-- End of Ticket Tailor Widget -->
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Help CTA -->
+  <section class="py-24 sm:py-32 bg-black">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-5">Questions about your order?</h2>
+      <p class="text-gray-400 mb-10 max-w-xl mx-auto text-lg leading-relaxed">Need to update an order, have a question about the day, or just want to make sure you're all set? We're happy to help. Send us an email or a message on Instagram and we'll sort it out together.</p>
+      <div class="hero-cta" style="margin-bottom:0;">
+        <a href="mailto:variousartistsfest@gmail.com" class="btn-gold">Email Us</a>
+        <a href="https://instagram.com/variousartistsfest" target="_blank" rel="noopener" class="btn-outline">Message on Instagram</a>
       </div>
     </div>
   </section>
