@@ -7,6 +7,9 @@
   <link rel="icon" type="image/png" href="img/favicon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Playfair+Display:ital,wght@1,900&family=Special+Elite&display=swap" rel="stylesheet">
   <style>
     .checkerboard {
       background-image:
@@ -197,6 +200,88 @@
     .nav-cta:hover {
       opacity: 0.88 !important;
     }
+
+    /* ===== Shared page standard (matches Lineup page) ===== */
+    .page-hero .hero-cta { margin-bottom: 0; }
+    .page-hero .hero-cta .btn-outline { background: rgba(0,0,0,.25); }
+    .page-hero .hero-cta .btn-outline:hover { background: rgba(255,255,255,.18); }
+    .page-hero .hero-cta a:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+    .scroll-anchor { scroll-margin-top: 6rem; }
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
+
+    /* Full lineup: cut-out name tags (ransom-note style).
+       Colors, fonts, tilt and size each cycle on a different interval,
+       so the pattern never repeats in a way that implies billing order. */
+    .bill-group + .bill-group { margin-top: 4rem; }
+    .bill-title {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin: 0 0 2rem;
+      color: #fff;
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .bill-title::before,
+    .bill-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(200,155,60,.55);
+    }
+    .bill {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.1rem 1rem;
+    }
+    .tag {
+      display: inline-block;
+      max-width: 100%;
+      padding: .45rem .95rem .55rem;
+      line-height: 1.1;
+      font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+      box-shadow: 0 8px 16px rgba(0,0,0,.5);
+      transform: rotate(var(--r, 0deg)) translateY(0);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    /* colors (6) */
+    .tag:nth-child(6n+1) { background: #EDE6D6; color: #111; }
+    .tag:nth-child(6n+2) { background: #121212; color: #fff; outline: 1px solid rgba(255,255,255,.35); outline-offset: -1px; }
+    .tag:nth-child(6n+3) { background: #2A5F6A; color: #fff; }
+    .tag:nth-child(6n+4) { background: #C89B3C; color: #111; }
+    .tag:nth-child(6n+5) { background: #C23A62; color: #fff; }
+    .tag:nth-child(6n)   { background: #A9D6E5; color: #111; }
+    /* typefaces (4) */
+    .tag:nth-child(4n+1) { font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: .03em; font-size: clamp(1.2rem, 2.6vw, 1.65rem); }
+    .tag:nth-child(4n+2) { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; }
+    .tag:nth-child(4n+3) { font-family: 'Special Elite', monospace; font-size: clamp(1.05rem, 2.2vw, 1.35rem); }
+    .tag:nth-child(4n)   { font-family: 'Archivo Black', sans-serif; font-size: clamp(1rem, 2.1vw, 1.3rem); }
+    /* tilt (5) */
+    .tag:nth-child(5n+1) { --r: -2.2deg; }
+    .tag:nth-child(5n+2) { --r: 1.4deg; }
+    .tag:nth-child(5n+3) { --r: -.6deg; }
+    .tag:nth-child(5n+4) { --r: 2.3deg; }
+    .tag:nth-child(5n)   { --r: -1.5deg; }
+    /* hover: the tag straightens a bit and lifts off the page */
+    .tag:hover {
+      transform: rotate(calc(var(--r, 0deg) * .3)) translateY(-6px);
+      box-shadow: 0 16px 24px rgba(0,0,0,.6);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tag { transition: none; }
+    }
+    /* scale (3) */
+    .tag:nth-child(3n+2) { zoom: 1.12; }
+
+    /* Stage tags: same cut-out tags as the lineup, scaled up */
+    .bill.stages { zoom: 1.55; gap: 1.4rem 1.2rem; }
   </style>
 </head>
 <body class="bg-black text-white font-sans">
@@ -239,70 +324,88 @@
 
   <main id="main-content">
 
-  <!-- Page intro -->
-  <section class="pt-32 pb-16 bg-black">
-    <div class="max-w-3xl mx-auto px-6 text-center">
-      <h1 class="text-5xl font-bold tracking-tighter mb-6">West Art</h1>
-      <p class="text-gray-300 leading-relaxed">
-        This November, the very first Various Artists Festival takes over West Art, a historic
-        church in the heart of Lancaster, transformed into a one-of-a-kind venue for live music,
-        comedy, and visual art. Part of what makes this day special is the building itself: as you
-        make your way through every room and up every floor, you'll stumble into something new,
-        comedy around one corner, music down the next hall, and a few surprises we're saving for the
-        day of. It's a festival built for wandering and discovery.
+  <!-- Hero -->
+  <section class="page-hero relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-24" style="background-color:#123138;">
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <h1 class="text-6xl sm:text-7xl lg:text-8xl font-black tracking-tighter mb-6">West Art</h1>
+      <p class="text-lg sm:text-xl text-white/85 max-w-xl mx-auto leading-relaxed">
+        A historic church in the heart of Lancaster, turned into four stages for one unforgettable day on Saturday, November 28.
       </p>
     </div>
   </section>
 
-  <!-- Key elements -->
-  <section class="py-20 bg-zinc-950 checkerboard">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tighter text-center mb-3">Four Stages, One Building</h2>
-      <p class="text-gray-400 text-center max-w-2xl mx-auto mb-12">
-        From grand-scale energy to deep, personal basement vibes, Various Artists spreads out across
-        every level of West Art's historic building.
-      </p>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="bg-black/50 border border-white/10 rounded-3xl p-6 text-center hover:border-white/25 transition-colors">
-          <p class="font-semibold">City Hall</p>
-        </div>
-        <div class="bg-black/50 border border-white/10 rounded-3xl p-6 text-center hover:border-white/25 transition-colors">
-          <p class="font-semibold">The Sanctuary</p>
-        </div>
-        <div class="bg-black/50 border border-white/10 rounded-3xl p-6 text-center hover:border-white/25 transition-colors">
-          <p class="font-semibold">Art Bar</p>
-        </div>
-        <div class="bg-black/50 border border-white/10 rounded-3xl p-6 text-center hover:border-white/25 transition-colors">
-          <p class="font-semibold">The Elbow Room</p>
+  <!-- One continuous checkerboard behind the content sections -->
+  <div class="bg-zinc-950 checkerboard">
+
+    <!-- Intro -->
+    <section id="intro" class="scroll-anchor py-20 sm:py-28">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="bg-black/70 border border-white/10 rounded-3xl px-8 py-10 sm:px-12 sm:py-14">
+          <p class="text-lg sm:text-xl text-gray-200 leading-relaxed">
+            This November, the very first Various Artists Festival takes over West Art, a historic
+            church in the heart of Lancaster, transformed into a one-of-a-kind venue for live music,
+            comedy, and visual art. Part of what makes this day special is the building itself: as you
+            make your way through every room and up every floor, you'll stumble into something new,
+            comedy around one corner, music down the next hall, and a few surprises we're saving for the
+            day of. It's a festival built for wandering and discovery.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Visit West Art -->
-  <section class="py-20 bg-black">
-    <div class="max-w-2xl mx-auto px-6 text-center">
-      <p class="text-xs tracking-[0.2em] uppercase mb-3" style="color:#C89B3C;">Hosted At</p>
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tighter mb-4">West Art</h2>
-      <p class="text-gray-400 mb-8">
-        816 Buchanan Ave, Lancaster, PA. Co-founded by Rufus Deakin and Josh Gibbel. Visit their
-        site to see more of the space and everything else they host throughout the year.
-      </p>
-      <a href="https://www.westartlanc.com/" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold" style="border:1px solid rgba(255,255,255,0.7); color:#fff;">
-        <i class="fa-solid fa-globe" aria-hidden="true"></i> westartlanc.com
-      </a>
-    </div>
-  </section>
+    <!-- Stages -->
+    <section id="stages" class="scroll-anchor pb-20 sm:pb-28">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-14">
+          <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-4">Four Stages, One Building</h2>
+          <p class="text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            From grand-scale energy to deep, personal basement vibes, Various Artists spreads out across
+            every level of West Art's historic building.
+          </p>
+        </div>
+        <ul class="bill stages">
+          <li class="tag">City Hall</li>
+          <li class="tag">The Sanctuary</li>
+          <li class="tag">Art Bar</li>
+          <li class="tag">The Elbow Room</li>
+        </ul>
+      </div>
+    </section>
 
-  <!-- Directions -->
-  <section class="py-20 bg-zinc-950 checkerboard">
-    <div class="max-w-2xl mx-auto px-6 text-center">
-      <p class="text-xs tracking-[0.2em] uppercase mb-3" style="color:#C89B3C;">Getting There</p>
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tighter mb-4">Find Your Way to West Art</h2>
-      <p class="text-gray-400 mb-8">816 Buchanan Ave, Lancaster, PA</p>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=816+Buchanan+Ave%2C+Lancaster%2C+PA" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-bold" style="background-color:#C89B3C; color:#111;">
-        <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Get Directions
-      </a>
+    <!-- Visit + directions -->
+    <section id="visit" class="scroll-anchor pb-24 sm:pb-32">
+      <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-6">
+        <div class="bg-black/70 border border-white/10 rounded-3xl p-8 sm:p-10 text-center flex flex-col items-center">
+          <h2 class="text-3xl sm:text-4xl font-black tracking-tighter mb-4">Hosted at West Art</h2>
+          <p class="text-gray-400 leading-relaxed mb-8">
+            816 Buchanan Ave, Lancaster, PA. Co-founded by Rufus Deakin and Josh Gibbel. Visit their
+            site to see more of the space and everything else they host throughout the year.
+          </p>
+          <a href="https://www.westartlanc.com/" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold transition-colors hover:bg-white/10" style="border:1px solid rgba(255,255,255,0.7); color:#fff;">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i> westartlanc.com
+          </a>
+        </div>
+        <div id="directions" class="scroll-anchor bg-black/70 border border-white/10 rounded-3xl p-8 sm:p-10 text-center flex flex-col items-center">
+          <h2 class="text-3xl sm:text-4xl font-black tracking-tighter mb-4">Find Your Way to West Art</h2>
+          <p class="text-gray-400 leading-relaxed mb-8">816 Buchanan Ave, Lancaster, PA</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=816+Buchanan+Ave%2C+Lancaster%2C+PA" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-bold transition-opacity hover:opacity-90" style="background-color:#C89B3C; color:#111;">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Get Directions
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Ticket CTA -->
+  <section class="py-24 sm:py-32 bg-black">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-5">See you on the 28th.</h2>
+      <p class="text-gray-400 mb-10 max-w-xl mx-auto text-lg leading-relaxed">Four stages, one building, and a full day of music and comedy at West Art. Get your tickets before they're gone.</p>
+      <div class="hero-cta" style="margin-bottom:0;">
+        <a href="tickets.html" class="btn-gold">Get Tickets</a>
+        <a href="lineup.html" class="btn-outline">See the lineup</a>
+      </div>
     </div>
   </section>
 
