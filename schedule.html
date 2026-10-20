@@ -294,6 +294,10 @@
       transition: opacity .25s ease, filter .25s ease;
     }
     .act i { font-size: .8rem; flex-shrink: 0; }
+    .act-text { display: flex; flex-direction: column; align-items: center; gap: .15rem; }
+    .act-time { font-size: .8rem; line-height: 1.1; opacity: .95; }
+    .act.redacted { padding-top: .5rem; padding-bottom: .5rem; }
+    .act.redacted .act-time { color: #f4efe3; }
     .act.music { background: #357784; color: #fff; }
     .act.comedy { background: #ffd4d5; color: #3b2314; border: 1.5px solid #8a4b52; }
     .act.perf { background: #c3b68a; color: #3b2314; border: 1.5px solid #6b5f3a; }
@@ -417,7 +421,7 @@
             </ul>
 
             <table class="sched show-city" id="sched-table">
-              <caption>Festival day set times by stage. All times are p.m. and approximate.</caption>
+              <caption>Festival day set times by stage. All times are p.m.</caption>
               <thead>
                 <tr>
                   <th scope="col" class="time-h">Time</th>
@@ -428,103 +432,148 @@
               <tbody>
           <tr class="no-sanct">
             <th scope="row" class="time">12:00<span class="sr-only"> PM</span></th>
-            <td class="cell col-city"><div class="act redacted"><span class="redacted-word" role="img" aria-label="Redacted"><span class="rl rl2">R</span><span class="rl rl3">E</span><span class="rl rl4">D</span><span class="rl rl5">A</span><span class="rl rl6">C</span><span class="rl rl1">T</span><span class="rl rl2">E</span><span class="rl rl3">D</span></span></div></td>
+            <td class="cell col-city"><div class="act redacted"><span class="act-text"><span class="redacted-word" role="img" aria-label="Redacted"><span class="rl rl2">R</span><span class="rl rl3">E</span><span class="rl rl4">D</span><span class="rl rl5">A</span><span class="rl rl6">C</span><span class="rl rl1">T</span><span class="rl rl2">E</span><span class="rl rl3">D</span></span><span class="act-time">12:00 &ndash; 12:10</span></span></div></td>
+            <td class="cell col-sanct"></td>
+          </tr>
+          <tr class="no-sanct">
+            <th scope="row" class="time">12:20<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Music: </span>Monk Mode</span><span class="act-time">12:20 &ndash; 12:40</span></span></div></td>
+            <td class="cell col-sanct"></td>
+          </tr>
+          <tr class="no-city">
+            <th scope="row" class="time">12:30<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Comedy: </span>Alex Hart</span><span class="act-time">12:30 &ndash; 12:40</span></span></div></td>
+          </tr>
+          <tr class="no-city">
+            <th scope="row" class="time">12:40<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Comedy: </span>Alex Dorsheimer</span><span class="act-time">12:40 &ndash; 12:55</span></span></div></td>
+          </tr>
+          <tr class="no-sanct">
+            <th scope="row" class="time">12:50<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Music: </span>The Allfornauts</span><span class="act-time">12:50 &ndash; 1:10</span></span></div></td>
+            <td class="cell col-sanct"></td>
+          </tr>
+          <tr class="no-city">
+            <th scope="row" class="time">1:00<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"></td>
+            <td class="cell col-sanct"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Music: </span>Aleah</span><span class="act-time">1:00 &ndash; 1:15</span></span></div></td>
+          </tr>
+          <tr class="">
+            <th scope="row" class="time">1:20<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Comedy: </span>Ernest</span><span class="act-time">1:20 &ndash; 1:40</span></span></div></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Comedy: </span>Jennifer Dawn</span><span class="act-time">1:20 &ndash; 1:30</span></span></div></td>
+          </tr>
+          <tr class="no-city">
+            <th scope="row" class="time">1:35<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Comedy: </span>Nehem Felices</span><span class="act-time">1:35 &ndash; 1:45</span></span></div></td>
+          </tr>
+          <tr class="no-sanct">
+            <th scope="row" class="time">1:50<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act redacted"><span class="act-text"><span class="redacted-word" role="img" aria-label="Redacted"><span class="rl rl3">R</span><span class="rl rl4">E</span><span class="rl rl5">D</span><span class="rl rl6">A</span><span class="rl rl1">C</span><span class="rl rl2">T</span><span class="rl rl3">E</span><span class="rl rl4">D</span></span><span class="act-time">1:50 &ndash; 2:00</span></span></div></td>
             <td class="cell col-sanct"></td>
           </tr>
           <tr class="">
-            <th scope="row" class="time">12:30<span class="sr-only"> PM</span></th>
-            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Monk Mode</span></div></td>
-            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Alex Hart</span></div></td>
-          </tr>
-          <tr class="no-city">
-            <th scope="row" class="time">12:45<span class="sr-only"> PM</span></th>
-            <td class="cell col-city"></td>
-            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Alex Dorsheimer</span></div></td>
-          </tr>
-          <tr class="">
-            <th scope="row" class="time">1:00<span class="sr-only"> PM</span></th>
-            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>The Allfornauts</span></div></td>
-            <td class="cell col-sanct"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Aleah</span></div></td>
-          </tr>
-          <tr class="no-city">
-            <th scope="row" class="time">1:15<span class="sr-only"> PM</span></th>
-            <td class="cell col-city"></td>
-            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Jennifer Dawn</span></div></td>
-          </tr>
-          <tr class="">
-            <th scope="row" class="time">1:30<span class="sr-only"> PM</span></th>
-            <td class="cell col-city"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Ernest</span></div></td>
-            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Nehem Felices</span></div></td>
-          </tr>
-          <tr class="">
             <th scope="row" class="time">2:00<span class="sr-only"> PM</span></th>
-            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Cabbage Hill</span></div></td>
-            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Hippie &amp; Frenchie</span></div></td>
-          </tr>
-          <tr class="">
-            <th scope="row" class="time">2:30<span class="sr-only"> PM</span></th>
-            <td class="cell col-city"><div class="act redacted"><span class="redacted-word" role="img" aria-label="Redacted"><span class="rl rl3">R</span><span class="rl rl4">E</span><span class="rl rl5">D</span><span class="rl rl6">A</span><span class="rl rl1">C</span><span class="rl rl2">T</span><span class="rl rl3">E</span><span class="rl rl4">D</span></span></div></td>
-            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Ashley Harbinson</span></div></td>
+            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Music: </span>Cabbage Hill</span><span class="act-time">2:00 &ndash; 2:30</span></span></div></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Comedy: </span>Hippie &amp; Frenchie</span><span class="act-time">2:00 &ndash; 2:20</span></span></div></td>
           </tr>
           <tr class="no-city">
-            <th scope="row" class="time">2:45<span class="sr-only"> PM</span></th>
+            <th scope="row" class="time">2:25<span class="sr-only"> PM</span></th>
             <td class="cell col-city"></td>
-            <td class="cell col-sanct"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Alex Stanilla</span></div></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Comedy: </span>Ashley Harbinson</span><span class="act-time">2:25 &ndash; 2:35</span></span></div></td>
           </tr>
           <tr class="">
-            <th scope="row" class="time">3:00<span class="sr-only"> PM</span></th>
-            <td class="cell col-city"><div class="act redacted"><span class="redacted-word" role="img" aria-label="Redacted"><span class="rl rl4">R</span><span class="rl rl5">E</span><span class="rl rl6">D</span><span class="rl rl1">A</span><span class="rl rl2">C</span><span class="rl rl3">T</span><span class="rl rl4">E</span><span class="rl rl5">D</span></span></div></td>
-            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Kirk Griffiths</span></div></td>
+            <th scope="row" class="time">2:40<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act redacted"><span class="act-text"><span class="redacted-word" role="img" aria-label="Redacted"><span class="rl rl4">R</span><span class="rl rl5">E</span><span class="rl rl6">D</span><span class="rl rl1">A</span><span class="rl rl2">C</span><span class="rl rl3">T</span><span class="rl rl4">E</span><span class="rl rl5">D</span></span><span class="act-time">2:40 &ndash; 3:00</span></span></div></td>
+            <td class="cell col-sanct"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Music: </span>Alex Stanilla</span><span class="act-time">2:40 &ndash; 3:00</span></span></div></td>
+          </tr>
+          <tr class="no-city">
+            <th scope="row" class="time">3:05<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Comedy: </span>Kirk Griffiths</span><span class="act-time">3:05 &ndash; 3:25</span></span></div></td>
           </tr>
           <tr class="no-sanct">
-            <th scope="row" class="time">3:30<span class="sr-only"> PM</span></th>
-            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Rutherford Hill</span></div></td>
+            <th scope="row" class="time">3:10<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act redacted"><span class="act-text"><span class="redacted-word" role="img" aria-label="Redacted"><span class="rl rl5">R</span><span class="rl rl6">E</span><span class="rl rl1">D</span><span class="rl rl2">A</span><span class="rl rl3">C</span><span class="rl rl4">T</span><span class="rl rl5">E</span><span class="rl rl6">D</span></span><span class="act-time">3:10 &ndash; 3:30</span></span></div></td>
+            <td class="cell col-sanct"></td>
+          </tr>
+          <tr class="no-sanct">
+            <th scope="row" class="time">3:40<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Music: </span>Rutherford Hill</span><span class="act-time">3:40 &ndash; 4:00</span></span></div></td>
             <td class="cell col-sanct"></td>
           </tr>
           <tr class="no-city">
             <th scope="row" class="time">4:00<span class="sr-only"> PM</span></th>
             <td class="cell col-city"></td>
-            <td class="cell col-sanct"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Olivia Basar</span></div></td>
-          </tr>
-          <tr class="">
-            <th scope="row" class="time">4:30<span class="sr-only"> PM</span></th>
-            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Aardvaark</span></div></td>
-            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Brandon Koss</span></div></td>
-          </tr>
-          <tr class="">
-            <th scope="row" class="time">5:00<span class="sr-only"> PM</span></th>
-            <td class="cell col-city"><div class="act redacted"><span class="redacted-word" role="img" aria-label="Redacted"><span class="rl rl5">R</span><span class="rl rl6">E</span><span class="rl rl1">D</span><span class="rl rl2">A</span><span class="rl rl3">C</span><span class="rl rl4">T</span><span class="rl rl5">E</span><span class="rl rl6">D</span></span></div></td>
-            <td class="cell col-sanct"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Chalkboard Conspiracy</span></div></td>
-          </tr>
-          <tr class="">
-            <th scope="row" class="time">5:30<span class="sr-only"> PM</span></th>
-            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Stillflow</span></div></td>
-            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Jackie Benhayon</span></div></td>
+            <td class="cell col-sanct"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Music: </span>Olivia Basar</span><span class="act-time">4:00 &ndash; 4:30</span></span></div></td>
           </tr>
           <tr class="no-sanct">
-            <th scope="row" class="time">6:00<span class="sr-only"> PM</span></th>
-            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Local News Legend</span></div></td>
+            <th scope="row" class="time">4:20<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Music: </span>Aardvaark</span><span class="act-time">4:20 &ndash; 4:50</span></span></div></td>
             <td class="cell col-sanct"></td>
           </tr>
           <tr class="no-city">
-            <th scope="row" class="time">6:30<span class="sr-only"> PM</span></th>
+            <th scope="row" class="time">4:40<span class="sr-only"> PM</span></th>
             <td class="cell col-city"></td>
-            <td class="cell col-sanct"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>PINK i</span></div></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Comedy: </span>Brandon Koss</span><span class="act-time">4:40 &ndash; 4:55</span></span></div></td>
+          </tr>
+          <tr class="no-sanct">
+            <th scope="row" class="time">4:50<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act redacted"><span class="act-text"><span class="redacted-word" role="img" aria-label="Redacted"><span class="rl rl6">R</span><span class="rl rl1">E</span><span class="rl rl2">D</span><span class="rl rl3">A</span><span class="rl rl4">C</span><span class="rl rl5">T</span><span class="rl rl6">E</span><span class="rl rl1">D</span></span><span class="act-time">4:50 &ndash; 5:00</span></span></div></td>
+            <td class="cell col-sanct"></td>
+          </tr>
+          <tr class="no-city">
+            <th scope="row" class="time">5:10<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"></td>
+            <td class="cell col-sanct"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Music: </span>Chalkboard Conspiracy</span><span class="act-time">5:10 &ndash; 5:30</span></span></div></td>
+          </tr>
+          <tr class="no-sanct">
+            <th scope="row" class="time">5:30<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Music: </span>Stillflow</span><span class="act-time">5:30 &ndash; 6:00</span></span></div></td>
+            <td class="cell col-sanct"></td>
+          </tr>
+          <tr class="no-city">
+            <th scope="row" class="time">5:40<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Comedy: </span>Jackie Benhayon</span><span class="act-time">5:40 &ndash; 6:00</span></span></div></td>
+          </tr>
+          <tr class="no-sanct">
+            <th scope="row" class="time">6:10<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Music: </span>Local News Legend</span><span class="act-time">6:10 &ndash; 6:40</span></span></div></td>
+            <td class="cell col-sanct"></td>
+          </tr>
+          <tr class="no-city">
+            <th scope="row" class="time">6:20<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"></td>
+            <td class="cell col-sanct"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Music: </span>PINK i</span><span class="act-time">6:20 &ndash; 6:50</span></span></div></td>
           </tr>
           <tr class="hl">
             <th scope="row" class="time">7:00<span class="sr-only"> PM</span></th>
-            <td class="cell col-city"><div class="act comedy headliner"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Alan Massenburg</span><i class="fa-solid fa-star act-star" aria-hidden="true"></i></div></td>
-            <td class="cell col-sanct"><div class="act perf"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span><span class="sr-only">Special performance: </span>Drag Bingo with XxAVOiDANCE</span></div></td>
+            <td class="cell col-city"><div class="act comedy headliner"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Comedy: </span>Alan Massenburg</span><span class="act-time">7:00 &ndash; 7:40</span></span><i class="fa-solid fa-star act-star" aria-hidden="true"></i></div></td>
+            <td class="cell col-sanct"><div class="act perf"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Special performance: </span>Drag Bingo with XxAVOiDANCE</span><span class="act-time">7:00 &ndash; 8:00</span></span></div></td>
           </tr>
           <tr class="hl no-sanct">
             <th scope="row" class="time">8:00<span class="sr-only"> PM</span></th>
-            <td class="cell col-city"><div class="act music headliner"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Spilly Cave</span><i class="fa-solid fa-star act-star" aria-hidden="true"></i></div></td>
+            <td class="cell col-city"><div class="act music headliner"><i class="fa-solid fa-music" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Music: </span>Spilly Cave</span><span class="act-time">8:00 &ndash; 8:50</span></span><i class="fa-solid fa-star act-star" aria-hidden="true"></i></div></td>
+            <td class="cell col-sanct"></td>
+          </tr>
+          <tr class="no-sanct">
+            <th scope="row" class="time">9:05<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act redacted"><span class="act-text"><span class="redacted-word" role="img" aria-label="Redacted"><span class="rl rl1">R</span><span class="rl rl2">E</span><span class="rl rl3">D</span><span class="rl rl4">A</span><span class="rl rl5">C</span><span class="rl rl6">T</span><span class="rl rl1">E</span><span class="rl rl2">D</span></span><span class="act-time">9:05 &ndash; 9:10</span></span></div></td>
+            <td class="cell col-sanct"></td>
+          </tr>
+          <tr class="no-sanct">
+            <th scope="row" class="time">9:10<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act perf"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span class="act-text"><span class="act-name"><span class="sr-only">Special performance: </span>After Party with Cycloan</span><span class="act-time">9:10 &ndash; 9:50</span></span></div></td>
             <td class="cell col-sanct"></td>
           </tr>
               </tbody>
             </table>
 
-            <p class="foot-note">All times p.m. and approximate. Set times can change, and any updates will be shared on this site and on Instagram.</p>
+            <p class="foot-note">All times p.m. Set times can change, and any updates will be shared on this site and on Instagram.</p>
           </div>
         </div>
       </div>
@@ -538,12 +587,12 @@
           <div class="extra-card">
             <div class="icon"><i class="fa-solid fa-wand-magic-sparkles text-lg" aria-hidden="true"></i></div>
             <h3 class="text-2xl font-bold mb-2">Crazy Eyes Liquid Light Show</h3>
-            <p class="text-gray-400 leading-relaxed">Time to be announced.</p>
+            <p class="text-gray-400 leading-relaxed">Starts at 4:00 PM.</p>
           </div>
           <div class="extra-card">
-            <div class="icon"><i class="fa-solid fa-champagne-glasses text-lg" aria-hidden="true"></i></div>
-            <h3 class="text-2xl font-bold mb-2">After Party with Cycloan</h3>
-            <p class="text-gray-400 leading-relaxed">In City Hall. Time to be announced.</p>
+            <div class="icon"><i class="fa-solid fa-shirt text-lg" aria-hidden="true"></i></div>
+            <h3 class="text-2xl font-bold mb-2">Merch</h3>
+            <p class="text-gray-400 leading-relaxed">Open from 8:00 to 9:50 PM.</p>
           </div>
         </div>
       </div>
