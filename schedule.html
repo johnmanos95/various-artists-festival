@@ -7,6 +7,9 @@
   <link rel="icon" type="image/png" href="img/favicon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Playfair+Display:ital,wght@1,900&family=Special+Elite&display=swap" rel="stylesheet">
   <style>
     .checkerboard {
       background-image:
@@ -197,6 +200,136 @@
     .nav-cta:hover {
       opacity: 0.88 !important;
     }
+    /* Hero: warm gray with torn construction-paper title (same as Lineup page) */
+    .page-hero { background-color: #7f7b71; }
+    .paper-title {
+      position: relative;
+      max-width: 46rem;
+      margin: 0 auto 2.75rem;
+      transform: rotate(-1deg);
+      filter: drop-shadow(0 12px 16px rgba(40, 25, 10, .38));
+    }
+    .paper-back {
+      position: absolute;
+      inset: -8px;
+      background: #e4dbc5;
+      clip-path: polygon(0.0% 3.9px, 4.2% 3.3px, 6.7% 4.1px, 9.4% 3.6px, 13.6% 5.6px, 15.9% 2.1px, 19.2% 5.7px, 23.7% 0.3px, 27.6% 6.8px, 30.3% 4.3px, 32.6% 0.1px, 36.7% 0.4px, 39.4% 1.7px, 42.4% 3.2px, 46.5% 5.9px, 50.0% 4.5px, 53.3% 4.6px, 56.6% 1.9px, 61.0% 7.0px, 64.0% 5.0px, 66.3% 1.6px, 69.6% 0.5px, 73.9% 2.8px, 77.4% 2.7px, 80.9% 5.9px, 82.3% 1.5px, 87.5% 3.3px, 91.0% 2.8px, 92.5% 4.4px, 97.2% 1.9px, 99.2% 2.3px, calc(100% - 5.3px) 13.0%, calc(100% - 1.7px) 20.7%, calc(100% - 0.4px) 31.7%, calc(100% - 1.2px) 45.6%, calc(100% - 3.1px) 55.8%, calc(100% - 5.1px) 65.4%, calc(100% - 4.5px) 76.3%, calc(100% - 2.9px) 87.4%, calc(100% - 1.5px) 100.0%, 99.5% calc(100% - 6.8px), 97.3% calc(100% - 2.1px), 94.1% calc(100% - 1.5px), 89.8% calc(100% - 6.0px), 87.0% calc(100% - 0.7px), 84.3% calc(100% - 1.5px), 79.5% calc(100% - 5.4px), 76.3% calc(100% - 2.1px), 72.5% calc(100% - 0.6px), 70.2% calc(100% - 1.7px), 66.9% calc(100% - 2.6px), 63.2% calc(100% - 6.7px), 60.0% calc(100% - 4.0px), 57.4% calc(100% - 1.3px), 52.6% calc(100% - 6.4px), 50.6% calc(100% - 1.7px), 46.0% calc(100% - 5.2px), 44.2% calc(100% - 1.4px), 40.9% calc(100% - 6.2px), 36.9% calc(100% - 3.0px), 32.5% calc(100% - 0.3px), 30.9% calc(100% - 1.7px), 27.1% calc(100% - 1.8px), 24.0% calc(100% - 4.2px), 19.6% calc(100% - 1.2px), 17.1% calc(100% - 0.5px), 12.8% calc(100% - 3.9px), 10.7% calc(100% - 4.3px), 6.2% calc(100% - 6.4px), 2.7% calc(100% - 0.1px), 0.0% calc(100% - 3.1px), 1.2px 87.1%, 4.0px 77.3%, 2.5px 65.2%, 6.9px 57.1%, 4.8px 45.1%, 1.0px 33.7%, 0.1px 20.4%, 4.9px 12.8%);
+    }
+    .paper-front {
+      position: relative;
+      padding: 2.5rem 1.5rem 2.75rem;
+      color: #3b2314;
+      background-color: #fffdf8;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35  0 0 0 0 .25  0 0 0 0 .15  0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      clip-path: polygon(0.1% 1.7px, 4.0% 1.4px, 6.7% 1.7px, 9.8% 4.9px, 12.5% 2.2px, 16.1% 1.7px, 21.0% 1.6px, 23.5% 2.1px, 27.1% 2.2px, 29.3% 2.2px, 33.1% 4.0px, 36.8% 1.0px, 40.3% 1.5px, 43.4% 1.1px, 46.5% 3.9px, 50.0% 3.8px, 53.8% 2.9px, 57.0% 2.0px, 60.2% 3.9px, 62.5% 4.7px, 66.4% 0.7px, 69.3% 1.7px, 72.5% 2.0px, 76.5% 3.3px, 79.9% 4.7px, 83.7% 1.6px, 87.4% 3.5px, 90.9% 3.7px, 94.3% 1.0px, 96.2% 4.9px, 99.0% 4.6px, calc(100% - 0.7px) 12.8%, calc(100% - 4.6px) 20.8%, calc(100% - 4.3px) 35.2%, calc(100% - 3.8px) 45.3%, calc(100% - 0.0px) 54.8%, calc(100% - 4.4px) 67.2%, calc(100% - 2.6px) 79.6%, calc(100% - 0.9px) 86.9%, calc(100% - 2.2px) 100.0%, 99.5% calc(100% - 0.1px), 96.1% calc(100% - 2.5px), 92.6% calc(100% - 0.6px), 89.3% calc(100% - 0.2px), 87.2% calc(100% - 4.3px), 82.7% calc(100% - 3.2px), 80.8% calc(100% - 1.2px), 76.3% calc(100% - 4.4px), 73.9% calc(100% - 3.1px), 70.6% calc(100% - 2.9px), 66.3% calc(100% - 3.4px), 63.9% calc(100% - 0.3px), 59.6% calc(100% - 1.5px), 57.4% calc(100% - 1.4px), 53.7% calc(100% - 2.2px), 49.8% calc(100% - 2.5px), 47.5% calc(100% - 3.3px), 43.1% calc(100% - 0.8px), 39.7% calc(100% - 2.4px), 37.0% calc(100% - 5.0px), 33.0% calc(100% - 4.7px), 30.8% calc(100% - 2.2px), 26.1% calc(100% - 1.2px), 24.2% calc(100% - 0.9px), 20.3% calc(100% - 3.3px), 16.0% calc(100% - 0.2px), 13.6% calc(100% - 0.3px), 10.1% calc(100% - 4.9px), 6.6% calc(100% - 1.6px), 2.5% calc(100% - 1.5px), 0.0% calc(100% - 0.6px), 3.0px 89.7%, 0.5px 78.6%, 4.6px 65.7%, 1.8px 53.6%, 1.1px 45.7%, 3.2px 32.2%, 1.7px 21.2%, 1.5px 10.7%);
+    }
+    @media (min-width: 640px) {
+      .paper-front { padding: 3.25rem 3rem 3.5rem; }
+    }
+    .page-hero .paper-title { margin-bottom: 0; }
+
+    .scroll-anchor { scroll-margin-top: 6rem; }
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
+
+    /* ===== Schedule page ===== */
+    .sheet { position: relative; max-width: 64rem; margin: 0 auto; filter: drop-shadow(0 14px 20px rgba(0,0,0,.5)); }
+    .sheet-back { position: absolute; inset: -9px; background: #e4dbc5; clip-path: polygon(0.2% 5.2px, 2.9% 6.6px, 5.0% 6.5px, 5.9% 3.3px, 10.0% 4.5px, 12.2% 0.8px, 13.6% 1.7px, 16.0% 4.0px, 17.2% 1.5px, 20.0% 6.4px, 23.3% 1.1px, 25.6% 1.0px, 27.5% 0.9px, 28.5% 6.1px, 31.2% 1.5px, 35.1% 6.1px, 35.9% 6.7px, 38.7% 4.7px, 40.3% 6.6px, 43.6% 6.8px, 46.2% 2.1px, 47.4% 1.2px, 49.3% 0.5px, 51.9% 4.2px, 53.6% 4.7px, 56.5% 2.2px, 59.7% 3.4px, 61.0% 3.4px, 64.0% 0.4px, 66.9% 0.2px, 68.7% 5.9px, 69.5% 5.5px, 72.5% 4.0px, 74.0% 0.3px, 76.6% 6.7px, 78.9% 5.3px, 82.7% 6.6px, 83.8% 2.5px, 86.4% 5.4px, 87.9% 5.2px, 91.5% 6.0px, 92.3% 6.6px, 94.6% 2.4px, 97.9% 6.4px, 99.7% 6.5px, calc(100% - 2.2px) 1.5%, calc(100% - 1.2px) 2.7%, calc(100% - 1.0px) 4.0%, calc(100% - 7.0px) 5.8%, calc(100% - 0.3px) 6.9%, calc(100% - 3.7px) 8.9%, calc(100% - 1.7px) 9.9%, calc(100% - 5.8px) 11.5%, calc(100% - 3.0px) 12.8%, calc(100% - 6.4px) 14.0%, calc(100% - 3.5px) 15.4%, calc(100% - 0.9px) 17.4%, calc(100% - 6.6px) 18.7%, calc(100% - 5.5px) 20.1%, calc(100% - 3.0px) 21.2%, calc(100% - 5.9px) 22.6%, calc(100% - 3.2px) 24.1%, calc(100% - 6.0px) 26.1%, calc(100% - 3.2px) 27.5%, calc(100% - 5.1px) 28.6%, calc(100% - 2.0px) 30.0%, calc(100% - 1.0px) 31.4%, calc(100% - 6.9px) 32.8%, calc(100% - 4.4px) 34.6%, calc(100% - 2.4px) 35.7%, calc(100% - 1.9px) 36.9%, calc(100% - 6.1px) 38.8%, calc(100% - 5.5px) 39.9%, calc(100% - 4.9px) 41.6%, calc(100% - 5.3px) 43.0%, calc(100% - 4.9px) 44.2%, calc(100% - 3.4px) 45.6%, calc(100% - 4.8px) 47.3%, calc(100% - 6.6px) 48.4%, calc(100% - 4.1px) 50.1%, calc(100% - 3.8px) 51.1%, calc(100% - 4.7px) 52.7%, calc(100% - 5.7px) 54.3%, calc(100% - 5.6px) 55.8%, calc(100% - 4.5px) 57.0%, calc(100% - 5.8px) 58.7%, calc(100% - 5.9px) 59.9%, calc(100% - 4.8px) 61.7%, calc(100% - 6.7px) 63.2%, calc(100% - 3.7px) 64.3%, calc(100% - 5.9px) 65.5%, calc(100% - 3.3px) 67.4%, calc(100% - 5.0px) 68.7%, calc(100% - 1.2px) 70.2%, calc(100% - 4.1px) 71.6%, calc(100% - 2.9px) 73.0%, calc(100% - 5.4px) 74.4%, calc(100% - 5.0px) 75.8%, calc(100% - 1.1px) 76.8%, calc(100% - 4.6px) 78.5%, calc(100% - 4.8px) 79.8%, calc(100% - 0.3px) 81.5%, calc(100% - 1.6px) 82.8%, calc(100% - 0.9px) 84.0%, calc(100% - 1.3px) 85.6%, calc(100% - 0.2px) 86.9%, calc(100% - 2.7px) 88.5%, calc(100% - 4.1px) 90.1%, calc(100% - 6.3px) 91.2%, calc(100% - 2.8px) 92.5%, calc(100% - 2.9px) 94.1%, calc(100% - 5.8px) 95.4%, calc(100% - 0.3px) 97.1%, calc(100% - 0.7px) 98.7%, calc(100% - 3.8px) 100.0%, 99.7% calc(100% - 4.1px), 98.6% calc(100% - 5.7px), 95.3% calc(100% - 5.7px), 93.5% calc(100% - 2.6px), 90.2% calc(100% - 4.2px), 88.8% calc(100% - 6.7px), 87.3% calc(100% - 4.3px), 83.8% calc(100% - 6.3px), 80.8% calc(100% - 0.8px), 79.7% calc(100% - 4.3px), 76.6% calc(100% - 4.4px), 75.8% calc(100% - 2.6px), 72.6% calc(100% - 1.6px), 70.0% calc(100% - 6.8px), 67.9% calc(100% - 6.7px), 66.7% calc(100% - 4.2px), 63.2% calc(100% - 6.9px), 61.4% calc(100% - 2.9px), 58.7% calc(100% - 6.9px), 56.8% calc(100% - 2.0px), 54.5% calc(100% - 0.9px), 52.5% calc(100% - 3.1px), 49.6% calc(100% - 5.5px), 48.4% calc(100% - 0.1px), 45.5% calc(100% - 1.9px), 44.1% calc(100% - 5.5px), 40.4% calc(100% - 1.9px), 37.9% calc(100% - 6.9px), 36.0% calc(100% - 4.3px), 34.0% calc(100% - 4.5px), 32.0% calc(100% - 5.2px), 28.8% calc(100% - 5.3px), 26.9% calc(100% - 3.7px), 24.7% calc(100% - 2.1px), 22.8% calc(100% - 3.3px), 20.2% calc(100% - 5.2px), 18.4% calc(100% - 0.3px), 15.4% calc(100% - 3.2px), 14.5% calc(100% - 6.2px), 11.5% calc(100% - 0.1px), 9.6% calc(100% - 3.0px), 7.0% calc(100% - 5.0px), 4.8% calc(100% - 3.4px), 3.1% calc(100% - 2.7px), 0.0% calc(100% - 6.0px), 2.1px 98.4%, 0.5px 97.4%, 4.9px 95.9%, 2.0px 94.2%, 6.4px 93.1%, 3.3px 91.2%, 3.5px 90.0%, 1.1px 88.5%, 5.7px 87.2%, 1.6px 85.4%, 5.5px 84.5%, 0.2px 83.0%, 6.9px 81.6%, 4.9px 80.3%, 5.9px 78.3%, 4.5px 76.9%, 5.0px 76.0%, 2.0px 74.0%, 1.0px 73.1%, 2.9px 71.5%, 4.4px 69.8%, 0.8px 68.3%, 0.5px 67.1%, 4.0px 65.4%, 6.1px 64.5%, 3.0px 62.6%, 4.2px 61.3%, 6.6px 60.0%, 0.4px 58.5%, 1.1px 57.3%, 3.5px 55.8%, 3.9px 54.6%, 1.8px 52.9%, 1.8px 51.5%, 3.6px 50.2%, 1.6px 48.3%, 5.2px 47.1%, 5.0px 45.5%, 0.6px 44.4%, 0.6px 43.0%, 4.2px 41.2%, 6.1px 39.8%, 2.3px 38.6%, 0.2px 37.4%, 0.4px 35.9%, 6.7px 34.0%, 1.6px 33.0%, 6.8px 31.2%, 5.7px 30.1%, 4.4px 28.3%, 1.6px 27.0%, 4.3px 25.6%, 2.7px 24.2%, 5.8px 22.6%, 5.6px 21.5%, 6.0px 20.0%, 4.1px 18.6%, 5.2px 17.2%, 0.7px 15.6%, 1.4px 14.0%, 6.2px 12.5%, 5.3px 11.4%, 3.3px 9.7%, 4.3px 8.8%, 3.3px 7.1%, 1.1px 5.4%, 2.6px 4.0%, 6.2px 2.8%, 1.8px 1.2%); }
+    .sheet-front {
+      position: relative;
+      padding: 2rem .75rem 1.5rem;
+      color: #3b2314;
+      background-color: #fffdf8;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35  0 0 0 0 .25  0 0 0 0 .15  0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      clip-path: polygon(0.0% 4.0px, 3.2% 1.4px, 5.1% 3.5px, 7.1% 0.6px, 8.1% 1.9px, 11.9% 1.3px, 13.6% 1.6px, 16.6% 4.7px, 18.0% 5.0px, 19.6% 4.1px, 23.5% 0.8px, 25.4% 2.8px, 28.2% 1.1px, 29.6% 4.4px, 32.1% 1.5px, 33.3% 4.7px, 36.3% 5.0px, 37.9% 4.1px, 41.5% 4.6px, 42.2% 1.9px, 44.6% 3.8px, 47.4% 4.8px, 49.7% 3.9px, 53.0% 1.2px, 54.7% 4.8px, 56.9% 1.8px, 58.6% 3.9px, 60.7% 3.0px, 63.7% 2.8px, 65.2% 3.3px, 69.0% 1.6px, 70.1% 4.5px, 72.9% 1.4px, 74.0% 3.8px, 77.0% 2.3px, 79.1% 3.2px, 82.3% 1.5px, 83.2% 4.9px, 87.2% 0.1px, 88.8% 3.4px, 90.7% 3.7px, 94.1% 3.0px, 95.2% 1.0px, 97.2% 0.8px, 99.2% 1.1px, calc(100% - 2.7px) 1.7%, calc(100% - 4.6px) 3.1%, calc(100% - 0.2px) 4.5%, calc(100% - 0.5px) 6.0%, calc(100% - 4.2px) 7.3%, calc(100% - 2.0px) 8.7%, calc(100% - 0.4px) 9.7%, calc(100% - 1.2px) 11.5%, calc(100% - 1.3px) 12.9%, calc(100% - 1.5px) 14.1%, calc(100% - 2.4px) 15.9%, calc(100% - 2.4px) 17.1%, calc(100% - 2.6px) 18.6%, calc(100% - 4.8px) 20.0%, calc(100% - 1.1px) 21.6%, calc(100% - 0.9px) 22.7%, calc(100% - 0.1px) 24.2%, calc(100% - 2.8px) 25.9%, calc(100% - 4.5px) 27.1%, calc(100% - 2.9px) 28.5%, calc(100% - 2.8px) 30.3%, calc(100% - 1.8px) 31.5%, calc(100% - 3.8px) 33.2%, calc(100% - 1.8px) 34.1%, calc(100% - 2.6px) 35.8%, calc(100% - 1.0px) 37.2%, calc(100% - 3.5px) 38.6%, calc(100% - 2.2px) 40.2%, calc(100% - 2.5px) 41.4%, calc(100% - 2.4px) 42.9%, calc(100% - 1.3px) 43.9%, calc(100% - 4.1px) 46.1%, calc(100% - 3.8px) 47.1%, calc(100% - 1.3px) 48.4%, calc(100% - 3.5px) 50.0%, calc(100% - 2.4px) 51.1%, calc(100% - 3.1px) 53.1%, calc(100% - 0.5px) 54.6%, calc(100% - 4.2px) 56.0%, calc(100% - 2.7px) 56.8%, calc(100% - 1.1px) 58.8%, calc(100% - 4.3px) 60.1%, calc(100% - 2.1px) 61.6%, calc(100% - 2.7px) 62.5%, calc(100% - 2.7px) 64.1%, calc(100% - 1.7px) 65.6%, calc(100% - 4.1px) 67.2%, calc(100% - 2.0px) 68.9%, calc(100% - 3.8px) 69.7%, calc(100% - 3.8px) 71.3%, calc(100% - 0.2px) 73.1%, calc(100% - 1.4px) 74.4%, calc(100% - 1.7px) 75.6%, calc(100% - 1.2px) 77.2%, calc(100% - 1.4px) 78.6%, calc(100% - 1.2px) 79.7%, calc(100% - 1.6px) 81.6%, calc(100% - 1.8px) 82.6%, calc(100% - 4.9px) 84.1%, calc(100% - 0.8px) 85.9%, calc(100% - 2.2px) 87.0%, calc(100% - 1.9px) 88.6%, calc(100% - 3.8px) 90.0%, calc(100% - 2.8px) 91.2%, calc(100% - 2.7px) 92.6%, calc(100% - 4.0px) 94.2%, calc(100% - 4.8px) 96.0%, calc(100% - 3.1px) 97.1%, calc(100% - 3.6px) 98.3%, calc(100% - 3.9px) 100.0%, 99.9% calc(100% - 1.6px), 98.2% calc(100% - 3.8px), 96.1% calc(100% - 1.4px), 92.7% calc(100% - 1.3px), 90.3% calc(100% - 0.0px), 87.9% calc(100% - 2.5px), 86.2% calc(100% - 4.4px), 83.8% calc(100% - 0.9px), 82.7% calc(100% - 0.4px), 79.2% calc(100% - 3.8px), 76.9% calc(100% - 4.8px), 75.5% calc(100% - 1.5px), 73.5% calc(100% - 4.6px), 70.5% calc(100% - 0.7px), 67.4% calc(100% - 4.1px), 66.7% calc(100% - 3.3px), 64.2% calc(100% - 4.0px), 60.8% calc(100% - 1.1px), 59.8% calc(100% - 4.2px), 56.7% calc(100% - 1.4px), 53.7% calc(100% - 2.0px), 53.1% calc(100% - 1.0px), 49.6% calc(100% - 0.2px), 47.9% calc(100% - 0.3px), 45.8% calc(100% - 2.5px), 43.0% calc(100% - 1.3px), 40.5% calc(100% - 4.5px), 39.5% calc(100% - 3.8px), 35.8% calc(100% - 1.0px), 33.8% calc(100% - 4.4px), 32.7% calc(100% - 1.1px), 29.8% calc(100% - 1.9px), 27.2% calc(100% - 1.0px), 25.4% calc(100% - 3.9px), 23.6% calc(100% - 2.4px), 20.3% calc(100% - 3.2px), 17.4% calc(100% - 4.4px), 16.4% calc(100% - 1.1px), 13.4% calc(100% - 2.4px), 12.1% calc(100% - 3.5px), 8.6% calc(100% - 4.8px), 7.7% calc(100% - 4.3px), 4.5% calc(100% - 2.4px), 2.1% calc(100% - 4.9px), 0.0% calc(100% - 4.8px), 0.2px 98.4%, 1.0px 97.1%, 0.2px 95.5%, 2.2px 94.0%, 1.5px 92.6%, 1.3px 91.5%, 1.9px 89.9%, 2.8px 88.4%, 0.2px 87.3%, 2.7px 85.7%, 3.5px 84.6%, 3.1px 82.7%, 4.8px 81.7%, 0.5px 80.2%, 2.4px 78.5%, 3.8px 77.0%, 4.9px 75.7%, 4.0px 73.9%, 2.6px 72.6%, 1.9px 71.2%, 4.8px 70.1%, 2.0px 68.3%, 3.7px 66.9%, 1.0px 65.5%, 0.2px 64.5%, 1.3px 63.1%, 0.5px 61.8%, 2.4px 59.7%, 3.2px 58.4%, 1.7px 57.0%, 0.4px 55.4%, 2.3px 53.9%, 2.7px 53.1%, 2.3px 51.3%, 4.4px 50.2%, 3.2px 48.3%, 4.6px 47.0%, 3.0px 45.9%, 3.8px 44.4%, 1.6px 42.6%, 0.8px 41.1%, 2.9px 40.3%, 1.5px 38.4%, 0.4px 37.1%, 1.9px 35.9%, 2.6px 34.0%, 3.8px 32.8%, 1.2px 31.3%, 2.0px 30.0%, 3.7px 28.3%, 4.2px 27.4%, 2.4px 25.8%, 1.1px 24.5%, 1.0px 22.6%, 1.0px 21.4%, 4.1px 20.0%, 1.0px 18.7%, 0.0px 16.9%, 1.3px 15.4%, 4.1px 14.4%, 0.2px 12.8%, 4.7px 11.5%, 3.1px 9.7%, 1.6px 8.9%, 4.1px 7.2%, 0.9px 5.8%, 2.9px 4.5%, 3.0px 3.0%, 2.9px 1.7%);
+    }
+    @media (min-width: 768px) { .sheet-front { padding: 2.75rem 2rem 2rem; } }
+
+    .controls { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; padding: 0 .25rem; }
+    .chip-group { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .chip {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .5rem 1rem; border: 2px solid #3b2314; border-radius: 9999px;
+      background: transparent; color: #3b2314;
+      font: 600 .95rem/1 'Special Elite', monospace; cursor: pointer;
+      transition: background-color .2s ease, color .2s ease;
+    }
+    .chip:hover { background: rgba(59,35,20,.1); }
+    .chip[aria-pressed="true"] { background: #3b2314; color: #fffdf8; }
+    .chip:focus-visible { outline: 3px solid #357784; outline-offset: 2px; }
+    .stage-toggle { display: none; }
+    @media (max-width: 767px) { .stage-toggle { display: flex; } }
+
+    .legend { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; list-style: none; margin: 0 0 1.25rem; padding: 0 .25rem; font: .9rem/1.2 'Special Elite', monospace; }
+    .legend li { display: inline-flex; align-items: center; gap: .45rem; }
+    .swatch { width: 1.1rem; height: .8rem; border-radius: 9999px; display: inline-block; }
+    .sw-music { background: #357784; }
+    .sw-comedy { background: #ffd4d5; border: 1.5px solid #8a4b52; }
+    .sw-perf { background: #c3b68a; border: 1.5px solid #6b5f3a; }
+    .sw-redacted { background: #4a4640; }
+
+    .sched { width: 100%; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
+    .sched caption { text-align: left; padding: 0 .25rem .75rem; font: .9rem/1.3 'Special Elite', monospace; color: #5a4332; }
+    .sched thead th {
+      position: sticky; top: 5rem; z-index: 5;
+      padding: .75rem .5rem;
+      background: #c3b68a; color: #3b2314;
+      font: 400 1.05rem/1 'Special Elite', monospace; letter-spacing: .14em; text-transform: uppercase;
+      border-bottom: 3px solid #3b2314; text-align: center;
+    }
+    .sched thead th.time-h { background: #ffd4d5; width: 4.75rem; letter-spacing: .05em; }
+    @media (min-width: 768px) { .sched thead th { font-size: 1.3rem; } .sched thead th.time-h { width: 6rem; } }
+    .sched .time {
+      background: #ffd4d5; color: #3b2314; text-align: right; padding: .35rem .7rem .35rem .25rem;
+      font: 700 1rem/1 'Special Elite', monospace; border-bottom: 1px solid rgba(59,35,20,.25);
+    }
+    .sched td.cell { padding: .3rem .4rem; border-bottom: 1px solid rgba(59,35,20,.15); vertical-align: middle; }
+    .sched tr.hl td, .sched tr.hl th { padding-top: .6rem; padding-bottom: .6rem; }
+
+    .act {
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
+      min-height: 2.4rem; padding: .35rem .9rem; border-radius: 9999px; text-align: center;
+      font: 400 .95rem/1.2 'Special Elite', monospace;
+      transition: opacity .25s ease, filter .25s ease;
+    }
+    .act i { font-size: .8rem; flex-shrink: 0; }
+    .act.music { background: #357784; color: #fff; }
+    .act.comedy { background: #ffd4d5; color: #3b2314; border: 1.5px solid #8a4b52; }
+    .act.perf { background: #c3b68a; color: #3b2314; border: 1.5px solid #6b5f3a; }
+    .act.redacted { background: #4a4640; }
+    .act.headliner { min-height: 3.6rem; font: 400 1.05rem/1.15 'Archivo Black', sans-serif; text-transform: uppercase; letter-spacing: .02em; box-shadow: 0 4px 10px rgba(40,25,10,.3); }
+    .act.headliner.comedy { border-color: #3b2314; }
+    .act-star { color: #C89B3C; font-size: 1rem !important; }
+    .act.comedy .act-star { color: #b07a10; }
+
+    /* magazine cut-out letters for REDACTED */
+    .redacted-word { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 2px; }
+    .rl { display: inline-block; padding: .08rem .28rem .1rem; line-height: 1; font-size: .95rem; box-shadow: 0 2px 3px rgba(0,0,0,.45); }
+    .rl1 { background: #EDE6D6; color: #111; font-family: 'Anton', sans-serif; transform: rotate(-3deg); }
+    .rl2 { background: #111; color: #fff; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; transform: rotate(2deg); }
+    .rl3 { background: #fff; color: #111; font-family: 'Special Elite', monospace; transform: rotate(-1deg); }
+    .rl4 { background: #A9D6E5; color: #111; font-family: 'Archivo Black', sans-serif; transform: rotate(3deg); }
+    .rl5 { background: #ffd4d5; color: #111; font-family: 'Anton', sans-serif; transform: rotate(-2deg); }
+    .rl6 { background: #C89B3C; color: #111; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; transform: rotate(1.5deg); }
+
+    /* filters dim, never hide, so the grid stays aligned */
+    #schedule-grid[data-filter="music"] .act:not(.music),
+    #schedule-grid[data-filter="comedy"] .act:not(.comedy) { opacity: .22; filter: grayscale(.7); }
+
+    /* phone: one stage at a time */
+    @media (max-width: 767px) {
+      .sched.show-city .col-sanct, .sched.show-sanct .col-city { display: none; }
+      .sched.show-city tr.no-city, .sched.show-sanct tr.no-sanct { display: none; }
+    }
+
+    .foot-note { margin: 1.25rem .25rem 0; font: .9rem/1.4 'Special Elite', monospace; color: #5a4332; }
+
+    .extra-card { background: rgba(0,0,0,.7); border: 1px solid rgba(255,255,255,.1); border-radius: 1.5rem; padding: 2rem; }
+    .extra-card .icon { width: 3rem; height: 3rem; border-radius: 9999px; background: rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+    .ticket-card { background: rgba(0,0,0,.7); border: 1px solid rgba(255,255,255,.1); border-radius: 1.5rem; padding: 2rem; }
+    .ticket-card h3 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: .25rem; }
+    .ticket-card .when { color: #C89B3C; font-weight: 600; margin-bottom: .75rem; }
   </style>
 </head>
 <body class="bg-black text-white font-sans">
@@ -239,13 +372,221 @@
 
   <main id="main-content">
 
-  <!-- Coming Soon -->
-  <section class="min-h-[70vh] flex items-center justify-center bg-black pt-20">
-    <div class="max-w-2xl mx-auto px-6 text-center">
-      <p class="text-xs tracking-[0.2em] uppercase mb-4" style="color:#C89B3C;">Coming Soon</p>
-      <h1 class="text-5xl font-bold tracking-tighter mb-6">Set Times</h1>
-      <p class="text-gray-400 mb-10">Set times are being finalized now that the lineup's locked in. Check back soon for the full day of schedule.</p>
-      <a href="index.html" class="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold" style="border:1px solid rgba(255,255,255,0.7); color:#fff;">Back to Home</a>
+  <!-- Hero -->
+  <section class="page-hero relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-24">
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <div class="paper-title">
+        <span class="paper-back" aria-hidden="true"></span>
+        <div class="paper-front">
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter mb-5">Festival Day Schedule</h1>
+          <p class="text-lg sm:text-xl max-w-xl mx-auto leading-relaxed font-medium">
+            A full day jam-packed with music, comedy, surprises, and more. Full day and half day tickets are on sale now.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- One continuous checkerboard behind the schedule, extras, and ticket info -->
+  <div class="bg-zinc-950 checkerboard">
+
+    <!-- Schedule -->
+    <section id="schedule" class="scroll-anchor py-20 sm:py-28">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="sheet">
+          <span class="sheet-back" aria-hidden="true"></span>
+          <div class="sheet-front" id="schedule-grid" data-filter="all">
+
+            <div class="controls">
+              <div class="chip-group" role="group" aria-label="Filter the schedule">
+                <button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
+                <button type="button" class="chip" data-filter="music" aria-pressed="false"><i class="fa-solid fa-music" aria-hidden="true"></i> Music</button>
+                <button type="button" class="chip" data-filter="comedy" aria-pressed="false"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i> Comedy</button>
+              </div>
+              <div class="chip-group stage-toggle" role="group" aria-label="Choose a stage">
+                <button type="button" class="chip" data-stage="city" aria-pressed="true">City Hall</button>
+                <button type="button" class="chip" data-stage="sanct" aria-pressed="false">Sanctuary</button>
+              </div>
+            </div>
+
+            <ul class="legend" aria-label="Key">
+              <li><span class="swatch sw-music" aria-hidden="true"></span> Music</li>
+              <li><span class="swatch sw-comedy" aria-hidden="true"></span> Comedy</li>
+              <li><span class="swatch sw-perf" aria-hidden="true"></span> Special performance</li>
+              <li><span class="swatch sw-redacted" aria-hidden="true"></span> Surprise</li>
+            </ul>
+
+            <table class="sched show-city" id="sched-table">
+              <caption>Festival day set times by stage. All times are p.m. and approximate.</caption>
+              <thead>
+                <tr>
+                  <th scope="col" class="time-h">Time</th>
+                  <th scope="col" class="col-city">City Hall</th>
+                  <th scope="col" class="col-sanct">Sanctuary</th>
+                </tr>
+              </thead>
+              <tbody>
+          <tr class="no-sanct">
+            <th scope="row" class="time">12:00<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act redacted"><span class="redacted-word" role="img" aria-label="Redacted"><span class="rl rl2">R</span><span class="rl rl3">E</span><span class="rl rl4">D</span><span class="rl rl5">A</span><span class="rl rl6">C</span><span class="rl rl1">T</span><span class="rl rl2">E</span><span class="rl rl3">D</span></span></div></td>
+            <td class="cell col-sanct"></td>
+          </tr>
+          <tr class="">
+            <th scope="row" class="time">12:30<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Monk Mode</span></div></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Alex Hart</span></div></td>
+          </tr>
+          <tr class="no-city">
+            <th scope="row" class="time">12:45<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Alex Dorsheimer</span></div></td>
+          </tr>
+          <tr class="">
+            <th scope="row" class="time">1:00<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>The Allfornauts</span></div></td>
+            <td class="cell col-sanct"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Aleah</span></div></td>
+          </tr>
+          <tr class="no-city">
+            <th scope="row" class="time">1:15<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Jennifer Dawn</span></div></td>
+          </tr>
+          <tr class="">
+            <th scope="row" class="time">1:30<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Ernest</span></div></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Nehem Felices</span></div></td>
+          </tr>
+          <tr class="">
+            <th scope="row" class="time">2:00<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Cabbage Hill</span></div></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Hippie &amp; Frenchie</span></div></td>
+          </tr>
+          <tr class="">
+            <th scope="row" class="time">2:30<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act redacted"><span class="redacted-word" role="img" aria-label="Redacted"><span class="rl rl3">R</span><span class="rl rl4">E</span><span class="rl rl5">D</span><span class="rl rl6">A</span><span class="rl rl1">C</span><span class="rl rl2">T</span><span class="rl rl3">E</span><span class="rl rl4">D</span></span></div></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Ashley Harbinson</span></div></td>
+          </tr>
+          <tr class="no-city">
+            <th scope="row" class="time">2:45<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"></td>
+            <td class="cell col-sanct"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Alex Stanilla</span></div></td>
+          </tr>
+          <tr class="">
+            <th scope="row" class="time">3:00<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act redacted"><span class="redacted-word" role="img" aria-label="Redacted"><span class="rl rl4">R</span><span class="rl rl5">E</span><span class="rl rl6">D</span><span class="rl rl1">A</span><span class="rl rl2">C</span><span class="rl rl3">T</span><span class="rl rl4">E</span><span class="rl rl5">D</span></span></div></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Kirk Griffiths</span></div></td>
+          </tr>
+          <tr class="no-sanct">
+            <th scope="row" class="time">3:30<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Rutherford Hill</span></div></td>
+            <td class="cell col-sanct"></td>
+          </tr>
+          <tr class="no-city">
+            <th scope="row" class="time">4:00<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"></td>
+            <td class="cell col-sanct"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Olivia Basar</span></div></td>
+          </tr>
+          <tr class="">
+            <th scope="row" class="time">4:30<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Aardvaark</span></div></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Brandon Koss</span></div></td>
+          </tr>
+          <tr class="">
+            <th scope="row" class="time">5:00<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act redacted"><span class="redacted-word" role="img" aria-label="Redacted"><span class="rl rl5">R</span><span class="rl rl6">E</span><span class="rl rl1">D</span><span class="rl rl2">A</span><span class="rl rl3">C</span><span class="rl rl4">T</span><span class="rl rl5">E</span><span class="rl rl6">D</span></span></div></td>
+            <td class="cell col-sanct"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Chalkboard Conspiracy</span></div></td>
+          </tr>
+          <tr class="">
+            <th scope="row" class="time">5:30<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Stillflow</span></div></td>
+            <td class="cell col-sanct"><div class="act comedy"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Jackie Benhayon</span></div></td>
+          </tr>
+          <tr class="no-sanct">
+            <th scope="row" class="time">6:00<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Local News Legend</span></div></td>
+            <td class="cell col-sanct"></td>
+          </tr>
+          <tr class="no-city">
+            <th scope="row" class="time">6:30<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"></td>
+            <td class="cell col-sanct"><div class="act music"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>PINK i</span></div></td>
+          </tr>
+          <tr class="hl">
+            <th scope="row" class="time">7:00<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act comedy headliner"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span><span class="sr-only">Comedy: </span>Alan Massenburg</span><i class="fa-solid fa-star act-star" aria-hidden="true"></i></div></td>
+            <td class="cell col-sanct"><div class="act perf"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span><span class="sr-only">Special performance: </span>Drag Bingo with XxAVOiDANCE</span></div></td>
+          </tr>
+          <tr class="hl no-sanct">
+            <th scope="row" class="time">8:00<span class="sr-only"> PM</span></th>
+            <td class="cell col-city"><div class="act music headliner"><i class="fa-solid fa-music" aria-hidden="true"></i><span><span class="sr-only">Music: </span>Spilly Cave</span><i class="fa-solid fa-star act-star" aria-hidden="true"></i></div></td>
+            <td class="cell col-sanct"></td>
+          </tr>
+              </tbody>
+            </table>
+
+            <p class="foot-note">All times p.m. and approximate. Set times can change, and any updates will be shared on this site and on Instagram.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Also happening -->
+    <section id="also" class="scroll-anchor pb-20 sm:pb-28">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-12 text-center">Also Happening</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="extra-card">
+            <div class="icon"><i class="fa-solid fa-wand-magic-sparkles text-lg" aria-hidden="true"></i></div>
+            <h3 class="text-2xl font-bold mb-2">Crazy Eyes Liquid Light Show</h3>
+            <p class="text-gray-400 leading-relaxed">Time to be announced.</p>
+          </div>
+          <div class="extra-card">
+            <div class="icon"><i class="fa-solid fa-champagne-glasses text-lg" aria-hidden="true"></i></div>
+            <h3 class="text-2xl font-bold mb-2">After Party with Cycloan</h3>
+            <p class="text-gray-400 leading-relaxed">In City Hall. Time to be announced.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ticket options -->
+    <section id="ticket-options" class="scroll-anchor pb-24 sm:pb-32">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-4">Full Day or Half Day</h2>
+          <p class="text-gray-400 max-w-xl mx-auto leading-relaxed">Pick the ticket that fits how you want to spend the day.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="ticket-card">
+            <h3>Full Day</h3>
+            <p class="when">11:30 AM to 10:00 PM</p>
+            <p class="text-gray-400 leading-relaxed">Come and go as you please all day long.</p>
+          </div>
+          <div class="ticket-card">
+            <h3>Afternoon or Evening</h3>
+            <p class="when">Half day</p>
+            <p class="text-gray-400 leading-relaxed">Just hit the sets you're most interested in.</p>
+          </div>
+          <div class="ticket-card">
+            <h3>Upgrade on the Day</h3>
+            <p class="when">Afternoon ticket holders</p>
+            <p class="text-gray-400 leading-relaxed">Decide you want to stay for the evening sets? You'll have the chance to upgrade to a full day experience on festival day.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Closing CTA -->
+  <section class="py-24 sm:py-32 bg-black">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-5">See you there.</h2>
+      <p class="text-gray-400 mb-10 max-w-xl mx-auto text-lg leading-relaxed">Full day and half day tickets are on sale now. Grab yours before they're gone.</p>
+      <div class="hero-cta" style="margin-bottom:0;">
+        <a href="tickets.html" class="btn-gold">Get Tickets</a>
+        <a href="lineup.html" class="btn-outline">See the lineup</a>
+      </div>
     </div>
   </section>
 
@@ -302,6 +643,33 @@
       });
     });
 
+  </script>
+  <script>
+    // Schedule: filter by type (dims, never hides) and phone stage toggle
+    (function () {
+      var grid = document.getElementById('schedule-grid');
+      var table = document.getElementById('sched-table');
+      if (!grid || !table) return;
+      grid.querySelectorAll('[data-filter]').forEach(function (btn) {
+        if (btn === grid) return;
+        btn.addEventListener('click', function () {
+          grid.setAttribute('data-filter', btn.getAttribute('data-filter'));
+          grid.querySelectorAll('button[data-filter]').forEach(function (b) {
+            b.setAttribute('aria-pressed', String(b === btn));
+          });
+        });
+      });
+      grid.querySelectorAll('button[data-stage]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var s = btn.getAttribute('data-stage');
+          table.classList.toggle('show-city', s === 'city');
+          table.classList.toggle('show-sanct', s === 'sanct');
+          grid.querySelectorAll('button[data-stage]').forEach(function (b) {
+            b.setAttribute('aria-pressed', String(b === btn));
+          });
+        });
+      });
+    })();
   </script>
 </body>
 </html>
