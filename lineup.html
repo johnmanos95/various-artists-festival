@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Tickets | Various Artists Festival</title>
+  <title>Lineup | Various Artists Festival</title>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0684JTES4"></script>
   <script>
@@ -15,6 +15,9 @@
   <link rel="icon" type="image/png" href="img/favicon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Playfair+Display:ital,wght@1,900&family=Special+Elite&display=swap" rel="stylesheet">
   <style>
     .checkerboard {
       background-image:
@@ -205,15 +208,9 @@
     .nav-cta:hover {
       opacity: 0.88 !important;
     }
-
-    /* ===== Shared page standard (matches Lineup page) ===== */
-    .page-hero .hero-cta { margin-bottom: 0; }
-    .scroll-anchor { scroll-margin-top: 6rem; }
-    @media (prefers-reduced-motion: no-preference) {
-      html { scroll-behavior: smooth; }
-    }
-    /* Hero: warm gray with torn construction-paper title (same as Lineup page) */
-    .page-hero { background-color: #7f7b71; }
+    /* ===== Lineup page ===== */
+    /* Lineup hero: warm gray with torn construction-paper title */
+    .lineup-hero { background-color: #7f7b71; }
     .paper-title {
       position: relative;
       max-width: 46rem;
@@ -238,7 +235,144 @@
     @media (min-width: 640px) {
       .paper-front { padding: 3.25rem 3rem 3.5rem; }
     }
-    .page-hero .paper-title { margin-bottom: 0; }
+    .lineup-hero .hero-cta { margin-bottom: 0; }
+    .lineup-hero .hero-cta a { box-shadow: 0 4px 10px rgba(40,25,10,.3); }
+    .lineup-hero .hero-cta .btn-outline {
+      background: #fffdf8;
+      color: #3b2314;
+      border-color: #fffdf8;
+    }
+    .lineup-hero .hero-cta .btn-outline:hover {
+      background: #C89B3C;
+      border-color: #C89B3C;
+      color: #3b2314;
+    }
+    .lineup-hero .hero-cta a:nth-child(1) { transform: rotate(-1.2deg); }
+    .lineup-hero .hero-cta a:nth-child(2) { transform: rotate(.8deg); }
+    .lineup-hero .hero-cta a:nth-child(3) { transform: rotate(-.6deg); }
+    .lineup-hero .hero-cta a:focus-visible,
+    .social-links a:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+    .scroll-anchor { scroll-margin-top: 6rem; }
+
+    /* Headliner highlights + closing line */
+    .highlights {
+      list-style: none;
+      margin: 0 0 2rem;
+      padding: 1.25rem 1.5rem;
+      border-left: 3px solid #C89B3C;
+      background: rgba(200,155,60,.07);
+      display: grid;
+      gap: .85rem;
+    }
+    .highlights.under-photo { margin: 1.75rem 0 0; }
+    .highlights li {
+      display: flex;
+      gap: .8rem;
+      align-items: flex-start;
+      color: rgba(255,255,255,.92);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .highlights i { color: #C89B3C; font-size: .7rem; margin-top: .45rem; flex-shrink: 0; }
+    .bio p { color: #d1d5db; line-height: 1.75; font-size: 1.05rem; }
+    .bio p + p { margin-top: 1.1rem; }
+    .pull {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,.18);
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .social-links { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .7rem 1.4rem;
+      border: 1px solid rgba(255,255,255,.7);
+      border-radius: 9999px;
+      color: #fff;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background-color .2s ease, border-color .2s ease;
+    }
+    .social-links a:hover { background: rgba(255,255,255,.12); border-color: #fff; }
+
+    /* Full lineup: cut-out name tags (ransom-note style).
+       Colors, fonts, tilt and size each cycle on a different interval,
+       so the pattern never repeats in a way that implies billing order. */
+    .bill-group + .bill-group { margin-top: 4rem; }
+    .bill-title {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin: 0 0 2rem;
+      color: #fff;
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .bill-title::before,
+    .bill-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(200,155,60,.55);
+    }
+    .bill {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.1rem 1rem;
+    }
+    .tag {
+      display: inline-block;
+      max-width: 100%;
+      padding: .45rem .95rem .55rem;
+      line-height: 1.1;
+      font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+      box-shadow: 0 8px 16px rgba(0,0,0,.5);
+      transform: rotate(var(--r, 0deg)) translateY(0);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    /* colors (6) */
+    .tag:nth-child(6n+1) { background: #EDE6D6; color: #111; }
+    .tag:nth-child(6n+2) { background: #121212; color: #fff; outline: 1px solid rgba(255,255,255,.35); outline-offset: -1px; }
+    .tag:nth-child(6n+3) { background: #2A5F6A; color: #fff; }
+    .tag:nth-child(6n+4) { background: #C89B3C; color: #111; }
+    .tag:nth-child(6n+5) { background: #C23A62; color: #fff; }
+    .tag:nth-child(6n)   { background: #A9D6E5; color: #111; }
+    /* typefaces (4) */
+    .tag:nth-child(4n+1) { font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: .03em; font-size: clamp(1.2rem, 2.6vw, 1.65rem); }
+    .tag:nth-child(4n+2) { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; }
+    .tag:nth-child(4n+3) { font-family: 'Special Elite', monospace; font-size: clamp(1.05rem, 2.2vw, 1.35rem); }
+    .tag:nth-child(4n)   { font-family: 'Archivo Black', sans-serif; font-size: clamp(1rem, 2.1vw, 1.3rem); }
+    /* tilt (5) */
+    .tag:nth-child(5n+1) { --r: -2.2deg; }
+    .tag:nth-child(5n+2) { --r: 1.4deg; }
+    .tag:nth-child(5n+3) { --r: -.6deg; }
+    .tag:nth-child(5n+4) { --r: 2.3deg; }
+    .tag:nth-child(5n)   { --r: -1.5deg; }
+    /* hover: the tag straightens a bit and lifts off the page */
+    .tag:hover {
+      transform: rotate(calc(var(--r, 0deg) * .3)) translateY(-6px);
+      box-shadow: 0 16px 24px rgba(0,0,0,.6);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tag { transition: none; }
+    }
+    /* scale (3) */
+    .tag:nth-child(3n+2) { zoom: 1.12; }
+
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
   </style>
 </head>
 <body class="bg-black text-white font-sans">
@@ -282,41 +416,181 @@
   <main id="main-content">
 
   <!-- Hero -->
-  <section class="page-hero relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-24">
+  <section class="lineup-hero relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-24">
     <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
       <div class="paper-title">
         <span class="paper-back" aria-hidden="true"></span>
         <div class="paper-front">
-          <h1 class="text-6xl sm:text-7xl lg:text-8xl font-black tracking-tighter mb-5">Get Your Tickets</h1>
+          <h1 class="text-6xl sm:text-7xl lg:text-8xl font-black tracking-tighter mb-5">The Lineup</h1>
           <p class="text-lg sm:text-xl max-w-xl mx-auto leading-relaxed font-medium">
-            Saturday, November 28, 2026 at West Art in Lancaster, PA.
+            Music, comedy, and performance across two stages at West Art on Saturday, November 28.
           </p>
+        </div>
+      </div>
+      <div class="hero-cta">
+        <a href="#music-headliner" class="btn-outline">Music headliner</a>
+        <a href="#headliner" class="btn-outline">Comedy headliner</a>
+        <a href="#full-lineup" class="btn-outline">Full lineup</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- One continuous checkerboard behind headliners + full lineup so the pattern never breaks between sections -->
+  <div class="bg-zinc-950 checkerboard">
+
+  <!-- Music Headliner -->
+  <section id="music-headliner" class="scroll-anchor py-20 sm:py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="sr-only">Music headliner: Spilly Cave</h2>
+      <div class="flex justify-center mb-10 sm:mb-14">
+        <img src="img/Music_Headliner_Banner.webp" alt="Music Headliner" class="block w-full max-w-xl h-auto">
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-start">
+        <div>
+          <img src="img/Music_Headliner.webp" alt="Spilly Cave" class="block w-full h-auto">
+          <ul class="highlights under-photo">
+            <li><i class="fa-solid fa-star" aria-hidden="true"></i><span>Played guitar alongside Samia, Blu DeTiger, and Taylor Mackall</span></li>
+            <li><i class="fa-solid fa-star" aria-hidden="true"></i><span>Self-titled record earned millions of streams in its first year</span></li>
+            <li><i class="fa-solid fa-star" aria-hidden="true"></i><span>Invited by Lovejoy's Ash Kabosu to open their sold out national tour</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="bio">
+            <p>
+              After growing up in rural Pennsylvania, Spilly Cave moved to NYC for college where he got the
+              opportunity to play guitar alongside artists such as Samia, Blu DeTiger, and Taylor Mackall. He
+              also supported the writing process and played guitar on Taylor Mackall's record "The Boy and The
+              Saints," which features the legendary artists Sam Wilkes, Sam Gendel, Sean Hurley, and Fabiano de
+              Nascimento. Through all of this though, Spilly Cave was eager to one day create his own music and
+              produce everything himself.
+            </p>
+            <p>
+              Returning home to Harrisburg, Spilly Cave spent years learning production with the help of local
+              friends. This expertise in live performance and composition led to the genesis of his first
+              self-produced album in 2019.
+            </p>
+            <p>
+              During the pandemic, he ventured into TikTok creating and released his self-titled record which
+              earned millions of streams in its first year. This all culminated in an invite from Ash Kabosu of
+              the UK indie rock band Lovejoy to open on their sold out tour across the country.
+            </p>
+          </div>
+          <p class="pull">We're extremely grateful that Spilly Cave has decided to join us as our first ever music headliner.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Ticket widget on the checkerboard -->
-  <div class="bg-zinc-950 checkerboard">
-    <section id="tickets" class="scroll-anchor py-20 sm:py-28">
-      <div class="max-w-3xl mx-auto px-6">
-        <div class="bg-white rounded-3xl p-4 sm:p-6 shadow-2xl">
-        <!-- Ticket Tailor Widget. Paste this into your website where you want the widget to appear. Do not change the code or the widget may not work properly. -->
-        <div class="tt-widget"><div class="tt-widget-fallback"><p><a href="https://www.tickettailor.com/all-tickets/variousartistsfest/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true" target="_blank">Click here to buy tickets</a><br /><small><a href="https://www.tickettailor.com?rf=wdg_318249" class="tt-widget-powered">Sell tickets online with Ticket Tailor</a></small></p></div><script src="https://cdn.tickettailor.com/js/widgets/min/widget.js" data-url="https://www.tickettailor.com/all-tickets/variousartistsfest/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true" data-type="inline" data-inline-minimal="true" data-inline-show-logo="false" data-inline-bg-fill="true" data-inline-inherit-ref-from-url-param="" data-inline-ref="website_widget"></script></div>
-        <!-- End of Ticket Tailor Widget -->
+  <!-- Comedy Headliner -->
+  <section id="headliner" class="scroll-anchor py-20 sm:py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="sr-only">Comedy headliner: Alan Massenburg</h2>
+      <div class="flex justify-center mb-10 sm:mb-14">
+        <img src="img/Comedy_Headliner_Banner.webp" alt="Comedy Headliner" class="block w-full max-w-xl h-auto">
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-start">
+        <div class="md:order-2">
+          <img src="img/Comedy_Headliner.webp" alt="Alan Massenburg" class="block w-full h-auto">
+          <ul class="highlights under-photo">
+            <li><i class="fa-solid fa-star" aria-hidden="true"></i><span>Finalist in HBO's American Black Film Festival stand-up competition</span></li>
+            <li><i class="fa-solid fa-star" aria-hidden="true"></i><span>Debut album "We Got Action" reached #1 on the iTunes charts</span></li>
+            <li><i class="fa-solid fa-star" aria-hidden="true"></i><span>Performed at Harlem's iconic Apollo Theater</span></li>
+          </ul>
+        </div>
+        <div class="md:order-1">
+          <div class="bio">
+            <p>
+              Alan Massenburg is a comedian and actor from Philadelphia who's been making some big moves lately.
+              He was a finalist in HBO's American Black Film Festival stand-up competition, has been a guest on
+              The Drew Barrymore Show's Dad Joke segment, appeared on TMZ Live and SiriusXM's "Sway in the Morning,"
+              and has even performed at Harlem's iconic Apollo Theater.
+            </p>
+            <p>
+              Alan's debut comedy album "We Got Action" reached #1 on the iTunes charts, and despite his
+              hate/hate relationship with TikTok, he's amassed over 10 million views and more than 30,000
+              followers across platforms.
+            </p>
+          </div>
+          <p class="pull">We're thrilled to have Alan as our inaugural Comedy Headliner.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/alanmassenburg" target="_blank" rel="noopener">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i> @alanmassenburg
+            </a>
+            <a href="https://www.alanmassenburg.com" target="_blank" rel="noopener">
+              <i class="fa-solid fa-globe" aria-hidden="true"></i> alanmassenburg.com
+            </a>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <!-- Full Lineup -->
+  <section id="full-lineup" class="scroll-anchor py-24 sm:py-28">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-5">The Full Lineup</h2>
+        <p class="text-gray-300 max-w-xl mx-auto leading-relaxed text-lg mb-8">
+          Everyone playing, performing, and making a scene across West Art. Want to know exactly when your favorite acts take the stage? The schedule has every set time, stage by stage.
+        </p>
+        <div class="hero-cta" style="margin-bottom:0;">
+          <a href="schedule.html" class="btn-gold">See the Schedule</a>
+        </div>
+      </div>
+
+      <div class="bill-group">
+        <h3 class="bill-title">Music</h3>
+        <ul class="bill">
+          <li class="tag">Local News Legend</li>
+          <li class="tag">Rutherford Hill</li>
+          <li class="tag">Cabbage Hill</li>
+          <li class="tag">Stillflow</li>
+          <li class="tag">Olivia Basar</li>
+          <li class="tag">The Allfornauts</li>
+          <li class="tag">Alex Stanilla</li>
+          <li class="tag">Monk Mode</li>
+          <li class="tag">Aardvaark</li>
+          <li class="tag">Aleah</li>
+          <li class="tag">The Chalkboard Conspiracy</li>
+        </ul>
+      </div>
+
+      <div class="bill-group">
+        <h3 class="bill-title">Comedy</h3>
+        <ul class="bill">
+          <li class="tag">Jackie Benhayon</li>
+          <li class="tag">Brandon Koss</li>
+          <li class="tag">Kirk Griffiths</li>
+          <li class="tag">Ashley Harbinson</li>
+          <li class="tag">Nehem Felices</li>
+          <li class="tag">Jennifer Dawn</li>
+          <li class="tag">Alex Dorsheimer</li>
+          <li class="tag">Hippie and Frenchie</li>
+          <li class="tag">Ernest</li>
+        </ul>
+      </div>
+
+      <div class="bill-group">
+        <h3 class="bill-title">With performances by</h3>
+        <ul class="bill">
+          <li class="tag">PINK i</li>
+          <li class="tag">Cycloan</li>
+          <li class="tag">Drag Bingo with XxAVOiDANCE</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   </div>
 
-  <!-- Help CTA -->
+  <!-- Ticket CTA -->
   <section class="py-24 sm:py-32" style="background-color:#123138;">
     <div class="max-w-3xl mx-auto px-6 text-center">
-      <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-5">Questions about your order?</h2>
-      <p class="text-gray-400 mb-10 max-w-xl mx-auto text-lg leading-relaxed">Need to update an order, have a question about the day, or just want to make sure you're all set? We're happy to help. Send us an email or a message on Instagram and we'll sort it out together.</p>
+      <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-5">That's the lineup.</h2>
+      <p class="text-gray-400 mb-10 max-w-xl mx-auto text-lg leading-relaxed">Spilly Cave, Alan Massenburg, and everyone else on this bill, live at West Art on Nov 28. Get your tickets before they're gone.</p>
       <div class="hero-cta" style="margin-bottom:0;">
-        <a href="mailto:variousartistsfest@gmail.com" class="btn-gold">Email Us</a>
-        <a href="https://instagram.com/variousartistsfest" target="_blank" rel="noopener" class="btn-outline">Message on Instagram</a>
+        <a href="tickets.html" class="btn-gold">Get Tickets</a>
+        <a href="venue.html" class="btn-outline">See the venue</a>
       </div>
     </div>
   </section>
