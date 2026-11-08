@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Various Artists Festival</title>
+  <title>About | Various Artists Festival</title>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0684JTES4"></script>
   <script>
@@ -205,86 +205,131 @@
     .nav-cta:hover {
       opacity: 0.88 !important;
     }
-    /* Sponsor nod: small strip linking to the sponsor section on the About page */
-    .sponsor-nod {
+    /* Sponsor website link bar: plain CSS so hover states are reliable */
+    .sponsor-link {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
-      max-width: 40rem;
-      margin: 0 auto;
-      padding: .75rem;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 1.25rem;
-      background-color: rgba(255, 255, 255, 0.03);
-      color: #fff;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid rgba(200, 155, 60, 0.6);
+      border-radius: 1rem;
+      background-color: rgba(200, 155, 60, 0.08);
       text-decoration: none;
-      transition: border-color .25s ease, background-color .25s ease;
+      transition: background-color .25s ease, border-color .25s ease;
     }
-    .sponsor-nod:hover {
-      border-color: rgba(200, 155, 60, 0.7);
-      background-color: rgba(200, 155, 60, 0.07);
+    @media (min-width: 640px) {
+      .sponsor-link { padding: 1.5rem 2rem; }
     }
-    .sponsor-nod:focus-visible {
-      outline: 2px solid #C89B3C;
-      outline-offset: 3px;
+    .sponsor-link-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 0;
     }
-    .sponsor-nod-logo {
+    .sponsor-link-icon {
       flex-shrink: 0;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 9999px;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 9rem;
-      height: 6rem;
-      padding: .5rem;
-      border-radius: .85rem;
-      background-color: #EDE6D6;
+      border: 1px solid rgba(200, 155, 60, 0.6);
+      color: #C89B3C;
+      transition: color .25s ease, border-color .25s ease;
     }
-    .sponsor-nod-logo img {
-      display: block;
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-    }
-    .sponsor-nod-text {
-      flex: 1;
+    .sponsor-link-text {
       min-width: 0;
       text-align: left;
     }
-    .sponsor-nod-text .sn-lead {
+    .sponsor-link-label {
       display: block;
-      font-size: .875rem;
-      color: #9ca3af;
-    }
-    .sponsor-nod-text .sn-name {
-      display: block;
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      margin-bottom: .35rem;
-    }
-    .sponsor-nod-text .sn-link {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      font-size: .875rem;
-      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
       color: #C89B3C;
+      transition: color .25s ease;
     }
-    .sponsor-nod-text .sn-link i {
-      transition: transform .25s ease;
+    .sponsor-link-url {
+      display: block;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #fff;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      transition: color .25s ease;
     }
-    .sponsor-nod:hover .sn-link i {
+    @media (min-width: 640px) {
+      .sponsor-link-url { font-size: 1.25rem; }
+    }
+    .sponsor-link-arrow {
+      flex-shrink: 0;
+      font-size: 1.25rem;
+      color: #C89B3C;
+      transition: color .25s ease, transform .25s ease;
+    }
+
+    /* Hover: lighter, brighter gold. Everything stays clearly readable. */
+    .sponsor-link:hover {
+      background-color: rgba(231, 204, 133, 0.18);
+      border-color: #E7CC85;
+    }
+    .sponsor-link:hover .sponsor-link-icon {
+      color: #F3E3B0;
+      border-color: #E7CC85;
+    }
+    .sponsor-link:hover .sponsor-link-label {
+      color: #F3E3B0;
+    }
+    .sponsor-link:hover .sponsor-link-url {
+      color: #F3E3B0;
+    }
+    .sponsor-link:hover .sponsor-link-arrow {
+      color: #F3E3B0;
       transform: translateX(4px);
     }
-    @media (max-width: 479px) {
-      .sponsor-nod {
-        flex-direction: column;
-        text-align: center;
-        padding: 1rem 1rem 1.25rem;
-      }
-      .sponsor-nod-logo { width: 100%; }
-      .sponsor-nod-text { text-align: center; }
+
+    /* ===== Shared page standard (matches Lineup page) ===== */
+    .page-hero .hero-cta { margin-bottom: 0; }
+    .page-hero .hero-cta .btn-outline { background: rgba(0,0,0,.25); }
+    .page-hero .hero-cta .btn-outline:hover { background: rgba(255,255,255,.18); }
+    .page-hero .hero-cta a:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+    .scroll-anchor { scroll-margin-top: 6rem; }
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
     }
+
+    /* Hero: warm gray with torn construction-paper title (same as Lineup page) */
+    .page-hero { background-color: #7f7b71; }
+    .paper-title {
+      position: relative;
+      max-width: 46rem;
+      margin: 0 auto 2.75rem;
+      transform: rotate(-1deg);
+      filter: drop-shadow(0 12px 16px rgba(40, 25, 10, .38));
+    }
+    .paper-back {
+      position: absolute;
+      inset: -8px;
+      background: #e4dbc5;
+      clip-path: polygon(0.0% 3.9px, 4.2% 3.3px, 6.7% 4.1px, 9.4% 3.6px, 13.6% 5.6px, 15.9% 2.1px, 19.2% 5.7px, 23.7% 0.3px, 27.6% 6.8px, 30.3% 4.3px, 32.6% 0.1px, 36.7% 0.4px, 39.4% 1.7px, 42.4% 3.2px, 46.5% 5.9px, 50.0% 4.5px, 53.3% 4.6px, 56.6% 1.9px, 61.0% 7.0px, 64.0% 5.0px, 66.3% 1.6px, 69.6% 0.5px, 73.9% 2.8px, 77.4% 2.7px, 80.9% 5.9px, 82.3% 1.5px, 87.5% 3.3px, 91.0% 2.8px, 92.5% 4.4px, 97.2% 1.9px, 99.2% 2.3px, calc(100% - 5.3px) 13.0%, calc(100% - 1.7px) 20.7%, calc(100% - 0.4px) 31.7%, calc(100% - 1.2px) 45.6%, calc(100% - 3.1px) 55.8%, calc(100% - 5.1px) 65.4%, calc(100% - 4.5px) 76.3%, calc(100% - 2.9px) 87.4%, calc(100% - 1.5px) 100.0%, 99.5% calc(100% - 6.8px), 97.3% calc(100% - 2.1px), 94.1% calc(100% - 1.5px), 89.8% calc(100% - 6.0px), 87.0% calc(100% - 0.7px), 84.3% calc(100% - 1.5px), 79.5% calc(100% - 5.4px), 76.3% calc(100% - 2.1px), 72.5% calc(100% - 0.6px), 70.2% calc(100% - 1.7px), 66.9% calc(100% - 2.6px), 63.2% calc(100% - 6.7px), 60.0% calc(100% - 4.0px), 57.4% calc(100% - 1.3px), 52.6% calc(100% - 6.4px), 50.6% calc(100% - 1.7px), 46.0% calc(100% - 5.2px), 44.2% calc(100% - 1.4px), 40.9% calc(100% - 6.2px), 36.9% calc(100% - 3.0px), 32.5% calc(100% - 0.3px), 30.9% calc(100% - 1.7px), 27.1% calc(100% - 1.8px), 24.0% calc(100% - 4.2px), 19.6% calc(100% - 1.2px), 17.1% calc(100% - 0.5px), 12.8% calc(100% - 3.9px), 10.7% calc(100% - 4.3px), 6.2% calc(100% - 6.4px), 2.7% calc(100% - 0.1px), 0.0% calc(100% - 3.1px), 1.2px 87.1%, 4.0px 77.3%, 2.5px 65.2%, 6.9px 57.1%, 4.8px 45.1%, 1.0px 33.7%, 0.1px 20.4%, 4.9px 12.8%);
+    }
+    .paper-front {
+      position: relative;
+      padding: 2.5rem 1.5rem 2.75rem;
+      color: #3b2314;
+      background-color: #fffdf8;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35  0 0 0 0 .25  0 0 0 0 .15  0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      clip-path: polygon(0.1% 1.7px, 4.0% 1.4px, 6.7% 1.7px, 9.8% 4.9px, 12.5% 2.2px, 16.1% 1.7px, 21.0% 1.6px, 23.5% 2.1px, 27.1% 2.2px, 29.3% 2.2px, 33.1% 4.0px, 36.8% 1.0px, 40.3% 1.5px, 43.4% 1.1px, 46.5% 3.9px, 50.0% 3.8px, 53.8% 2.9px, 57.0% 2.0px, 60.2% 3.9px, 62.5% 4.7px, 66.4% 0.7px, 69.3% 1.7px, 72.5% 2.0px, 76.5% 3.3px, 79.9% 4.7px, 83.7% 1.6px, 87.4% 3.5px, 90.9% 3.7px, 94.3% 1.0px, 96.2% 4.9px, 99.0% 4.6px, calc(100% - 0.7px) 12.8%, calc(100% - 4.6px) 20.8%, calc(100% - 4.3px) 35.2%, calc(100% - 3.8px) 45.3%, calc(100% - 0.0px) 54.8%, calc(100% - 4.4px) 67.2%, calc(100% - 2.6px) 79.6%, calc(100% - 0.9px) 86.9%, calc(100% - 2.2px) 100.0%, 99.5% calc(100% - 0.1px), 96.1% calc(100% - 2.5px), 92.6% calc(100% - 0.6px), 89.3% calc(100% - 0.2px), 87.2% calc(100% - 4.3px), 82.7% calc(100% - 3.2px), 80.8% calc(100% - 1.2px), 76.3% calc(100% - 4.4px), 73.9% calc(100% - 3.1px), 70.6% calc(100% - 2.9px), 66.3% calc(100% - 3.4px), 63.9% calc(100% - 0.3px), 59.6% calc(100% - 1.5px), 57.4% calc(100% - 1.4px), 53.7% calc(100% - 2.2px), 49.8% calc(100% - 2.5px), 47.5% calc(100% - 3.3px), 43.1% calc(100% - 0.8px), 39.7% calc(100% - 2.4px), 37.0% calc(100% - 5.0px), 33.0% calc(100% - 4.7px), 30.8% calc(100% - 2.2px), 26.1% calc(100% - 1.2px), 24.2% calc(100% - 0.9px), 20.3% calc(100% - 3.3px), 16.0% calc(100% - 0.2px), 13.6% calc(100% - 0.3px), 10.1% calc(100% - 4.9px), 6.6% calc(100% - 1.6px), 2.5% calc(100% - 1.5px), 0.0% calc(100% - 0.6px), 3.0px 89.7%, 0.5px 78.6%, 4.6px 65.7%, 1.8px 53.6%, 1.1px 45.7%, 3.2px 32.2%, 1.7px 21.2%, 1.5px 10.7%);
+    }
+    @media (min-width: 640px) {
+      .paper-front { padding: 3.25rem 3rem 3.5rem; }
+    }
+    .page-hero .paper-title { margin-bottom: 0; }
   </style>
 </head>
 <body class="bg-black text-white font-sans">
@@ -328,98 +373,126 @@
   <main id="main-content">
 
   <!-- Hero -->
-  <section id="top-hero" class="relative overflow-hidden bg-black min-h-[90vh] flex flex-col pt-20">
-    <!-- Background layers -->
-    <div class="bg-layer pink-layer" style="background-image: url('img/orchid-pink.webp');"></div>
-    <div class="bg-layer hero-graphic" style="background-image: url('img/hero-graphic.webp');"></div>
-
-    <!-- Extra bottom fade + blur overlay -->
-    <div class="bottom-fade"></div>
-
-    <!-- Logo part -->
-    <div class="flex-1 flex items-center justify-center text-center relative z-10">
-      <div class="max-w-5xl mx-auto px-6">
-        <h1 class="sr-only">Various Artists Festival</h1>
-        <img src="img/logo.webp" alt="Various Artists Festival" class="mx-auto w-full max-w-4xl h-auto">
+  <section class="page-hero relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-24">
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <div class="paper-title">
+        <span class="paper-back" aria-hidden="true"></span>
+        <div class="paper-front">
+          <h1 class="text-6xl sm:text-7xl lg:text-8xl font-black tracking-tighter mb-5">About the Festival</h1>
+          <p class="text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
+            The very first Various Artists Festival by Sort of Vain LLC is coming to Lancaster, PA on November 28th at our city’s most exciting new performance venue, West Art.
+          </p>
+        </div>
       </div>
     </div>
-
-    <!-- Info part -->
-    <header class="relative z-10 flex items-center justify-center text-center pb-16">
-      <div class="max-w-5xl mx-auto px-6 w-full">
-        <div class="hero-cta">
-          <a href="lineup.html" class="btn-outline">Explore Lineup</a>
-          <a href="tickets.html" class="btn-gold">Get Tickets</a>
-        </div>
-        <div class="grid grid-cols-3 gap-8 max-w-lg mx-auto text-sm">
-          <div>
-            <p class="text-gray-400">DATE</p>
-            <p class="font-semibold">NOV 28, 2026</p>
-          </div>
-          <div>
-            <p class="text-gray-400">LOCATION</p>
-            <p class="font-semibold">LANCASTER, PA</p>
-          </div>
-          <div>
-            <p class="text-gray-400">VENUE</p>
-            <p class="font-semibold">WEST ART</p>
-          </div>
-        </div>
-      </div>
-    </header>
   </section>
 
-  <!-- Highlights + continuous checkerboard -->
+  <!-- One continuous checkerboard behind the content sections -->
   <div class="bg-zinc-950 checkerboard">
-    <section id="highlights" class="py-20 sm:py-28">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-14 text-center">Various Artists.<br>One Unforgettable Day in Lancaster.</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-black/70 border border-white/10 rounded-3xl p-8 hover:border-white/25 transition-colors">
-            <div class="text-5xl font-black text-white/20 mb-3">01</div>
-            <h3 class="text-xl font-semibold mb-2">Two Stages</h3>
-            <p class="text-gray-400 leading-relaxed">Music, comedy, and performances across West Art's historic building, from the big, lively City Hall to the intimate Sanctuary.</p>
-          </div>
-          <div class="bg-black/70 border border-white/10 rounded-3xl p-8 hover:border-white/25 transition-colors">
-            <div class="text-5xl font-black text-white/20 mb-3">02</div>
-            <h3 class="text-xl font-semibold mb-2">Music &amp; Comedy, Big and Intimate</h3>
-            <p class="text-gray-400 leading-relaxed">From the grand-scale energy of City Hall to the close-knit calm of the Sanctuary upstairs, the Various Artists Festival turns this old church into a full-day experience of live music, comedy, and performance.</p>
-          </div>
-          <div class="bg-black/70 border border-white/10 rounded-3xl p-8 hover:border-white/25 transition-colors">
-            <div class="text-5xl font-black text-white/20 mb-3">03</div>
-            <h3 class="text-xl font-semibold mb-2">A Full-Day Event</h3>
-            <p class="text-gray-400 leading-relaxed">Wander through West Art with live music and shows with breathtaking visuals while discovering your new favorite artists.</p>
-          </div>
+
+    <!-- About copy -->
+    <section id="about-copy" class="scroll-anchor py-20 sm:py-28">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="bg-black/70 border border-white/10 rounded-3xl px-8 py-10 sm:px-12 sm:py-14 space-y-6">
+          <p class="text-xl sm:text-2xl text-white leading-relaxed font-medium">
+            Sort of Vain is a Lancaster based booking and live production company founded in 2026 by Alex Hart. Our goal as a business is to bring the unique work of Lancaster area artists to a larger audience by hosting events and experiences designed to highlight the incredible talents of Lancaster's creative community.
+          </p>
+          <p class="text-lg text-gray-300 leading-relaxed">
+            Various Artists Festival will be a full-day event, across multiple stages, all in one venue - featuring one of a kind performances by local and regional musicians, comedians, and other genre-bending artists.
+          </p>
+          <p class="text-lg text-gray-300 leading-relaxed">
+            Our team is dedicated to producing an unforgettable experience that is full of surprises; where artists can come together in mutual appreciation and audiences can discover something new.
+          </p>
         </div>
       </div>
     </section>
+
+    <!-- Presented By -->
+    <section id="presented-by" class="scroll-anchor pb-20 sm:pb-28">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-12 text-center">Behind the Festival</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="bg-black/70 border border-white/10 rounded-3xl p-8 hover:border-white/25 transition-colors">
+            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-6">
+              <i class="fa-solid fa-music text-lg" aria-hidden="true"></i>
+            </div>
+            <p class="text-sm font-semibold mb-2" style="color:#C89B3C;">Produced by</p>
+            <h3 class="text-2xl font-bold mb-3">Sort of Vain</h3>
+            <p class="text-gray-400 leading-relaxed">A Lancaster based booking and live production company founded in 2026 by Alex Hart. We're dedicated to spotlighting the incredible talent in our local creative scene.</p>
+          </div>
+          <a href="https://www.westartlanc.com/" target="_blank" rel="noopener" class="block bg-black/70 border border-white/10 rounded-3xl p-8 hover:border-white/25 transition-colors">
+            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-6">
+              <i class="fa-solid fa-church text-lg" aria-hidden="true"></i>
+            </div>
+            <p class="text-sm font-semibold mb-2" style="color:#C89B3C;">Hosted at</p>
+            <h3 class="text-2xl font-bold mb-3">West Art</h3>
+            <p class="text-gray-400 leading-relaxed">816 Buchanan Ave in Lancaster, PA. A historic church transformed into a one of a kind venue for live music, performance, and visual art by co-founders Rufus Deakin and Josh Gibbel.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sponsor -->
+    <section id="sponsor" class="scroll-anchor pb-24 sm:pb-32">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-12 text-center">Our Sponsor</h2>
+
+        <div class="bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden">
+          <!-- Logo: swap in the final file name if different -->
+          <div class="flex items-center justify-center px-6 py-2 sm:py-3" style="background-color:#EDE6D6;">
+            <img src="img/lancaster-flower-co-logo.webp" alt="Lancaster Flower Co. logo" class="h-48 sm:h-64 md:h-80 w-auto max-w-full object-contain">
+          </div>
+
+          <div class="p-8 sm:p-10 space-y-5 text-gray-300 leading-relaxed">
+            <h3 class="text-3xl font-bold tracking-tight text-white">Lancaster Flower Co.</h3>
+            <p class="text-lg text-white">
+              Lancaster Flower Co. is all about texture, romance, and deliciousness when it comes to flowers. They are committed to working with only the best distributors worldwide to bring clients the best value and quality at the best prices.
+            </p>
+            <p>
+              Their downtown Lititz shop is open every day and provides pre-constructed arrangements, plants, as well as custom orders. Custom services range from your traditional proms corsages and wedding bouquets to stunning wearable jewelry made from real flowers, bespoke styled photoshoots, monthly flower and plant delivery subscriptions, floral arches and table arrangements, and more.
+            </p>
+            <p>
+              Lancaster Flower Co. also provides a range of services for your events such as custom bloom bars, rental decor (such as scenic paper flowers, floral arches, vases, etc.), private classes, arrangement parties, and custom ordered balloons.
+            </p>
+            <p>
+              Place orders online at
+              <a href="http://lancasterflowerco.com" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">lancasterflowerco.com</a>
+              and follow on socials
+              <a href="https://instagram.com/lancasterflowerco" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">@lancasterflowerco</a>,
+              <a href="https://instagram.com/lancasterflowershop" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">@lancasterflowershop</a>, and
+              <a href="https://instagram.com/lancasterballoonco" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">@lancasterballoonco</a>.
+            </p>
+          </div>
+        </div>
+
+      <!-- Sponsor website link -->
+      <a href="http://lancasterflowerco.com" target="_blank" rel="noopener" class="sponsor-link mt-6">
+        <span class="sponsor-link-left">
+          <span class="sponsor-link-icon">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+          </span>
+          <span class="sponsor-link-text">
+            <span class="sponsor-link-label">Visit Their Website</span>
+            <span class="sponsor-link-url">lancasterflowerco.com</span>
+          </span>
+        </span>
+        <i class="fa-solid fa-arrow-right sponsor-link-arrow" aria-hidden="true"></i>
+      </a>
+      </div>
+    </section>
+
   </div>
 
-  <!-- Ticket CTA -->
-  <section id="ticket-cta" class="pt-24 pb-10 sm:pt-32" style="background-color:#123138;">
+  <!-- Become a sponsor (intentionally not in the nav) -->
+  <section id="become-a-sponsor" class="scroll-anchor py-24 sm:py-32" style="background-color:#123138;">
     <div class="max-w-3xl mx-auto px-6 text-center">
-      <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-5">Don't miss it.</h2>
-      <p class="text-gray-400 mb-10 max-w-xl mx-auto text-lg leading-relaxed">One day, two stages, and a lineup of the region's best. Get your tickets to the Various Artists Festival before they're gone.</p>
+      <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-5">Want to be part of Various Artists?</h2>
+      <p class="text-gray-400 mb-10 max-w-xl mx-auto text-lg leading-relaxed">
+        Help bring Lancaster's creative community to a bigger stage. See the sponsorship packages and sign on today.
+      </p>
       <div class="hero-cta" style="margin-bottom:0;">
-        <a href="tickets.html" class="btn-gold">Get Tickets</a>
-        <a href="lineup.html" class="btn-outline">See the lineup</a>
+        <a href="sponsor.html" class="btn-gold">Become a Sponsor</a>
       </div>
-    </div>
-  </section>
-
-  <!-- Sponsor nod -->
-  <section id="sponsor-nod" class="py-14" style="background-color:#123138;">
-    <div class="max-w-6xl mx-auto px-6">
-      <a href="about.html#sponsor" class="sponsor-nod" aria-label="Sponsored by Lancaster Flower Co. Learn more about our sponsor">
-        <span class="sponsor-nod-logo">
-          <img src="img/lancaster-flower-co-logo.webp" alt="" loading="lazy">
-        </span>
-        <span class="sponsor-nod-text">
-          <span class="sn-lead">Proudly sponsored by</span>
-          <span class="sn-name">Lancaster Flower Co.</span>
-          <span class="sn-link">Learn more about our sponsor <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-        </span>
-      </a>
     </div>
   </section>
 
