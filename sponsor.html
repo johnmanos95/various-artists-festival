@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Sponsor — Various Artists Festival</title>
+<title>Sponsor | Various Artists Festival</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0684JTES4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V0684JTES4');
+  </script>
+<link rel="icon" type="image/png" href="img/favicon.png">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -26,6 +35,12 @@ body{
   background:var(--ink);
   color:var(--parchment);
   font-family:'Inter',sans-serif;
+}
+
+/* Nav and footer use the same default sans stack as every other page
+   (the sponsor page body uses Inter, which made the nav look different) */
+nav, footer{
+  font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .font-display{
@@ -188,16 +203,33 @@ select.form-input option{
    (label + contact row + copyright) never gets clipped, and clear
    the iPhone home-indicator safe area */
 #site-footer{
-  min-height: 260px;
+  min-height: 300px;
 }
 #site-footer .footer-overlay{
   padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
 }
 @media (min-width: 640px){
   #site-footer{
-    min-height: 260px;
-    height: 260px;
+    min-height: 300px;
+    height: 300px;
   }
+}
+
+/* Nav "Get Tickets" pill button, matches gold accent */
+.nav-cta{
+  background-color:#C89B3C;
+  color:#111 !important;
+  border-radius:9999px;
+  padding:0.5rem 1.5rem !important;
+  font-weight:700;
+  opacity:1 !important;
+  transition:opacity .2s ease;
+}
+.nav-cta::after{
+  display:none;
+}
+.nav-cta:hover{
+  opacity:0.88 !important;
 }
 
 </style>
@@ -207,54 +239,43 @@ select.form-input option{
 <body>
 
 
-<!-- Updated Navbar -->
-<nav class="fixed inset-x-0 top-0 z-50 bg-[#2A5F6A]/85 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20">
-
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center gap-4">
-
-    <!-- Logo -->
-    <div class="flex-1 min-w-0">
-      <a href="index.html" class="inline-block max-w-full">
-        <img src="img/logo-mark.webp"
-             alt="Various Artists Festival"
-             class="h-24 sm:h-32 w-auto max-w-full -my-2 sm:-my-6 object-contain transition duration-300 hover:scale-105">
-      </a>
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#C89B3C] focus:text-black focus:px-5 focus:py-3 focus:rounded-full focus:font-bold">Skip to main content</a>
+<!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-[#2A5F6A]/95 backdrop-blur-md z-50 border-b border-white/10">
+    <div class="max-w-7xl lg:max-w-[1600px] mx-auto px-6 lg:px-12 h-20 flex justify-between items-center gap-4">
+      <div class="flex-1 min-w-0">
+        <a href="index.html" class="inline-block max-w-full">
+          <img src="img/logo-mark.webp" alt="Various Artists Festival" class="h-24 sm:h-32 w-auto max-w-full -my-2 sm:-my-6 object-contain transition duration-300 hover:scale-105">
+        </a>
+      </div>
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex items-center gap-4 text-lg font-medium leading-none">
+        <a href="index.html" class="nav-link px-4 py-2">HOME</a>
+        <a href="lineup.html" class="nav-link px-4 py-2">LINEUP</a>
+        <a href="schedule.html" class="nav-link px-4 py-2">SCHEDULE</a>
+        <a href="venue.html" class="nav-link px-4 py-2">VENUE</a>
+        <a href="about.html" class="nav-link px-4 py-2">ABOUT</a>
+        <a href="tickets.html" class="nav-link nav-cta px-4 py-2">GET TICKETS</a>
+      </div>
+      <!-- Hamburger -->
+      <button id="hamburger" class="lg:hidden flex-shrink-0 text-2xl sm:text-3xl rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#2A5F6A]" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
     </div>
-
-    <!-- Nav Links -->
-    <div class="hidden lg:flex items-center gap-4 text-lg font-medium leading-none font-sans uppercase shrink-0">
-      <a href="index.html" class="nav-link px-4 py-2">Home</a>
-      <a href="index.html#headliner" class="nav-link px-4 py-2">Headliner</a>
-      <a href="index.html#about" class="nav-link px-4 py-2">About</a>
-      <a href="sponsor.html" class="nav-link nav-active px-4 py-2">Sponsor</a>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-[#214c55]/95 backdrop-blur-xl border-t border-white/10 py-4">
+      <div class="flex flex-col items-center gap-2 text-lg font-medium">
+        <a href="index.html" class="nav-link px-6 py-3">HOME</a>
+        <a href="lineup.html" class="nav-link px-6 py-3">LINEUP</a>
+        <a href="schedule.html" class="nav-link px-6 py-3">SCHEDULE</a>
+        <a href="venue.html" class="nav-link px-6 py-3">VENUE</a>
+        <a href="about.html" class="nav-link px-6 py-3">ABOUT</a>
+        <a href="tickets.html" class="nav-link nav-cta px-6 py-2 mt-1">GET TICKETS</a>
+      </div>
     </div>
+  </nav>
 
-    <!-- Mobile Button -->
-    <button id="hamburger" class="lg:hidden shrink-0 text-2xl sm:text-3xl focus:outline-none text-white">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-
-
-  </div>
-
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu"
-       class="hidden lg:hidden border-t border-white/10 bg-[#214c55]/95 backdrop-blur-xl">
-
-    <div class="flex flex-col items-center text-lg font-medium font-sans uppercase py-4">
-
-      <a href="index.html" class="nav-link px-6 py-3">Home</a>
-      <a href="index.html#headliner" class="nav-link px-6 py-3">Headliner</a>
-      <a href="index.html#about" class="nav-link px-6 py-3">About</a>
-      <a href="sponsor.html" class="nav-link px-6 py-3">Sponsor</a>
-
-    </div>
-
-  </div>
-
-
-</nav>
+  <main id="main-content">
 
 <!-- Intro -->
 <section class="pt-40 pb-16 bg-ink grain">
@@ -441,48 +462,59 @@ select.form-input option{
   </div>
 </section>
 
+</main>
+
 <!-- Footer -->
-<footer id="site-footer" class="relative bg-ink overflow-hidden">
-  <img src="img/footer.webp" alt="" class="absolute inset-0 w-full h-full object-cover">
-  <div class="absolute inset-0" style="background-color:rgba(11,15,16,0.6);"></div>
-  <div class="footer-overlay absolute inset-0 flex flex-col items-center justify-center gap-3 text-center px-6">
-    <p class="font-mono text-brass tracking-[0.3em] text-xs uppercase">Contact</p>
-    <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm font-medium">
-      <a href="mailto:variousartistsfest@gmail.com" class="footer-link transition-colors">variousartistsfest@gmail.com</a>
-      <a href="https://instagram.com/variousartistsfest" target="_blank" rel="noopener" class="footer-link inline-flex items-center gap-2 transition-colors">
-        <i class="fa-brands fa-instagram"></i> @variousartistsfest
-      </a>
+  <footer id="site-footer" class="relative bg-black overflow-hidden">
+    <img src="img/footer.webp" alt="" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="footer-overlay absolute inset-0 flex flex-col items-center justify-center gap-3 text-center px-6">
+      <p class="text-xs tracking-[0.2em] uppercase" style="color:#C89B3C;">Contact</p>
+      <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm font-medium">
+        <a href="mailto:variousartistsfest@gmail.com" class="text-white hover:text-[#C89B3C] transition-colors">variousartistsfest@gmail.com</a>
+        <a href="https://instagram.com/variousartistsfest" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-white hover:text-[#C89B3C] transition-colors">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i> @variousartistsfest
+        </a>
+      </div>
+      <p class="text-white/70 text-xs font-medium drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">© 2026 Various Artists Festival</p>
+      <p class="text-white/85 text-xs font-medium drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
+        <a href="privacy.html" class="underline underline-offset-2 hover:text-[#C89B3C] transition-colors">Privacy Policy</a>
+        <span class="mx-2" aria-hidden="true">&#183;</span>
+        <a href="terms.html" class="underline underline-offset-2 hover:text-[#C89B3C] transition-colors">Terms &amp; Conditions</a>
+      </p>
     </div>
-    <p class="text-xs font-medium drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]" style="color:rgba(237,230,214,0.7);">© 2026 Various Artists Festival</p>
-  </div>
-</footer>
+  </footer>
 
 <script>
-  // Hamburger Menu Toggle
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    const icon = hamburger.querySelector('i');
-    if (mobileMenu.classList.contains('hidden')) {
-      icon.classList.remove('fa-xmark');
-      icon.classList.add('fa-bars');
-    } else {
-      icon.classList.remove('fa-bars');
-      icon.classList.add('fa-xmark');
-    }
-  });
-
-  // Auto highlight current page
-  document.addEventListener('DOMContentLoaded', () => {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav-link').forEach(link => {
-      const href = link.getAttribute('href');
-      if (href === currentPage) {
-        link.classList.add('nav-active');
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const icon = hamburger.querySelector('i');
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      if (isOpen) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+      } else {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
       }
     });
-  });
-</script>
+
+    // Auto highlight current page
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage) {
+          link.classList.add('nav-active');
+        }
+      });
+    });
+
+  </script>
 </body>
 </html>
