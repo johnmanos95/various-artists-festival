@@ -4,14 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>About | Various Artists Festival</title>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0684JTES4"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-V0684JTES4');
-  </script>
   <link rel="icon" type="image/png" href="img/favicon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -330,6 +322,32 @@
       .paper-front { padding: 3.25rem 3rem 3.5rem; }
     }
     .page-hero .paper-title { margin-bottom: 0; }
+
+    /* Sponsor cards: logo beside the info */
+    .sponsor-card {
+      display: grid;
+      grid-template-columns: 1fr;
+      background: #09090b;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 1.5rem;
+      overflow: hidden;
+    }
+    @media (min-width: 768px) { .sponsor-card { grid-template-columns: 18rem 1fr; } }
+    .sponsor-card-logo {
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem; min-height: 11rem; background-color: #EDE6D6;
+    }
+    .sponsor-card-logo img { display: block; max-width: 100%; max-height: 16rem; width: auto; height: auto; object-fit: contain; }
+    .sponsor-card-body { padding: 2rem; color: #d1d5db; line-height: 1.7; display: grid; gap: 1.25rem; align-content: start; }
+    @media (min-width: 640px) { .sponsor-card-body { padding: 2.5rem; } }
+    .sponsor-card-body .sponsor-link { margin-top: .5rem; }
+    .sponsor-sub { color: #C89B3C; font-weight: 700; font-size: 1.05rem; margin-bottom: .5rem; }
+    .sponsor-details { border: 1px solid rgba(255,255,255,.15); border-radius: 1rem; padding: 1rem 1.25rem; }
+    .sponsor-details summary { cursor: pointer; font-weight: 700; color: #C89B3C; list-style: none; display: flex; align-items: center; justify-content: space-between; }
+    .sponsor-details summary::-webkit-details-marker { display: none; }
+    .sponsor-details summary::after { content: "+"; font-size: 1.5rem; line-height: 1; }
+    .sponsor-details[open] summary::after { content: "\2212"; }
+    .sponsor-details summary:focus-visible { outline: 2px solid #C89B3C; outline-offset: 4px; border-radius: .5rem; }
   </style>
 </head>
 <body class="bg-black text-white font-sans">
@@ -432,52 +450,112 @@
       </div>
     </section>
 
-    <!-- Sponsor -->
+      <!-- Sponsors -->
     <section id="sponsor" class="scroll-anchor pb-24 sm:pb-32">
-      <div class="max-w-4xl mx-auto px-6">
-        <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-12 text-center">Our Sponsor</h2>
-
-        <div class="bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden">
-          <!-- Logo: swap in the final file name if different -->
-          <div class="flex items-center justify-center px-6 py-2 sm:py-3" style="background-color:#EDE6D6;">
-            <img src="img/lancaster-flower-co-logo.webp" alt="Lancaster Flower Co. logo" class="h-48 sm:h-64 md:h-80 w-auto max-w-full object-contain">
-          </div>
-
-          <div class="p-8 sm:p-10 space-y-5 text-gray-300 leading-relaxed">
-            <h3 class="text-3xl font-bold tracking-tight text-white">Lancaster Flower Co.</h3>
-            <p class="text-lg text-white">
-              Lancaster Flower Co. is all about texture, romance, and deliciousness when it comes to flowers. They are committed to working with only the best distributors worldwide to bring clients the best value and quality at the best prices.
-            </p>
-            <p>
-              Their downtown Lititz shop is open every day and provides pre-constructed arrangements, plants, as well as custom orders. Custom services range from your traditional proms corsages and wedding bouquets to stunning wearable jewelry made from real flowers, bespoke styled photoshoots, monthly flower and plant delivery subscriptions, floral arches and table arrangements, and more.
-            </p>
-            <p>
-              Lancaster Flower Co. also provides a range of services for your events such as custom bloom bars, rental decor (such as scenic paper flowers, floral arches, vases, etc.), private classes, arrangement parties, and custom ordered balloons.
-            </p>
-            <p>
-              Place orders online at
-              <a href="http://lancasterflowerco.com" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">lancasterflowerco.com</a>
-              and follow on socials
-              <a href="https://instagram.com/lancasterflowerco" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">@lancasterflowerco</a>,
-              <a href="https://instagram.com/lancasterflowershop" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">@lancasterflowershop</a>, and
-              <a href="https://instagram.com/lancasterballoonco" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">@lancasterballoonco</a>.
-            </p>
-          </div>
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-5xl sm:text-6xl font-black tracking-tighter mb-12 text-center">Our Sponsors</h2>
+        <div class="space-y-8">
+      <article id="lancaster-flower-co" class="sponsor-card scroll-anchor">
+        <div class="sponsor-card-logo">
+          <img src="img/lancaster-flower-co-logo.webp" alt="Lancaster Flower Co. logo">
         </div>
+        <div class="sponsor-card-body">
+          <h3 class="text-3xl font-bold tracking-tight text-white">Lancaster Flower Co.</h3>
+          <p class="text-lg text-white">Lancaster Flower Co. is all about texture, romance, and deliciousness when it comes to flowers. They are committed to working with only the best distributors worldwide to bring clients the best value and quality at the best prices.</p>
+          <p>Their downtown Lititz shop is open every day and provides pre-constructed arrangements, plants, as well as custom orders. Custom services range from your traditional proms corsages and wedding bouquets to stunning wearable jewelry made from real flowers, bespoke styled photoshoots, monthly flower and plant delivery subscriptions, floral arches and table arrangements, and more.</p>
+          <p>Lancaster Flower Co. also provides a range of services for your events such as custom bloom bars, rental decor (such as scenic paper flowers, floral arches, vases, etc.), private classes, arrangement parties, and custom ordered balloons.</p>
+          <p>Place orders online at <a href="http://lancasterflowerco.com" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">lancasterflowerco.com</a> and follow on socials <a href="https://instagram.com/lancasterflowerco" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">@lancasterflowerco</a>, <a href="https://instagram.com/lancasterflowershop" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">@lancasterflowershop</a>, and <a href="https://instagram.com/lancasterballoonco" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">@lancasterballoonco</a>.</p>
+        <a href="http://lancasterflowerco.com" target="_blank" rel="noopener" class="sponsor-link mt-6">
+          <span class="sponsor-link-left">
+            <span class="sponsor-link-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></span>
+            <span class="sponsor-link-text">
+              <span class="sponsor-link-label">Visit Their Website</span>
+              <span class="sponsor-link-url">lancasterflowerco.com</span>
+            </span>
+          </span>
+          <i class="fa-solid fa-arrow-right sponsor-link-arrow" aria-hidden="true"></i>
+        </a>
+        </div>
+      </article>
 
-      <!-- Sponsor website link -->
-      <a href="http://lancasterflowerco.com" target="_blank" rel="noopener" class="sponsor-link mt-6">
-        <span class="sponsor-link-left">
-          <span class="sponsor-link-icon">
-            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+      <article id="4wall" class="sponsor-card scroll-anchor">
+        <div class="sponsor-card-logo">
+          <img src="img/4wall-logo.png" alt="4Wall Entertainment logo">
+        </div>
+        <div class="sponsor-card-body">
+          <h3 class="text-3xl font-bold tracking-tight text-white">4Wall Entertainment</h3>
+          <p class="text-lg text-white">Founded in 1999, 4Wall Entertainment is a full-service lighting, video, audio, and rigging company servicing all facets of the entertainment industry, from corporate events and theatre to concert touring and television. Their offerings include rentals and services, new and used sales, and permanent installations.</p>
+          <p>They pride themselves on providing the feel of a local company with the backing and support of a national entity. Their motto, "Large Enough to Service, Small Enough to Care," speaks to their dedication to providing the utmost quality and service for every order, no matter the size or scope.</p>
+          <p>In addition to fantastic service, 4Wall offers the newest equipment in the industry, both in their rental inventory and through their e-commerce site, <a href="https://www.usedlighting.com" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">UsedLighting.com</a>. By constantly selling their own technician certified rental gear, they ensure their ability to invest in the latest technology from key manufacturers.</p>
+          <p>4Wall services customers coast to coast in the USA and internationally through their locations in the United Kingdom, and their staff is adept at helping you execute your project anywhere in the world. Follow along on Instagram at <a href="https://instagram.com/4wall" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">@4Wall</a>.</p>
+        <a href="https://www.4wall.com/" target="_blank" rel="noopener" class="sponsor-link mt-6">
+          <span class="sponsor-link-left">
+            <span class="sponsor-link-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></span>
+            <span class="sponsor-link-text">
+              <span class="sponsor-link-label">Visit Their Website</span>
+              <span class="sponsor-link-url">4wall.com</span>
+            </span>
           </span>
-          <span class="sponsor-link-text">
-            <span class="sponsor-link-label">Visit Their Website</span>
-            <span class="sponsor-link-url">lancasterflowerco.com</span>
+          <i class="fa-solid fa-arrow-right sponsor-link-arrow" aria-hidden="true"></i>
+        </a>
+        </div>
+      </article>
+
+      <article id="prism-thrift" class="sponsor-card scroll-anchor">
+        <div class="sponsor-card-logo">
+          <img src="img/prism-thrift-logo.png" alt="Prism Thrift logo">
+        </div>
+        <div class="sponsor-card-body">
+          <h3 class="text-3xl font-bold tracking-tight text-white">Prism Thrift</h3>
+          <p class="text-lg text-white">Prism is a 501(c)(3) nonprofit thrift store in downtown Lancaster creating an LGBTQ+ affirming space that promotes sustainability, equity, and self-expression through accessible fashion and creative reuse. Profits support local LGBTQ+ causes and organizations.</p>
+          <p>Prism has saved over 20,000 items from landfills since August 2024. They offer personal shopping services, style bundles, and daily discounts.</p>
+
+          <div>
+            <h4 class="sponsor-sub">Daily discounts</h4>
+            <ul class="list-disc pl-5 space-y-1">
+              <li><span class="text-white font-medium">Thursdays:</span> students and educators, 25% off</li>
+              <li><span class="text-white font-medium">Fridays:</span> artists and makers, 25% off</li>
+              <li><span class="text-white font-medium">Every day:</span> EBT and Medicaid, 25% off</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="sponsor-sub">Visit</h4>
+            <p>Open Tuesday through Sunday at 101 N Queen Street, Suite 99, Lancaster, PA 17603.</p>
+          </div>
+
+          <details class="sponsor-details">
+            <summary>Donations</summary>
+            <div class="space-y-4 pt-4">
+              <p>Prism accepts donations during all open hours. They accept the following items in good condition:</p>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>All clothing in good condition (except undergarments, socks, and bathing suits)</li>
+                <li>Shoes, bags, and other accessories in good condition</li>
+                <li>All jewelry, including broken and mismatched pieces</li>
+                <li>Paper shopping bags</li>
+              </ul>
+              <p class="text-white font-medium">Things they always need:</p>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>Plus size clothing (especially 3X and above)</li>
+                <li>Masculine clothing (especially plus size)</li>
+              </ul>
+            </div>
+          </details>
+
+          <p>Follow along on Instagram at <a href="https://instagram.com/prismthrift" target="_blank" rel="noopener" class="text-white underline hover:text-[#C89B3C] transition-colors">@prismthrift</a>.</p>
+        <a href="https://www.prismthrift.org/" target="_blank" rel="noopener" class="sponsor-link mt-6">
+          <span class="sponsor-link-left">
+            <span class="sponsor-link-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></span>
+            <span class="sponsor-link-text">
+              <span class="sponsor-link-label">Visit Their Website</span>
+              <span class="sponsor-link-url">prismthrift.org</span>
+            </span>
           </span>
-        </span>
-        <i class="fa-solid fa-arrow-right sponsor-link-arrow" aria-hidden="true"></i>
-      </a>
+          <i class="fa-solid fa-arrow-right sponsor-link-arrow" aria-hidden="true"></i>
+        </a>
+        </div>
+      </article>
+        </div>
       </div>
     </section>
 
